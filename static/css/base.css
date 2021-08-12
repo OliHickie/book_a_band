@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;900&display=swap');
+
+
+/* Quick links - delete before submission */
+
+font-family: 'Playfair Display', serif;
+
+@media screen and (max-width: 600px) {
+}
+
+/*  */
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-bar {
+    background: url('/media/navbar_img.jpg') no-repeat left center;
+    background-size: cover;
+    height: 280px;
+    width: 100%; 
+    padding: 15px;
+}
+
+.logo a {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo h1 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 60px;
+    color: #8d3e5d;
+}
+
+.nav-item {
+    padding: 12px;
+    font-size: 24px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #8d3e5d;
+    font-weight: 600;
+}
+
+.navbar-light {
+    color: black;
+}
+
+nav {
+    margin-top: auto;
+    margin-left: auto;
+}
+
+.navbar-collapse {
+    margin-top: 12px;
+    margin-right: -16px;
+    margin-left: -16px;
+}
+
+@media screen and (max-width: 992px) {
+    .logo h1 {
+        font-size: 32px;
+    }
+    nav {
+        margin-right: auto;
+        margin-top: 175px;
+    }
+    .navbar-collapse {
+        background-color: rgba(238, 213, 219, 0.8);
+        padding-bottom: 5px;
+        margin-top: 12px;
+    }
+}
