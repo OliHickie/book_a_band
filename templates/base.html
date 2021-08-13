@@ -4,96 +4,102 @@
 <html lang="en">
 
 <head>
-    <!-- Meta tags -->
-    <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta tags -->
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS, base CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <!-- Bootstrap CSS, base CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
-    {% block extra_css %}
-    {% endblock %}
+  {% block extra_css %}
+  {% endblock %}
 
-    <!-- Jquery, popper, bootstrap js, Font awesome -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/8b879e8b27.js" crossorigin="anonymous"></script>
+  <!-- Jquery, popper, bootstrap js, Font awesome -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/8b879e8b27.js" crossorigin="anonymous"></script>
 
-    {% block extra_js %}
-    {% endblock %}
+  {% block extra_js %}
+  {% endblock %}
 
-    <title>Book a Band {% block extra_title %}{% endblock %}</title>
+  <title>Book a Band {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
-    <div class="container-fluid fixed-top nav-bar d-block d-lg-flex">
-        <div class="logo">
-            <a href="#">
-                <h1><i class="fas fa-compact-disc"></i> <strong>BOOK</strong><small>A</small><strong>BAND</strong>
-                </h1>
-            </a>
-        </div>
-        <nav class="navbar-expand-lg navbar-light">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-nav" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mobile-nav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a href="#">Home</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Musicians
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Strings</a></li>
-                      <li><a class="dropdown-item" href="#">Brass</a></li>
-                      <li><a class="dropdown-item" href="#">Piano</a></li>
-                      <li><a class="dropdown-item" href="#">Harp</a></li>
-                      <li><a class="dropdown-item" href="#">Function Band</a></li>
-                      <li><a class="dropdown-item" href="#">DJ</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#">Blogs</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#">Contact</a>
-                  </li>
-                  <!-- <li class="nav-item">
-                    <a href="#">Login</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Account
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="accountDropdown">
-                      <li><a class="dropdown-item" href="#">My Details</a></li>
-                      <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
-                  </li> -->
+  <header>
+    <div class="container-fluid nav-bar d-block d-lg-flex">
+      <div class="logo">
+        <a href="#">
+          <h1><i class="fas fa-compact-disc"></i> <strong>BOOK</strong><small>A</small><strong>BAND</strong>
+          </h1>
+        </a>
+      </div>
+      <nav class="navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-nav"
+          aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobile-nav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="#">Home</a>
+            </li>
+            <!-- dropdown menu for larger screens -->
+            <li class="nav-item dropdown d-none d-lg-block">
+              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Musicians
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Strings</a></li>
+                <li><a class="dropdown-item" href="#">Brass</a></li>
+                <li><a class="dropdown-item" href="#">Piano</a></li>
+                <li><a class="dropdown-item" href="#">Harp</a></li>
+                <li><a class="dropdown-item" href="#">Function Bands</a></li>
+                <li><a class="dropdown-item" href="#">DJ</a></li>
+              </ul>
+            </li>
+            <!-- Bootstrap accordian for smaller screens -->
+            <li class="nav-item accordian d-lg-none">
+              <a id="nav-accordian" class="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                aria-expanded="false" aria-controls="nav-accordian">
+                Musicians <i class="fas fa-sort-down"></i></a>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="nav-accordian"
+                data-bs-parent="#accordionFlushExample">
+                <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
+                  <li><a class="small-text" href="#">Strings</a></li>
+                  <li><a class="small-text" href="#">Brass</a></li>
+                  <li><a class="small-text" href="#">Piano</a></li>
+                  <li><a class="small-text" href="#">Harp</a></li>
+                  <li><a class="small-text" href="#">Function Band</a></li>
+                  <li><a class="small-text" href="#">DJ</a></li>
                 </ul>
-                <form class="d-flex mx-2">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
               </div>
-            </div>
-          </nav>
-
-
+            </li>
+            <li class="nav-item">
+              <a href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+          <form class="d-flex mx-2">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
     </div>
+  </header>
 
 
-
-    <!-- {% if messages %}
+  <!-- {% if messages %}
     <div class="message-container">
         {% for message in messages %}
             {% with message.level as level %}
@@ -111,8 +117,20 @@
     </div>
 {% endif %}   -->
 
-    {% block content %}
-    {% endblock %}
+  {% block content %}
+  {% endblock %}
 </body>
+
+<script>
+  // Add slideDown animation to Bootstrap dropdown when expanding.
+  $('.dropdown').on('show.bs.dropdown', function () {
+    $(this).find('.dropdown-menu').slideDown();
+  });
+
+  // Add slideUp animation to Bootstrap dropdown when collapsing.
+  $('.dropdown').on('hide.bs.dropdown', function () {
+    $(this).find('.dropdown-menu').slideUp();
+  });
+</script>
 
 </html>

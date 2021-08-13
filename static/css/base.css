@@ -17,7 +17,14 @@ html {
 
 body {
     font-family: 'Playfair Display', serif;
+    height: calc(100vh - 300px);
 }
+
+.small-text {
+    font-size: 16px;
+}
+
+/* Nav bar  */
 
 .nav-bar {
     background: url('/media/navbar_img.jpg') no-repeat left center;
@@ -43,14 +50,26 @@ body {
     font-size: 24px;
 }
 
-.nav-item a {
+.nav-item a,
+.nav-item a button {
     text-decoration: none;
     color: #8d3e5d;
     font-weight: 600;
 }
 
+.nav-item .fa-sort-down {
+    /* line-height: 19px; */
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
 .navbar-light {
     color: black;
+}
+
+.dropdown-menu {
+    background-color: rgb(238, 213, 219);
+    border: none;
 }
 
 nav {
@@ -73,8 +92,9 @@ nav {
         margin-top: 175px;
     }
     .navbar-collapse {
-        background-color: rgba(238, 213, 219, 0.8);
+        background-color: rgb(238, 213, 219);
         padding-bottom: 5px;
         margin-top: 12px;
+        z-index: 9999999;
     }
 }
