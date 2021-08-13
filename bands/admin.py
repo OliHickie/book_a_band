@@ -19,6 +19,8 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
     )
 
+    ordering = ('name',)
+
 
 admin.site.register(Band, BandAdmin)
 admin.site.register(Category, CategoryAdmin)
