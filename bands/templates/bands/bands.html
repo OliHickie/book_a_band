@@ -6,14 +6,19 @@
   {% endblock %}
 
 {% block page_header %}
-Bands and Artists
+<h2>Bands and Artists</h2>
 <hr>
 {% endblock %}
 
+
 {% block content %}
+
 <div class="row">
-    <div class="col-12 col-xl-3 sidebar">
-        <ul>
+    <div class="col-12 col-xl-3 sidebar p-3">
+        <h3>Quick Links</h3>
+        <hr class="mb-2">
+        <h4>By Group</h4>
+        <ul class="mt-2 ms-4 list-unstyled sidebar-links">
             <li><a href="">Strings</a></li>
             <li><a href="">Brass</a></li>
             <li><a href="">DJs</a></li>
@@ -34,10 +39,11 @@ Bands and Artists
                     <img src="../media/weddingmusic.jpeg" class="card-img-top" alt="{{ band.name }}">
                     {% endif %}
                     <div class="card-body">
-                        <p class="card-title">{{ band.name }}</p>
-                        <p class="card-text">£{{ band.price }}</p>
-                        <p class="card-text"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
-                        <a href="#" class="btn btn-primary">View Profile <i class="fas fa-chevron-right px-1"></i></a>
+                        <p class="card-title m-0">{{ band.name }}</p>
+                        <p class="card-text m-0">£{{ band.price }}</p>
+                        <p class="card-text m-0">band rating</p>
+                        <p class="card-text m-0"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
+                        <a href="{% url 'band_profile' band.id %}" class="btn btn-primary">View Profile <i class="fas fa-chevron-right px-1"></i></a>
                     </div>
                 </div>
             </div>

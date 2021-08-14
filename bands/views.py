@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import BandForm
 
 from .models import Band
@@ -13,6 +13,18 @@ def all_bands(request):
     bands = Band.objects.all()
 
     return render(request, 'bands/bands.html', {'bands': bands})
+
+
+def band_profile(request, band_id):
+    """ A view to display the band profile """
+
+    band = get_object_or_404(Band, pk=band_id)
+
+    context = {
+        'band': band,
+    }
+
+    return render(request, 'bands/band_profile.html', context)
 
 
 def add_band(request):

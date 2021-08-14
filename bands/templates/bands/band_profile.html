@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<h2 class="d-inline">{{ band.name }}</h2>
+<span class="text-muted">
+    <a href="" class="unstyled-link ms-3 text-capitalize">{{ band.category }}</a>
+</span>
+<hr>
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-lg-4">
+        <!-- Bootstrap Carousel -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{{ band.image_one.url }}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ band.image_two.url }}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ band.image_three.url }}" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+    <div class="col-12 col-lg-8">
+        
+    </div>
+</div>
+
+
+{% endblock %}

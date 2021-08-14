@@ -58,6 +58,13 @@ hr {
     margin-bottom: 32px;
 }
 
+/* links */
+
+.unstyled-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* header */
 
 .page-header h2 {

@@ -1,7 +1,11 @@
 .sidebar {
-    background-color: blue;
+    background-color: #fff;
+    color: #93A5B4;
 }
 
-.fas .fa-chevron {
-    color: black;
+.sidebar-links li a {
+    color: #93A5B4;
+    text-decoration: none;
+    font-size: 18px;
 }
+
