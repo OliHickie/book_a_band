@@ -15,10 +15,10 @@ class Category(models.Model):
 class Band(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    name = models.CharField(max_length=50)
-    tagline = models.CharField(max_length=100, blank=True)
+    name = models.CharField(max_length=24)
+    tagline = models.CharField(max_length=50, blank=True)
     price = models.IntegerField()
-    location = models.CharField(max_length=30)
+    location = models.CharField(max_length=18)
     image_one = models.ImageField(null=True, blank=True)
     image_two = models.ImageField(null=True, blank=True)
     image_three = models.ImageField(null=True, blank=True)

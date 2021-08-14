@@ -18,10 +18,54 @@ html {
 body {
     font-family: 'Playfair Display', serif;
     height: calc(100vh - 300px);
+    background: #ffe9e9;
 }
 
 .small-text {
     font-size: 16px;
+}
+
+/* buttons  */
+
+.btn-primary {
+    color: #E0E0E6;
+    background-color: #8d3e5d;
+    border: 2px solid #8d3e5d;
+}
+
+.btn-primary:hover {
+    color: #8d3e5d;
+    border: 2px solid #8d3e5d;
+    background-color: #E0E0E6;
+}
+
+.btn-secondary {
+    border-color: #8d3e5d;
+    color: #8d3e5d;
+    background-color: transparent;
+}
+
+.btn-secondary:hover {
+    color: #E0E0E6;
+    background-color: #8d3e5d;
+    border-color: #8d3e5d;
+}
+
+/* hr  */
+
+hr {
+    color: #6085A9;
+    border: 0;
+    margin-bottom: 32px;
+}
+
+/* header */
+
+.page-header h2 {
+    font-family: 'Abril Fatface', cursive;
+    color: #6085A9;
+    font-size: 48px;
+    margin: 16px 0px;
 }
 
 /* Nav bar  */
@@ -30,7 +74,7 @@ body {
     background: url('/media/navbar_img.jpg') no-repeat left center;
     background-size: cover;
     height: 280px;
-    width: 100%; 
+    width: 100%;
     padding: 15px;
 }
 
@@ -58,7 +102,6 @@ body {
 }
 
 .nav-item .fa-sort-down {
-    /* line-height: 19px; */
     vertical-align: middle;
     margin-bottom: 10px;
 }
@@ -87,14 +130,82 @@ nav {
     .logo h1 {
         font-size: 32px;
     }
+
     nav {
         margin-right: auto;
         margin-top: 175px;
     }
+
     .navbar-collapse {
         background-color: rgb(238, 213, 219);
         padding-bottom: 5px;
         margin-top: 12px;
-        z-index: 9999999;
     }
 }
+
+/* cards */
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #6085A9;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.card-text {
+    max-height: 48px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 991px) {
+    .card-body {
+        height: 200px;
+    }
+    .card-img-top {
+        height: 160px;
+    }
+    .card-title {
+        font-size: 16px;
+    }
+    .card-text {
+        font-size: 14px;
+    }
+    .card-body .btn-primary {
+        font-size: 14px;
+        padding: 5px 7px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card-body {
+        height: 140px; 
+        padding: 8px;
+    }
+    .card-img-top {
+        height: 100px;
+    }
+    .card-title {
+        font-size: 12px;
+    }
+    .card-text {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .card-body .btn-primary {
+        font-size: 10px;
+    }
+}
+

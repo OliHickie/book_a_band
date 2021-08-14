@@ -1,43 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+Bands and Artists
+<hr>
+{% endblock %}
+
 {% block content %}
-<div class="container">
-<h2>
-    Bands and Artists
-</h2>
+<div class="row">
+    <div class="col-12 col-xl-3">
+        <ul>
+            <li><a href="">Brass</a></li>
+            <li><a href="">DJs</a></li>
+            <li><a href="">Function Bands</a></li>
+            <li><a href="">Harps</a></li>
+            <li><a href="">Piano</a></li>
+            <li><a href="">Strings</a></li>
+        </ul>
+    </div>
+    <div class="col-12 col-xl-9">
+        <div class="row">
+            {% for band in bands %}
 
-
-    <div class="row">
-        <div class="col-12 col-md-3">
-            <ul>
-                <li><a href="">Brass</a></li>
-                <li><a href="">DJs</a></li>
-                <li><a href="">Function Bands</a></li>
-                <li><a href="">Harps</a></li>
-                <li><a href="">Piano</a></li>
-                <li><a href="">Strings</a></li>
-            </ul>
-        </div>
-        <div class="col-12 col-md-9">
-            <div class="row">
-                {% for band in bands %}
-
-                <div class="col-6 col-md-4 col-lg-3">
-                    <div class="card" >
-                        <img src="{{ band.image_one.url }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">{{ band.name }}</h5>
-                          <p class="card-text">{{ band.tagline }}</p>
-                          <p><i class="text-muted fas fa-map-marker-alt"></i> {{ band.location }}</p>
-                          <a href="#" class="btn btn-primary">More info</a>
-                        </div>
-                      </div>
+            <div class="col-6 col-md-4 no-gutters">
+                <div class="card">
+                    {% if band.image_one %}
+                    <img src="{{ band.image_one.url }}" class="card-img-top" alt="{{ band.name }}">
+                    {% else %}
+                    <img src="../media/weddingmusic.jpeg" class="card-img-top" alt="{{ band.name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <p class="card-title">{{ band.name }}</p>
+                        <p class="card-text">£{{ band.price }} per hour</p>
+                        <p class="card-text"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
+                        <a href="#" class="btn btn-primary">View Profile <i class="fas fa-chevron-right px-1"></i></a>
+                    </div>
                 </div>
-
-                {% endfor %}
-                
             </div>
+
+            {% endfor %}
+
         </div>
     </div>
 </div>

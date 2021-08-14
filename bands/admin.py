@@ -4,8 +4,8 @@ from .models import Category, Band
 
 class BandAdmin(admin.ModelAdmin):
     list_display = (
-        'category',
         'name',
+        'category',
         'tagline',
         'price',
         'location',
