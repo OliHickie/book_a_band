@@ -12,7 +12,7 @@ def all_bands(request):
 
     bands = Band.objects.all()
 
-    return render(request, 'bands.html', {'bands': bands})
+    return render(request, 'bands/bands.html', {'bands': bands})
 
 
 def add_band(request):

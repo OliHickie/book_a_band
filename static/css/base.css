@@ -17,7 +17,6 @@ html {
 
 body {
     font-family: 'Playfair Display', serif;
-    height: calc(100vh - 300px);
     background: #ffe9e9;
 }
 
@@ -162,11 +161,6 @@ nav {
     font-size: 20px;
     color: #6085A9;
     font-weight: 600;
-    overflow: hidden;
-}
-
-.card-text {
-    max-height: 48px;
     overflow: hidden;
 }
 

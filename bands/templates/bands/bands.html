@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'bands/css/bands.css' %}">
+  {% endblock %}
+
 {% block page_header %}
 Bands and Artists
 <hr>
@@ -8,22 +12,22 @@ Bands and Artists
 
 {% block content %}
 <div class="row">
-    <div class="col-12 col-xl-3">
+    <div class="col-12 col-xl-3 sidebar">
         <ul>
+            <li><a href="">Strings</a></li>
             <li><a href="">Brass</a></li>
             <li><a href="">DJs</a></li>
             <li><a href="">Function Bands</a></li>
             <li><a href="">Harps</a></li>
             <li><a href="">Piano</a></li>
-            <li><a href="">Strings</a></li>
         </ul>
     </div>
     <div class="col-12 col-xl-9">
         <div class="row">
-            {% for band in bands %}
 
-            <div class="col-6 col-md-4 no-gutters">
-                <div class="card">
+            {% for band in bands %}
+            <div class="col-6 col-md-4">
+                <div class="card my-1">
                     {% if band.image_one %}
                     <img src="{{ band.image_one.url }}" class="card-img-top" alt="{{ band.name }}">
                     {% else %}
@@ -31,7 +35,7 @@ Bands and Artists
                     {% endif %}
                     <div class="card-body">
                         <p class="card-title">{{ band.name }}</p>
-                        <p class="card-text">£{{ band.price }} per hour</p>
+                        <p class="card-text">£{{ band.price }}</p>
                         <p class="card-text"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
                         <a href="#" class="btn btn-primary">View Profile <i class="fas fa-chevron-right px-1"></i></a>
                     </div>
