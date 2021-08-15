@@ -3,49 +3,65 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'bands/css/band-profile.css' %}">
-  {% endblock %}
+{% endblock %}
 
 {% block page_header %}
-<h2 class="">{{ band.name }}</h2>
-<span class="text-muted">
-    <a href="" class="unstyled-link ms-3 text-capitalize">{{ band.category }}</a>
-</span>
-<hr>
+
 {% endblock %}
 
 
 {% block content %}
-<div class="row">
+<div class="row mt-5">
   <!-- Band images -->
-    <div class="col-12 col-lg-5 p-3">
-      {% if band.image_one %}
-      <img src="{{ band.image_one.url }}" alt="" class="profile-main-img">
-      {% else %}
-      <img src="../media/weddingmusic.jpeg" class="card-img-top" alt="{{ band.name }}">
-      {% endif %}
-      <div class="row mt-3">
-        <div class="col-4">
-          {% if band.image_two %}
-          <img src="{{ band.image_two.url }}" alt="" class="profile-sm-img">
-          {% endif %}
-        </div>
-        <div class="col-4">
-          {% if band.image_three %}
-          <img src="{{ band.image_three.url }}" alt="" class="profile-sm-img">
-          {% endif %}
-        </div>
-        <div class="col-4">
-          {% if band.image_four %}
-          <img src="{{ band.image_four.url }}" alt="" class="profile-sm-img">
-          {% endif %}
-        </div>
+  <div class="col-12 col-lg-5 p-3">
+    {% if band.image_one %}
+    <img src="{{ band.image_one.url }}" alt="" class="profile-main-img">
+    {% else %}
+    <img src="../media/weddingmusic.jpeg" class="card-img-top" alt="{{ band.name }}">
+    {% endif %}
+    <div class="row mt-3">
+      <div class="col-4">
+        {% if band.image_two %}
+        <img src="{{ band.image_two.url }}" alt="" class="profile-sm-img">
+        {% endif %}
+      </div>
+      <div class="col-4">
+        {% if band.image_three %}
+        <img src="{{ band.image_three.url }}" alt="" class="profile-sm-img">
+        {% endif %}
+      </div>
+      <div class="col-4">
+        {% if band.image_four %}
+        <img src="{{ band.image_four.url }}" alt="" class="profile-sm-img">
+        {% endif %}
       </div>
     </div>
-    <div class="col-12 col-lg-7">
-        <h2 class="test">Hello</h2>
+  </div>
+  <div class="col-12 col-lg-7 p-3">
+    <div class="page-header">
+      <h2 class="mt-0">{{ band.name }}</h2>
     </div>
+    <hr>
+    <div class="band-price">
+      <p>£{{ band.price }}</p>
+    </div>
+    <div class="band-rating">
+      <p>No rating yet</p>
+    </div>
+    <div class="band-location">
+      <p class=""><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
+    </div>
+    <div class="band-biog">
+      <p>{{ band.biography }}</p>
+    </div>
+    <div class=" profile-buttons">
+      <a href="" class="btn btn-secondary"><i class="fas fa-chevron-left pe-2"></i>Back to Search</a>
+      <a href="" class="btn btn-primary">Book the Band<i class="fas fa-chevron-right ps-2"></i></a>
+    </div>
+  </div>
+  <hr>
 </div>
-<h2>Hello</h2>
+
 
 
 {% endblock %}
