@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'bands/css/band-profile.css' %}">
+  {% endblock %}
+
 {% block page_header %}
-<h2 class="d-inline">{{ band.name }}</h2>
+<h2 class="">{{ band.name }}</h2>
 <span class="text-muted">
     <a href="" class="unstyled-link ms-3 text-capitalize">{{ band.category }}</a>
 </span>
@@ -12,39 +16,36 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-12 col-lg-4">
-        <!-- Bootstrap Carousel -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{{ band.image_one.url }}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ band.image_two.url }}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ band.image_three.url }}" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+  <!-- Band images -->
+    <div class="col-12 col-lg-5 p-3">
+      {% if band.image_one %}
+      <img src="{{ band.image_one.url }}" alt="" class="profile-main-img">
+      {% else %}
+      <img src="../media/weddingmusic.jpeg" class="card-img-top" alt="{{ band.name }}">
+      {% endif %}
+      <div class="row mt-3">
+        <div class="col-4">
+          {% if band.image_two %}
+          <img src="{{ band.image_two.url }}" alt="" class="profile-sm-img">
+          {% endif %}
+        </div>
+        <div class="col-4">
+          {% if band.image_three %}
+          <img src="{{ band.image_three.url }}" alt="" class="profile-sm-img">
+          {% endif %}
+        </div>
+        <div class="col-4">
+          {% if band.image_four %}
+          <img src="{{ band.image_four.url }}" alt="" class="profile-sm-img">
+          {% endif %}
+        </div>
+      </div>
     </div>
-    <div class="col-12 col-lg-8">
-        
+    <div class="col-12 col-lg-7">
+        <h2 class="test">Hello</h2>
     </div>
 </div>
+<h2>Hello</h2>
 
 
 {% endblock %}

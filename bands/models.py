@@ -22,6 +22,7 @@ class Band(models.Model):
     image_one = models.ImageField(null=True, blank=True)
     image_two = models.ImageField(null=True, blank=True)
     image_three = models.ImageField(null=True, blank=True)
+    image_four = models.ImageField(null=True, blank=True)
     biography = models.TextField()
 
     def __str__(self):

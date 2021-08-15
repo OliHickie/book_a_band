@@ -1,0 +1,34 @@
+.profile-main-img {
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.profile-sm-img {
+    height: 90px;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+    .profile-sm-img {
+    height: 140px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .profile-sm-img {
+    height: 100px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .profile-sm-img {
+    height: 140px;
+    }
+}
+
+
+
+
