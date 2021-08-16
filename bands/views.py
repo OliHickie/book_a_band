@@ -7,10 +7,10 @@ from .models import Band
 
 def all_bands(request):
     """
-    A view to display all bands
+    A view to display all bands 
     """
-
-    bands = Band.objects.all()
+    # Display bands, ordered by rating (highest first)
+    bands = Band.objects.all().order_by('-rating')
 
     return render(request, 'bands/bands.html', {'bands': bands})
 
@@ -21,7 +21,9 @@ def band_profile(request, band_id):
     """
 
     band = get_object_or_404(Band, pk=band_id)
-    random_bands = Band.objects.all().order_by('?')[:4]
+    # Return four random bands in same category, excluding current band
+    random_bands = Band.objects.all().filter(
+        category=band.category).exclude(pk=band_id).order_by('?')[:4]
 
     context = {
         'band': band,

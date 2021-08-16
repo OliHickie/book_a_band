@@ -45,7 +45,7 @@
       <p>£{{ band.price }}</p>
     </div>
     <div class="band-rating">
-      <p>No rating yet</p>
+      <p>{{ band.rating }}</p>
     </div>
     <div class="band-location">
       <p class=""><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
@@ -87,7 +87,7 @@
           <div class="card-body">
               <p class="card-title m-0 text-d-blue">{{ random_band.name }}</p>
               <p class="card-text m-0">£{{ random_band.price }}</p>
-              <p class="card-text m-0">band rating</p>
+              <p class="card-text m-0">{{ random_band.rating }}</p>
               <p class="card-text m-0"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ random_band.location }}</p>
               <a href="{% url 'band_profile' random_band.id %}" class="btn btn-primary">View Profile <i class="fas fa-chevron-right px-1"></i></a>
           </div>
