@@ -16,14 +16,16 @@ def all_bands(request):
 
 
 def band_profile(request, band_id):
-    """ 
+    """
     A view to display the band profile
     """
 
     band = get_object_or_404(Band, pk=band_id)
+    random_bands = Band.objects.all().order_by('?')[:4]
 
     context = {
         'band': band,
+        'random_bands': random_bands,
     }
 
     return render(request, 'bands/band_profile.html', context)

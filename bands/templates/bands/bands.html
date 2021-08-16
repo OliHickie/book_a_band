@@ -6,7 +6,7 @@
   {% endblock %}
 
 {% block page_header %}
-<h2>Bands and Artists</h2>
+<h2 class="text-d-blue">Bands and Artists</h2>
 <hr>
 {% endblock %}
 
@@ -39,7 +39,7 @@
                     <img src="../media/weddingmusic.jpeg" class="card-img-top" alt="{{ band.name }}">
                     {% endif %}
                     <div class="card-body">
-                        <p class="card-title m-0">{{ band.name }}</p>
+                        <p class="card-title m-0 text-d-blue">{{ band.name }}</p>
                         <p class="card-text m-0">£{{ band.price }}</p>
                         <p class="card-text m-0">band rating</p>
                         <p class="card-text m-0"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>

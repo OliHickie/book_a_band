@@ -15,32 +15,31 @@
   <!-- Band images -->
   <div class="col-12 col-lg-5 p-3">
     {% if band.image_one %}
-    <img src="{{ band.image_one.url }}" alt="" class="profile-main-img">
+    <img src="{{ band.image_one.url }}" alt="" class="profile-main-img rounded">
     {% else %}
     <img src="../media/weddingmusic.jpeg" class="card-img-top" alt="{{ band.name }}">
     {% endif %}
     <div class="row mt-3">
       <div class="col-4">
         {% if band.image_two %}
-        <img src="{{ band.image_two.url }}" alt="" class="profile-sm-img">
+        <img src="{{ band.image_two.url }}" alt="" class="profile-sm-img rounded">
         {% endif %}
       </div>
       <div class="col-4">
         {% if band.image_three %}
-        <img src="{{ band.image_three.url }}" alt="" class="profile-sm-img">
+        <img src="{{ band.image_three.url }}" alt="" class="profile-sm-img rounded">
         {% endif %}
       </div>
       <div class="col-4">
         {% if band.image_four %}
-        <img src="{{ band.image_four.url }}" alt="" class="profile-sm-img">
+        <img src="{{ band.image_four.url }}" alt="" class="profile-sm-img rounded">
         {% endif %}
       </div>
     </div>
   </div>
+  <!-- Band info -->
   <div class="col-12 col-lg-7 p-3">
-    <div class="page-header">
-      <h2 class="mt-0">{{ band.name }}</h2>
-    </div>
+    <h2 class="text-d-blue">{{ band.name }}</h2>
     <hr>
     <div class="band-price">
       <p>£{{ band.price }}</p>
@@ -61,7 +60,43 @@
   </div>
   <hr>
 </div>
-
+<div class="row">
+  <!-- Reviews -->
+  <div class="col-12 col-lg-6">
+    <h2 class="text-d-blue">Reviews</h2>
+    <div class="row">
+      <div class="col-4">
+        ***This is review author
+      </div>
+      <div class="col-8">
+        ***This will be the review
+      </div>
+    </div>
+  </div>
+  <!-- Band suggestions -->
+  <div class="col-12 col-lg-6">
+    <div class="row">
+      {% for random_band in random_bands %}
+      <div class="col-6">
+        <div class="card my-1">
+          {% if random_band.image_one %}
+          <img src="{{ random_band.image_one.url }}" class="card-img-top" alt="{{ random_band.name }}">
+          {% else %}
+          <img src="../media/weddingmusic.jpeg" class="card-img-top" alt="Generic wedding photo">
+          {% endif %}
+          <div class="card-body">
+              <p class="card-title m-0 text-d-blue">{{ random_band.name }}</p>
+              <p class="card-text m-0">£{{ random_band.price }}</p>
+              <p class="card-text m-0">band rating</p>
+              <p class="card-text m-0"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ random_band.location }}</p>
+              <a href="{% url 'band_profile' random_band.id %}" class="btn btn-primary">View Profile <i class="fas fa-chevron-right px-1"></i></a>
+          </div>
+      </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
 
 {% endblock %}

@@ -24,18 +24,28 @@ body {
     font-size: 16px;
 }
 
+/* font colors  */
+
+.text-d-pink {
+    color: #8d3e5d
+}
+
+.text-d-blue {
+    color: #6085A9;
+}
+
 /* buttons  */
 
 .btn-primary {
     color: #E0E0E6;
     background-color: #8d3e5d;
-    border: 2px solid #8d3e5d;
+    border: 1px solid #8d3e5d;
 }
 
 .btn-primary:hover {
     color: #8d3e5d;
-    border: 2px solid #8d3e5d;
-    background-color: #E0E0E6;
+    border: 1px solid #8d3e5d;
+    background-color: transparent;
 }
 
 .btn-secondary {
@@ -67,11 +77,14 @@ hr {
 
 /* header */
 
-.page-header h2 {
+h2 {
     font-family: 'Abril Fatface', cursive;
-    color: #6085A9;
     font-size: 48px;
-    margin: 16px 0px;
+}
+
+h3  {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 36px;
 }
 
 /* Nav bar  */
@@ -166,7 +179,6 @@ nav {
 
 .card-title {
     font-size: 20px;
-    color: #6085A9;
     font-weight: 600;
     overflow: hidden;
 }
