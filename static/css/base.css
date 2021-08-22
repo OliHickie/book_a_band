@@ -229,7 +229,23 @@ nav {
 /* Booking Form */
 
 .booking-form-field {
-    margin: 10px;
+    margin-bottom: 10px;
     max-width: 400px;
 }
 
+#ui-datepicker-div {
+    background-color: #EED5DB;
+    padding: 10px;
+
+}
+
+#ui-datepicker-div a {
+    color: #8B5B6E;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#ui-datepicker-div span,
+.ui-datepicker-month {
+    margin-right: 10px;
+} 
