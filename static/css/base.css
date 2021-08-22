@@ -183,6 +183,10 @@ nav {
     overflow: hidden;
 }
 
+.fa-star {
+    color: #FFD700;
+}
+
 @media screen and (max-width: 991px) {
     .card-body {
         height: 200px;

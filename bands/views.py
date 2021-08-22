@@ -7,7 +7,7 @@ from .models import Band
 
 def all_bands(request):
     """
-    A view to display all bands 
+    A view to display all bands
     """
     # Display bands, ordered by rating (highest first)
     bands = Band.objects.all().order_by('-rating')
@@ -21,6 +21,7 @@ def band_profile(request, band_id):
     """
 
     band = get_object_or_404(Band, pk=band_id)
+
     # Return four random bands in same category, excluding current band
     random_bands = Band.objects.all().filter(
         category=band.category).exclude(pk=band_id).order_by('?')[:4]
@@ -47,7 +48,7 @@ def add_band(request):
             return redirect('success')
     else:
         form = BandForm()
-    return render(request, 'add_band.html', {'form': form})
+    return render(request, 'bands/add_band.html', {'form': form})
 
 
 # remove once messages complete

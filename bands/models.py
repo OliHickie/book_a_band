@@ -25,6 +25,5 @@ class Band(models.Model):
     image_four = models.ImageField(null=True, blank=True)
     biography = models.TextField()
 
-
     def __str__(self):
         return self.name

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     'home',
     'bands',
+    'bookings',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

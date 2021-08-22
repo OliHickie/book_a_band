@@ -6,7 +6,7 @@
   {% endblock %}
 
 {% block page_header %}
-<h2 class="text-d-blue">Bands and Artists</h2>
+<h2 class="text-d-blue pt-3">Bands and Artists</h2>
 <hr>
 {% endblock %}
 
@@ -41,7 +41,7 @@
                     <div class="card-body">
                         <p class="card-title m-0 text-d-blue">{{ band.name }}</p>
                         <p class="card-text m-0">£{{ band.price }}</p>
-                        <p class="card-text m-0">{{ band.rating }}</p>
+                        <p class="card-text m-0"><i class="fas fa-star"></i> {{ band.rating }} / 5</p>
                         <p class="card-text m-0"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
                         <a href="{% url 'band_profile' band.id %}" class="btn btn-primary">View Profile <i class="fas fa-chevron-right px-1"></i></a>
                     </div>
