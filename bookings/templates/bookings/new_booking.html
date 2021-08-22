@@ -2,20 +2,63 @@
 {% load static %}
 
 {% block page_header %}
-<h2 class="text-d-blue pt-3">Create a booking</h2>
+<h2 class="text-d-blue mt-3">Create a booking</h2>
 <hr>
 {% endblock %}
 
 {% block content %}
-
-<div class="row">
-    <div class="col-12 col-lg-6">
-        
-    </div>
-    <div class="col-12 col-lg-6">
-        <img src="{{ band.image_one.url }}" alt="">
-    </div>
+<div class="">
+    <p>You are booking <strong>{{ band.name }}</strong></p>
 </div>
+
+<form method="post">{% csrf_token %}
+    <div class="row">
+        <div class="col-12 col-lg-4">
+            <p>About You:</p>
+            {{ form.client_name | as_crispy_field }}
+            {{ form.email | as_crispy_field }}
+            {{ form.contact_number | as_crispy_field }}
+
+            <p>About the Venue:</p>
+            {{ form.venue_name | as_crispy_field }}
+            {{ form.venue_address1 | as_crispy_field }}
+            {{ form.venue_address2 | as_crispy_field }}
+            {{ form.county | as_crispy_field }}
+            {{ form.postcode | as_crispy_field }}
+
+        </div>
+        <div class="col-12 col-lg-4">
+            <p>On the day:</p>
+            {{ form.wedding_date | as_crispy_field }}
+            {{ form.start_time | as_crispy_field }}
+            {{ form.duration | as_crispy_field }}
+            {{ form.emergency_contact | as_crispy_field }}
+            {{ form.emergency_phone | as_crispy_field }}
+            {{ form.additional_information | as_crispy_field }}
+            <button type="submit">Upload</button>
+        </div>
+
+        <div class="col-12 col-lg-4">
+            <img src="{{ band.image_one.url }}" alt="{{ band.name }}" class="w-100 pt-4">
+        </div>
+
+
+    </div>
+</form>
+
+<div class="col-12 col-lg-4">
+
+</div>
+<script>
+    $( function() {
+      $( "#datepicker" ).datepicker({
+        showOn: "button",
+        buttonImage: "images/calendar.gif",
+        buttonImageOnly: true,
+        buttonText: "Select date"
+      });
+    } );
+    </script>
 
 
 
