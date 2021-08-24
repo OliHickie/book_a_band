@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import BandForm
 
 from .models import Band, Category
@@ -12,15 +12,31 @@ def all_bands(request):
     # Display bands, ordered by rating (highest first)
     bands = Band.objects.all().order_by('-rating')
     categories = Category.objects.all()
+
+    # full list of locations
+    full_location_list = []
+    # location list without duplicates
     locations = []
     for band in bands:
         i = band.location
-        locations.append(i)
+        full_location_list.append(i)
+        if i not in locations:
+            locations.append(i)
+
+    # sorted alphabetically
+    sorted_locations = sorted(locations)
+
+    # Count number of occurances for each location, add to dict
+    locations_counted = {}
+    for x in sorted_locations:
+        num = full_location_list.count(x)
+        locations_counted[x] = num
 
     context = {
         'bands': bands,
         'categories': categories,
-        'locations': locations
+        'locations': locations,
+        'locations_counted': locations_counted,
     }
 
     return render(request, 'bands/bands.html', context)

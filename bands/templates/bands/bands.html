@@ -29,13 +29,15 @@
             {% endfor %}
 
         </ul>
+        <h4>By Location</h4>
 
         <ul class="mt-2 ms-4 list-unstyled sidebar-links">
             
-            {% for location in locations %}
+            {% for location, num in locations_counted.items %}
             <li>
                 <a href="" class="text-capitalize unstyled-link">
-                    <i class="fas fa-caret-right"></i> {{ location }}
+                    <i class="fas fa-caret-right"></i> 
+                    {{ location }} <small>({{ num }})</small>   
                 </a>
             </li>
             {% endfor %}
