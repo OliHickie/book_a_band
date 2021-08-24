@@ -13,7 +13,6 @@ class NewBooking(models.Model):
     postcode = models.CharField(max_length=10, null=False, blank=False)
     wedding_date = models.DateField()
     start_time = models.CharField(max_length=10, null=False, blank=False)
-    duration = models.IntegerField(null=False, blank=False)
     emergency_contact = models.CharField(
         max_length=50, null=False, blank=False)
     emergency_phone = models.CharField(

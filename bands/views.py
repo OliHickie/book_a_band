@@ -1,8 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from .forms import BandForm
 
-from .models import Band
+from .models import Band, Category
 
 
 def all_bands(request):
@@ -11,8 +11,19 @@ def all_bands(request):
     """
     # Display bands, ordered by rating (highest first)
     bands = Band.objects.all().order_by('-rating')
+    categories = Category.objects.all()
+    locations = []
+    for band in bands:
+        i = band.location
+        locations.append(i)
 
-    return render(request, 'bands/bands.html', {'bands': bands})
+    context = {
+        'bands': bands,
+        'categories': categories,
+        'locations': locations
+    }
+
+    return render(request, 'bands/bands.html', context)
 
 
 def band_profile(request, band_id):

@@ -9,7 +9,7 @@ class BookingForm(forms.ModelForm):
         fields = ('client_name', 'email', 'contact_number',
                   'venue_name', 'venue_address1', 'venue_address2',
                   'county', 'postcode', 'wedding_date', 'start_time',
-                  'duration', 'emergency_contact', 'emergency_phone',
+                  'emergency_contact', 'emergency_phone',
                   'additional_information')
 
     def __init__(self, *args, **kwargs):
@@ -25,7 +25,6 @@ class BookingForm(forms.ModelForm):
             'postcode': 'Postcode',
             'wedding_date': 'Date',
             'start_time': 'Band Start Time',
-            'duration': 'Set Duration',
             'emergency_contact': 'Emergency Contact Name',
             'emergency_phone': 'Emergency Contact Number',
             'additional_information': 'Additional Information',
@@ -40,6 +39,7 @@ class BookingForm(forms.ModelForm):
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            # Add datepicker to wedding date field
             self.fields['wedding_date'].widget.attrs['id'] = 'datepicker'
             # Add class to each field
             self.fields[field].widget.attrs['class'] = 'booking-form-field'

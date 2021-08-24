@@ -19,13 +19,31 @@
         <hr class="mb-2">
         <h4>By Group</h4>
         <ul class="mt-2 ms-4 list-unstyled sidebar-links">
-            <li><a href="">Strings</a></li>
-            <li><a href="">Brass</a></li>
-            <li><a href="">DJs</a></li>
-            <li><a href="">Function Bands</a></li>
-            <li><a href="">Harps</a></li>
-            <li><a href="">Piano</a></li>
+            
+            {% for category in categories %}
+            <li>
+                <a href="" class="text-capitalize unstyled-link">
+                    <i class="fas fa-caret-right"></i> {{ category.name }}
+                </a>
+            </li>
+            {% endfor %}
+
         </ul>
+
+        <ul class="mt-2 ms-4 list-unstyled sidebar-links">
+            
+            {% for location in locations %}
+            <li>
+                <a href="" class="text-capitalize unstyled-link">
+                    <i class="fas fa-caret-right"></i> {{ location }}
+                </a>
+            </li>
+            {% endfor %}
+
+        </ul>
+
+        
+        
     </div>
     <div class="col-12 col-xl-9">
         <div class="row">

@@ -20,10 +20,6 @@ body {
     background: #ffe9e9;
 }
 
-.small-text {
-    font-size: 16px;
-}
-
 /* font colors  */
 
 .text-d-pink {
@@ -65,7 +61,7 @@ body {
 hr {
     color: #6085A9;
     border: 0;
-    margin-bottom: 32px;
+    margin: 16px 0px;
 }
 
 /* links */
@@ -75,7 +71,7 @@ hr {
     color: inherit;
 }
 
-/* header */
+/* headings */
 
 h2 {
     font-family: 'Abril Fatface', cursive;
@@ -85,6 +81,10 @@ h2 {
 h3  {
     font-family: 'Abril Fatface', cursive;
     font-size: 36px;
+}
+
+.subheading {
+    font-size: 24px;
 }
 
 /* Nav bar  */
@@ -229,14 +229,14 @@ nav {
 /* Booking Form */
 
 .booking-form-field {
-    margin-bottom: 10px;
+    margin: 8px 0px;
     max-width: 400px;
 }
 
 #ui-datepicker-div {
     background-color: #EED5DB;
     padding: 10px;
-
+    display: none;
 }
 
 #ui-datepicker-div a {
@@ -249,3 +249,7 @@ nav {
 .ui-datepicker-month {
     margin-right: 10px;
 } 
+
+.terms {
+    max-width: 800px;
+}
