@@ -8,95 +8,119 @@
 
 {% block content %}
 <div>
-    <p class="subheading">You are booking <strong class="text-d-pink">{{ band.name }}</strong></p>
+  <p class="subheading">You are booking <strong class="text-d-pink">{{ band.name }}</strong></p>
 </div>
 
 <form method="POST" action="{% url 'new_booking' band.id %}">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-12 col-lg-4">
-            <p>About You:</p>
-            {{ form.client_name | as_crispy_field }}
-            {{ form.email | as_crispy_field }}
-            {{ form.contact_number | as_crispy_field }}
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-12 col-lg-4">
+      <p>About You:</p>
+      {{ form.client_name | as_crispy_field }}
+      {{ form.email | as_crispy_field }}
+      {{ form.contact_number | as_crispy_field }}
 
-            <p class="mt-4">About the Venue:</p>
-            {{ form.venue_name | as_crispy_field }}
-            {{ form.venue_address1 | as_crispy_field }}
-            {{ form.venue_address2 | as_crispy_field }}
-            {{ form.county | as_crispy_field }}
-            {{ form.postcode | as_crispy_field }}
+      <p class="mt-4">About the Venue:</p>
+      {{ form.venue_name | as_crispy_field }}
+      {{ form.venue_address1 | as_crispy_field }}
+      {{ form.venue_address2 | as_crispy_field }}
+      {{ form.county | as_crispy_field }}
+      {{ form.postcode | as_crispy_field }}
 
-        </div>
-        <div class="col-12 col-lg-4">
-            <p>On the day:</p>
-            {{ form.wedding_date | as_crispy_field }}
-            {{ form.start_time | as_crispy_field }}
-            {{ form.emergency_contact | as_crispy_field }}
-            {{ form.emergency_phone | as_crispy_field }}
-            {{ form.additional_information | as_crispy_field }}
-            <button type="submit" class="btn btn-primary mt-3">Proceed to Payment
-                <i class="fas fa-chevron-right ms-1"></i>
-            </button>
-        </div>
-        <div class="col-12 col-lg-4">
-            <img src="{{ band.image_one.url }}" alt="{{ band.name }}" class="w-100 pt-4">
-        </div>
     </div>
+    <div class="col-12 col-lg-4">
+      <p>On the day:</p>
+      {{ form.wedding_date | as_crispy_field }}
+      {{ form.start_time | as_crispy_field }}
+      {{ form.emergency_contact | as_crispy_field }}
+      {{ form.emergency_phone | as_crispy_field }}
+      {{ form.additional_information | as_crispy_field }}
+      <button type="submit" class="btn btn-primary mt-3">Proceed to Payment
+        <i class="fas fa-chevron-right ms-1"></i>
+      </button>
+    </div>
+    <div class="col-12 col-lg-4">
+      <img src="{{ band.image_one.url }}" alt="{{ band.name }}" class="w-100 pt-4">
+    </div>
+  </div>
 </form>
 
 <div class="terms mx-auto">
-    <hr class="mt-5">
-    <p>FAQs</p>
-    <hr>
+  <hr class="mt-5">
+  <p>FAQs</p>
+  <hr>
 
-    <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <p class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              How long will the band play for?
-            </button>
-        </p>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-             The band will play for two sets up to 60mins in length. If you would like the band to play for longer, please get in touch with us directly once your booking is confirmed. Details can be finalised via the phone call 3 weeks before your wedding day. 
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Accordion Item #2
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Accordion Item #3
-            </button>
-          </h2>
-          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-          </div>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <p class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          How long will the band play for?
+        </button>
+      </p>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          The band will play for two sets up to 60mins in length. If you would like the band to play for longer, please
+          get in touch with us directly once your booking is confirmed. Details can be finalised via the phone call 3
+          weeks before your wedding day.
         </div>
       </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          Accordion Item #2
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin
+          adds the appropriate classes that we use to style each element. These classes control the overall appearance,
+          as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or
+          overriding our default variables. It's also worth noting that just about any HTML can go within the
+          <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Accordion Item #3
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+          adds the appropriate classes that we use to style each element. These classes control the overall appearance,
+          as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or
+          overriding our default variables. It's also worth noting that just about any HTML can go within the
+          <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-    $(function () {
-        $("#datepicker").datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
-    });
+
+  $("#datepicker").datepicker({
+    changeMonth: true,
+    changeYear: true
+  });
+
+  // https://timepicker.co/# 
+  $('.timepicker').timepicker({
+    timeFormat: 'hh:mm p',
+    minTime: '00:00am',
+    maxTime: '11:59pm',
+    defaultTime: 'Band Start Time',
+    startTime: '10:00',
+  });
 </script>
 
 
