@@ -1,13 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import BandForm
+from django.db.models import Q
 
+from .forms import BandForm
 from .models import Band, Category
 
 
 def all_bands(request):
     """
-    A view to display all bands
+    A view to display all bands and quick links
     """
     # Display bands, ordered by rating (highest first)
     bands = Band.objects.all().order_by('-rating')
@@ -31,6 +32,12 @@ def all_bands(request):
     for x in sorted_locations:
         num = full_location_list.count(x)
         locations_counted[x] = num
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            queries = Q(name__icontains=query) | Q(biography__icontains=query)
+            bands = bands.filter(queries)
 
     context = {
         'bands': bands,

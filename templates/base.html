@@ -36,7 +36,7 @@
     <div class="container-fluid nav-bar d-block d-lg-flex">
       <div class="logo">
         <a href="#">
-          <h1><i class="fas fa-compact-disc"></i> <strong>BOOK</strong>A<strong>BAND</strong>
+          <h1><i class="fas fa-compact-disc"></i> <strong>BOOKABAND</strong>
           </h1>
         </a>
       </div>
@@ -91,8 +91,8 @@
               <a href="#">Contact</a>
             </li>
           </ul>
-          <form class="d-flex mx-2">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <form class="d-flex mx-2" method="GET" action="{% url 'all_bands' %}">
+            <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
             <button class="btn btn-secondary" type="submit">Search</button>
           </form>
         </div>

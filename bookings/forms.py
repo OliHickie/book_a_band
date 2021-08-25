@@ -39,7 +39,7 @@ class BookingForm(forms.ModelForm):
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            # Add datepicker to wedding date field
+            # Add date and time pickers
             self.fields['wedding_date'].widget.attrs['id'] = 'datepicker'
             self.fields['start_time'].widget.attrs['id'] = 'timepicker'
             # Add class to each field
