@@ -47,7 +47,11 @@
       </button>
     </div>
     <div class="col-12 col-lg-4">
+      {% if band.image_one %}
       <img src="{{ band.image_one.url }}" alt="{{ band.name }}" class="w-100 pt-4">
+      {% else %}
+      <img src="https://mikestaff.com/wp-content/uploads/2020/12/bride-and-groom-dancing-with-guest-at-wedding-reception.jpg" class="w-100 pt-4" alt="Generic Wedding Photo">
+      {% endif %}
     </div>
   </div>
 </form>

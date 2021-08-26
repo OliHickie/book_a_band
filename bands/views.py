@@ -13,6 +13,7 @@ def all_bands(request):
     # Display bands, ordered by rating (highest first)
     bands = Band.objects.all().order_by('-rating')
     categories = Category.objects.all()
+    query = None
 
     # full list of locations
     full_location_list = []
@@ -33,17 +34,43 @@ def all_bands(request):
         num = full_location_list.count(x)
         locations_counted[x] = num
 
+    # Search for bands
     if request.GET:
         if 'q' in request.GET:
             query = request.GET['q']
             queries = Q(name__icontains=query) | Q(biography__icontains=query)
             bands = bands.filter(queries)
 
+        if 'locations' in request.GET:
+            query = request.GET['locations']
+            queries = Q(location__icontains=query)
+            bands = bands.filter(queries)
+
+        # if 'group' in request.GET:
+        #     query = request.GET['group']
+        #     if query == 'strings':
+        #         query = 1
+        #     bands = bands.filter(category__name__in=query)
+
+        if 'price' in request.GET:
+            query = request.GET['price']
+            if query == '£2000':
+                bands = bands.filter(price__gte=2000)
+            if query == '£1500':
+                bands = bands.filter(price__range=(1500, 1999))
+            if query == '£1000':
+                bands = bands.filter(price__range=(1000, 1499))
+            if query == '£500':
+                bands = bands.filter(price__range=(500, 999))
+            if query == 'Less than £500':
+                bands = bands.filter(price__lt=500)
+
     context = {
         'bands': bands,
         'categories': categories,
         'locations': locations,
         'locations_counted': locations_counted,
+        'query': query,
     }
 
     return render(request, 'bands/bands.html', context)

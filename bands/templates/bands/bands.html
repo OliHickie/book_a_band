@@ -3,7 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'bands/css/bands.css' %}">
-  {% endblock %}
+{% endblock %}
 
 {% block page_header %}
 <h2 class="text-d-blue pt-3">Bands and Artists</h2>
@@ -13,40 +13,90 @@
 
 {% block content %}
 
+<!-- Display search information  -->
+{% if request.GET %}
 <div class="row">
+    <div class="col-12 text-muted">
+        <p>
+            {% if query == None %}
+            Your search has returned {{ bands|length }} result{% if bands|length > 1 %}s{% endif %}
+
+            {% else %}
+            You have searched for "{{ query }}" which has {{ bands|length }} result{% if bands|length > 1 %}s{% endif %}
+            {% endif %}
+
+            <a href="{% url 'all_bands' %}" class="ps-2"><small>clear search</small></a>
+        </p>
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    <!-- Side bar  -->
     <div class="col-12 col-xl-3 sidebar p-3">
         <h3>Quick Links</h3>
         <hr class="mb-2">
         <h4>By Group</h4>
         <ul class="mt-2 ms-4 list-unstyled sidebar-links">
-            
+
             {% for category in categories %}
             <li>
-                <a href="" class="text-capitalize unstyled-link">
-                    <i class="fas fa-caret-right"></i> {{ category.name }}
+                <a href="{% url 'all_bands' %}?group={{ category }}" class="text-capitalize unstyled-link">
+                    <i class="fas fa-caret-right"></i> {{ category }}
                 </a>
             </li>
             {% endfor %}
 
         </ul>
         <h4>By Location</h4>
-
         <ul class="mt-2 ms-4 list-unstyled sidebar-links">
-            
+
             {% for location, num in locations_counted.items %}
             <li>
-                <a href="" class="text-capitalize unstyled-link">
-                    <i class="fas fa-caret-right"></i> 
-                    {{ location }} <small>({{ num }})</small>   
+                <a href="{% url 'all_bands' %}?locations={{ location }}" class="text-capitalize unstyled-link">
+                    <i class="fas fa-caret-right"></i>
+                    {{ location }} <small>({{ num }})</small>
                 </a>
             </li>
             {% endfor %}
 
         </ul>
+        <h4>By Price</h4>
+        <ul class="mt-2 ms-4 list-unstyled sidebar-links">
+            <li>
+                <a href="{% url 'all_bands' %}?price=£2000" class="text-capitalize unstyled-link">
+                    <i class="fas fa-caret-right"></i>
+                    £2000 +
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'all_bands' %}?price=£1500" class="text-capitalize unstyled-link">
+                    <i class="fas fa-caret-right"></i>
+                    £1500 - £1999
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'all_bands' %}?price=£1000" class="text-capitalize unstyled-link">
+                    <i class="fas fa-caret-right"></i>
+                    £1000 - £1499
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'all_bands' %}?price=£500" class="text-capitalize unstyled-link">
+                    <i class="fas fa-caret-right"></i>
+                    £500 - £999
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'all_bands' %}?price=Less than £500" class="text-capitalize unstyled-link">
+                    <i class="fas fa-caret-right"></i>
+                   Less than £500
+                </a>
+            </li>
+        </ul>
 
-        
-        
     </div>
+    <!-- Band cards  -->
     <div class="col-12 col-xl-9">
         <div class="row">
 
@@ -56,14 +106,16 @@
                     {% if band.image_one %}
                     <img src="{{ band.image_one.url }}" class="card-img-top" alt="{{ band.name }}">
                     {% else %}
-                    <img src="https://mikestaff.com/wp-content/uploads/2020/12/bride-and-groom-dancing-with-guest-at-wedding-reception.jpg" class="card-img-top" alt="Generic Wedding Photo">
+                    <img src="https://mikestaff.com/wp-content/uploads/2020/12/bride-and-groom-dancing-with-guest-at-wedding-reception.jpg"
+                        class="card-img-top" alt="Generic Wedding Photo">
                     {% endif %}
                     <div class="card-body">
                         <p class="card-title m-0 text-d-blue">{{ band.name }}</p>
                         <p class="card-text m-0">£{{ band.price }}</p>
                         <p class="card-text m-0"><i class="fas fa-star"></i> {{ band.rating }} / 5</p>
                         <p class="card-text m-0"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
-                        <a href="{% url 'band_profile' band.id %}" class="btn btn-primary">View Profile <i class="fas fa-chevron-right px-1"></i></a>
+                        <a href="{% url 'band_profile' band.id %}" class="btn btn-primary">View Profile <i
+                                class="fas fa-chevron-right px-1"></i></a>
                     </div>
                 </div>
             </div>
