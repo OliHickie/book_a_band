@@ -53,7 +53,7 @@
       <p class=""><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
     </div>
     <div class="band-biog">
-      <p>{{ band.biography }}</p>
+      <p>{{ band.biography | linebreaks }}</p>
     </div>
     <div class=" profile-buttons">
       <a href="{% url 'all_bands' %}" class="btn btn-secondary"><i class="fas fa-chevron-left pe-2"></i>Back to

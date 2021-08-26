@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'bands/css/bands.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<h2 class="text-d-blue pt-3">Blogs</h2>
+<hr>
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Display search information  -->
+
+
+<div class="row">
+    <!-- Blog cards  -->
+    <div class="col-12 col-xl-9">
+        <div class="row">
+
+            {% for band in bands %}
+            <div class="col-6 col-md-4">
+                <div class="card my-1">
+                    
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

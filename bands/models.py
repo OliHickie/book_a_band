@@ -16,15 +16,16 @@ class Band(models.Model):
 
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    name = models.CharField(max_length=24)
-    price = models.IntegerField()
-    rating = models.DecimalField(max_digits=2, decimal_places=1)
-    location = models.CharField(max_length=18)
+    name = models.CharField(max_length=24, null=False, blank=False)
+    price = models.IntegerField(null=False, blank=False)
+    rating = models.DecimalField(max_digits=2, decimal_places=1, null=False,
+                                 blank=False)
+    location = models.CharField(max_length=18, null=False, blank=False)
     image_one = models.ImageField(null=True, blank=True)
     image_two = models.ImageField(null=True, blank=True)
     image_three = models.ImageField(null=True, blank=True)
     image_four = models.ImageField(null=True, blank=True)
-    biography = models.TextField()
+    biography = models.TextField(null=False, blank=False)
 
     def __str__(self):
         return self.name

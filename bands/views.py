@@ -41,6 +41,7 @@ def all_bands(request):
             queries = Q(name__icontains=query) | Q(biography__icontains=query)
             bands = bands.filter(queries)
 
+        # Search by location
         if 'locations' in request.GET:
             query = request.GET['locations']
             queries = Q(location__icontains=query)
@@ -52,6 +53,7 @@ def all_bands(request):
         #         query = 1
         #     bands = bands.filter(category__name__in=query)
 
+        # Search by price
         if 'price' in request.GET:
             query = request.GET['price']
             if query == '£2000':
