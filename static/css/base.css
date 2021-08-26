@@ -303,7 +303,16 @@ nav {
 }
 
 .blog-content {
-
 max-width: 800px;
 margin: 0 auto;
+}
+
+.blog-social {
+    font-family: 'Abril Fatface', cursive;
+}
+
+.blog-social-link {
+    font-size: 36px;
+    display: flex;
+    justify-content: space-around;
 }
