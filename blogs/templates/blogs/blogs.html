@@ -21,11 +21,24 @@
     <div class="col-12 col-xl-9">
         <div class="row">
 
-            {% for band in bands %}
+            {% for blog in blogs %}
             <div class="col-6 col-md-4">
-                <div class="card my-1">
-                    
-                </div>
+                <a href="" class="unstyled-link">
+                    <div class="card blog-card my-1">
+                        <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ band.title }}">
+                        <div class="blog-date">
+                            <p class="text-center mx-auto rounded-circle">
+                                {{ blog.updated_at|date:"d M y" }}
+                            </p>
+                        </div>
+                        <div class="card-text blog-title">
+                            <p class="text-capitalize text-center p-1">
+                                {{ blog.title }}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
             </div>
             {% endfor %}
 

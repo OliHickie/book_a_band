@@ -162,7 +162,7 @@ nav {
     }
 }
 
-/* cards */
+/* Band and Blog cards */
 
 .card-body {
     display: flex;
@@ -185,6 +185,42 @@ nav {
 
 .fa-star {
     color: #FFD700;
+}
+
+/* Hover effect from https://bbbootstrap.com/snippets/bootstrap-information-cards-hover-effect-58117258 */
+.blog-card {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    
+}
+
+.blog-card:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.05);
+    color: black;
+}
+
+.blog-title {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: -15px;
+}
+
+.blog-title p {
+    font-size: 24px;
+}
+
+.blog-date p {
+    font-weight: 800;
+    font-size: 20px;
+    background-color: #8d3e5d;
+    margin-top: -30px;
+    padding: 10px;
+    width: 33%;
+    color: #fff;
 }
 
 @media screen and (max-width: 991px) {
