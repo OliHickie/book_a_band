@@ -71,6 +71,11 @@ hr {
     color: inherit;
 }
 
+.back-link:hover {
+    font-weight: 600;
+}
+
+
 /* headings */
 
 h2 {
@@ -218,7 +223,7 @@ nav {
     font-size: 20px;
     background-color: #8d3e5d;
     margin-top: -30px;
-    padding: 10px;
+    padding: 15px;
     width: 33%;
     color: #fff;
 }
@@ -288,4 +293,17 @@ nav {
 
 .terms {
     max-width: 800px;
+}
+
+/* blogs */
+
+.blog-img {
+    height: 300px;
+    margin: 30px;
+}
+
+.blog-content {
+
+max-width: 800px;
+margin: 0 auto;
 }

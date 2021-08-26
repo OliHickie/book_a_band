@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+<h2 class="text-d-blue pt-3 ">Blogs</h2>
+<hr>
+{% endblock %}
+
+
+{% block content %}
+<a href="{% url 'all_blogs' %}" class="text-muted unstyled-link back-link">
+    <i class="fas fa-arrow-left pe-1"></i>View All Blogs
+</a>
+
+<div class="blog-content">
+    <h4 class="subheading text-uppercase mt-3">
+        {{ blog.title }}
+    </h4>
+    <p>
+        by <strong>{{ blog.author }}</strong>
+    </p>
+    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-img float-end">
+
+    <p>{{ blog.content| linebreaks }}</p>
+
+    
+</div>
+
+
+
+{% endblock %}

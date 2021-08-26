@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'bands/css/bands.css' %}">
-{% endblock %}
 
 {% block page_header %}
 <h2 class="text-d-blue pt-3">Blogs</h2>
@@ -13,17 +10,14 @@
 
 {% block content %}
 
-<!-- Display search information  -->
-
-
 <div class="row">
     <!-- Blog cards  -->
     <div class="col-12 col-xl-9">
         <div class="row">
 
             {% for blog in blogs %}
-            <div class="col-6 col-md-4">
-                <a href="" class="unstyled-link">
+            <div class="col-12 col-md-4">
+                <a href="{% url 'read_blog' blog.id %}" class="unstyled-link">
                     <div class="card blog-card my-1">
                         <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ band.title }}">
                         <div class="blog-date">
