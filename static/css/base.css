@@ -71,8 +71,12 @@ hr {
     color: inherit;
 }
 
+.back-link {
+    color: #93A5B4;
+}
+
 .back-link:hover {
-    font-weight: 600;
+    color: #6085A9;
 }
 
 
@@ -83,7 +87,7 @@ h2 {
     font-size: 48px;
 }
 
-h3  {
+h3 {
     font-family: 'Abril Fatface', cursive;
     font-size: 36px;
 }
@@ -196,7 +200,7 @@ nav {
 .blog-card {
     transition: all 0.2s ease;
     cursor: pointer;
-    
+
 }
 
 .blog-card:hover {
@@ -232,15 +236,19 @@ nav {
     .card-body {
         height: 200px;
     }
+
     .card-img-top {
         height: 160px;
     }
+
     .card-title {
         font-size: 16px;
     }
+
     .card-text {
         font-size: 14px;
     }
+
     .card-body .btn-primary {
         font-size: 14px;
         padding: 5px 7px;
@@ -249,19 +257,23 @@ nav {
 
 @media screen and (max-width: 480px) {
     .card-body {
-        height: 140px; 
+        height: 140px;
         padding: 8px;
     }
+
     .card-img-top {
         height: 100px;
     }
+
     .card-title {
         font-size: 12px;
     }
+
     .card-text {
         font-size: 12px;
         margin-bottom: 10px;
     }
+
     .card-body .btn-primary {
         font-size: 10px;
     }
@@ -289,7 +301,7 @@ nav {
 #ui-datepicker-div span,
 .ui-datepicker-month {
     margin-right: 10px;
-} 
+}
 
 .terms {
     max-width: 800px;
@@ -303,8 +315,8 @@ nav {
 }
 
 .blog-content {
-max-width: 800px;
-margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .blog-social {
@@ -315,4 +327,8 @@ margin: 0 auto;
     font-size: 36px;
     display: flex;
     justify-content: space-around;
+}
+
+.blog-social-link a:hover {
+    color: #6085A9;
 }

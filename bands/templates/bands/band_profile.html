@@ -15,26 +15,26 @@
   <!-- Band images -->
   <div class="col-12 col-lg-6 px-4 py-3">
     {% if band.image_one %}
-    <img src="{{ band.image_one.url }}" alt="" class="profile-main-img rounded" id="image-one">
+    <img src="{{ band.image_one.url }}" alt="" class="profile-main-img rounded lrg-img" id="imageOne">
     {% else %}
     <img
       src="https://mikestaff.com/wp-content/uploads/2020/12/bride-and-groom-dancing-with-guest-at-wedding-reception.jpg"
-      class="profile-main-img rounded" alt="{{ band.name }}">
+      class="profile-main-img rounded lrg-img" id="imageOne" alt="{{ band.name }}">
     {% endif %}
     <div class="row mt-3">
       <div class="col-4">
         {% if band.image_two %}
-        <img src="{{ band.image_two.url }}" alt="" class="profile-sm-img rounded" id="image-two">
+        <img src="{{ band.image_two.url }}" alt="" class="profile-sm-img rounded sm-img" id="imageTwo">
         {% endif %}
       </div>
       <div class="col-4">
         {% if band.image_three %}
-        <img src="{{ band.image_three.url }}" alt="" class="profile-sm-img rounded" id="image-three">
+        <img src="{{ band.image_three.url }}" alt="" class="profile-sm-img rounded sm-img" id="imageThree">
         {% endif %}
       </div>
       <div class="col-4">
         {% if band.image_four %}
-        <img src="{{ band.image_four.url }}" alt="" class="profile-sm-img rounded" id="image-four">
+        <img src="{{ band.image_four.url }}" alt="" class="profile-sm-img rounded sm-img" id="imageFour">
         {% endif %}
       </div>
     </div>
@@ -58,7 +58,8 @@
     <div class=" profile-buttons">
       <a href="{% url 'all_bands' %}" class="btn btn-secondary"><i class="fas fa-chevron-left pe-2"></i>Back to
         Search</a>
-      <a href="{% url 'new_booking' band.id %}" class="btn btn-primary">Book the Band<i class="fas fa-chevron-right ps-2"></i></a>
+      <a href="{% url 'new_booking' band.id %}" class="btn btn-primary">Book the Band<i
+          class="fas fa-chevron-right ps-2"></i></a>
     </div>
   </div>
   <hr>
@@ -111,6 +112,11 @@
     </div>
   </div>
 </div>
+
+<script>
+
+
+</script>
 
 
 {% endblock %}

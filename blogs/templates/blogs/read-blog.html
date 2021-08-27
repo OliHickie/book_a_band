@@ -10,7 +10,7 @@
 
 
 {% block content %}
-<a href="{% url 'all_blogs' %}" class="text-muted unstyled-link back-link">
+<a href="{% url 'all_blogs' %}" class="unstyled-link back-link">
     <i class="fas fa-arrow-left pe-1"></i>View All Blogs
 </a>
 
@@ -24,22 +24,25 @@
     <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-img float-end">
 
     <p>{{ blog.content| linebreaks }}</p>
-
+    <br>
+    <p>Source: <a href="{{ blog.source }}" class="unstyled-link"><em>{{ blog.source }}</em></a></p>
+    
     <hr>
     <div class="row">
-        <p class="blog-social text-d-blue">Like what you've read? Let others enjoy it too and share the blog on social media</p>
+        <p class="blog-social text-d-blue">Like what you've read? Let others enjoy it too and share the blog on social
+            media</p>
         <div class="col-12 blog-social-link text-d-pink">
-            {% post_to_facebook object_or_url " " "fab fa-facebook-f unstyled-link d-inline" %} 
-            {% post_to_twitter "Check out this blog..." object_or_url " " " fab fa-twitter unstyled-link d-inline" %} 
-            {% post_to_reddit "Check out this blog..." object_or_url " " "fab fa-reddit unstyled-link d-inline" %} 
+            {% post_to_facebook object_or_url " " "fab fa-facebook-f unstyled-link d-inline" %}
+            {% post_to_twitter "Check out this blog..." object_or_url " " " fab fa-twitter unstyled-link d-inline" %}
+            {% post_to_reddit "Check out this blog..." object_or_url " " "fab fa-reddit unstyled-link d-inline" %}
             {% post_to_whatsapp object_or_url " " "fab fa-whatsapp unstyled-link d-inline" %}
         </div>
     </div>
-    
-    
-    
-   
-    
+
+
+
+
+
 </div>
 
 {% endblock %}

@@ -9,6 +9,7 @@
     width: 100%;
     object-fit: cover;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .band-price {
