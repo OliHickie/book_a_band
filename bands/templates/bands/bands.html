@@ -90,7 +90,7 @@
             <li>
                 <a href="{% url 'all_bands' %}?price=Less than £500" class="text-capitalize unstyled-link">
                     <i class="fas fa-caret-right"></i>
-                   Less than £500
+                    Less than £500
                 </a>
             </li>
         </ul>
@@ -100,7 +100,7 @@
     <div class="col-12 col-xl-9">
         <div class="row">
 
-            {% for band in bands %}
+            {% for band in page_bands %}
             <div class="col-6 col-md-4">
                 <div class="card my-1">
                     {% if band.image_one %}
@@ -113,7 +113,8 @@
                         <p class="card-title m-0 text-d-blue">{{ band.name }}</p>
                         <p class="card-text m-0">£{{ band.price }}</p>
                         <p class="card-text m-0"><i class="fas fa-star"></i> {{ band.rating }} / 5</p>
-                        <p class="card-text m-0"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
+                        <p class="card-text m-0"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location
+                            }}</p>
                         <a href="{% url 'band_profile' band.id %}" class="btn btn-primary">View Profile <i
                                 class="fas fa-chevron-right px-1"></i></a>
                     </div>
@@ -121,6 +122,31 @@
             </div>
             {% endfor %}
 
+
+        </div>
+        <!-- Code taken from Django docs -->
+        <div class="pagination m-3">
+            <span class="step-links text-d-blue">
+                {% if page_bands.has_previous %}
+                <a class="mx-3 unstyled-link" href="?page=1"><i class="fas fa-step-backward"></i> first</a>
+                <a class="mx-2 unstyled-link" href="?page={{ page_bands.previous_page_number }}"><i
+                        class="fas fa-chevron-left"></i> previous</a>
+                {% endif %}
+
+                <span class="current text-d-pink">
+                    <strong>
+                        Page {{ page_bands.number }} of {{ page_bands.paginator.num_pages }}
+                    </strong>
+                </span>
+
+                {% if page_bands.has_next %}
+                <a class="unstyled-link mx-2" href="?page={{ page_bands.next_page_number }}">
+                    next <i class="fas fa-chevron-right"></i>
+                </a>
+                <a class="mx-3 unstyled-link" href="?page={{ page_bands.paginator.num_pages }}">last <i
+                        class="fas fa-step-forward"></i></a>
+                {% endif %}
+            </span>
         </div>
     </div>
 </div>

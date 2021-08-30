@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 from .forms import BandForm
 from .models import Band, Category
@@ -67,12 +68,19 @@ def all_bands(request):
             if query == 'Less than £500':
                 bands = bands.filter(price__lt=500)
 
+    # Pagination
+    paginator = Paginator(bands, 12)
+
+    page_number = request.GET.get('page')
+    page_bands = paginator.get_page(page_number)
+
     context = {
         'bands': bands,
         'categories': categories,
         'locations': locations,
         'locations_counted': locations_counted,
         'query': query,
+        'page_bands': page_bands,
     }
 
     return render(request, 'bands/bands.html', context)

@@ -1,4 +1,5 @@
 function imageDisplay() {
+    // Change main image by selecting small image
     $('.profile-sm-img').click(function() {
         let clickedImage = $(this).attr('src')
         let mainImage = $('.profile-main-img').attr('src')
