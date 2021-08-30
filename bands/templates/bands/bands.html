@@ -7,6 +7,7 @@
 
 {% block page_header %}
 <h2 class="text-d-blue pt-3">Bands and Artists</h2>
+
 <hr>
 {% endblock %}
 
@@ -14,10 +15,11 @@
 {% block content %}
 
 <!-- Display search information  -->
-{% if request.GET %}
-<div class="row">
-    <div class="col-12 text-muted">
-        <p>
+
+<div class="row mb-3">
+    <div class="col-12text-muted">
+        {% if request.GET %}
+        <div>
             {% if query == None %}
             Your search has returned {{ bands|length }} result{% if bands|length > 1 %}s{% endif %}
 
@@ -26,16 +28,50 @@
             {% endif %}
 
             <a href="{% url 'all_bands' %}" class="ps-2"><small>clear search</small></a>
-        </p>
+        </div>
+        {% endif %}
     </div>
 </div>
-{% endif %}
+
 
 <div class="row">
     <!-- Side bar  -->
     <div class="col-12 col-xl-3 sidebar p-3">
         <h3>Quick Links</h3>
         <hr class="mb-2">
+        <h4>Sort All Bands</h4>
+        <ul class="mt-2 ms-4 list-unstyled sidebar-links">
+            <li>
+                <a class="unstyled-link" href="{% url 'all_bands' %}?sort=rating&direction=desc">
+                    <i class="fas fa-caret-right"></i> Rating
+                </a>
+            </li>
+            <li>
+                <a class="unstyled-link" href="{% url 'all_bands' %}?sort=price&direction=desc">
+                    <i class="fas fa-caret-right"></i> Price <small>(highest
+                        first)</small>
+                </a>
+            </li>
+            <li>
+                <a class="unstyled-link" href="{% url 'all_bands' %}?sort=price&direction=asc">
+                    <i class="fas fa-caret-right"></i> Price <small>(lowest
+                        first)</small>
+                </a>
+            </li>
+            <li>
+                <a class="unstyled-link" href="{% url 'all_bands' %}?sort=name&direction=asc">
+                    <i class="fas fa-caret-right"></i> A - Z
+
+                </a>
+            </li>
+            <li>
+                <a class="unstyled-link" href="{% url 'all_bands' %}?sort=name&direction=desc">
+                    <i class="fas fa-caret-right"></i> Z - A
+
+                </a>
+            </li>
+        </ul>
+
         <h4>By Group</h4>
         <ul class="mt-2 ms-4 list-unstyled sidebar-links">
 
@@ -113,8 +149,9 @@
                         <p class="card-title m-0 text-d-blue">{{ band.name }}</p>
                         <p class="card-text m-0">£{{ band.price }}</p>
                         <p class="card-text m-0"><i class="fas fa-star"></i> {{ band.rating }} / 5</p>
-                        <p class="card-text m-0"><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location
-                            }}</p>
+                        <p class="card-text m-0">
+                            <i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}
+                        </p>
                         <a href="{% url 'band_profile' band.id %}" class="btn btn-primary">View Profile <i
                                 class="fas fa-chevron-right px-1"></i></a>
                     </div>
@@ -128,8 +165,8 @@
         <div class="pagination m-3">
             <span class="step-links text-d-blue">
                 {% if page_bands.has_previous %}
-                <a class="mx-3 unstyled-link" href="?page=1"><i class="fas fa-step-backward"></i> first</a>
-                <a class="mx-2 unstyled-link" href="?page={{ page_bands.previous_page_number }}"><i
+                <a class="mx-3 unstyled-link" href="{{ request.get_full_path }}&page=1"><i class="fas fa-step-backward"></i> first</a>
+                <a class="mx-2 unstyled-link" href="{{ request.get_full_path }}&page={{ page_bands.previous_page_number }}"><i
                         class="fas fa-chevron-left"></i> previous</a>
                 {% endif %}
 
@@ -140,10 +177,10 @@
                 </span>
 
                 {% if page_bands.has_next %}
-                <a class="unstyled-link mx-2" href="?page={{ page_bands.next_page_number }}">
+                <a class="unstyled-link mx-2" href="{{ request.get_full_path }}&page={{ page_bands.next_page_number }}">
                     next <i class="fas fa-chevron-right"></i>
                 </a>
-                <a class="mx-3 unstyled-link" href="?page={{ page_bands.paginator.num_pages }}">last <i
+                <a class="mx-3 unstyled-link" href="{{ request.get_full_path }}&page={{ page_bands.paginator.num_pages }}">last <i
                         class="fas fa-step-forward"></i></a>
                 {% endif %}
             </span>

@@ -37,6 +37,19 @@ def all_bands(request):
 
     # Search for bands
     if request.GET:
+        if 'sort' in request.GET:
+            sortby = request.GET['sort']
+            if sortby == 'rating':
+                bands = Band.objects.all().order_by(sortby)
+            if sortby == 'price':
+                bands = Band.objects.all().order_by(sortby)
+            if sortby == 'name':
+                bands = Band.objects.all().order_by(sortby)
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    bands = bands.order_by("-" + sortby)
+
         if 'q' in request.GET:
             query = request.GET['q']
             queries = Q(name__icontains=query) | Q(biography__icontains=query)
@@ -69,7 +82,7 @@ def all_bands(request):
                 bands = bands.filter(price__lt=500)
 
     # Pagination
-    paginator = Paginator(bands, 12)
+    paginator = Paginator(bands, 2)
 
     page_number = request.GET.get('page')
     page_bands = paginator.get_page(page_number)

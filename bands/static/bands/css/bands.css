@@ -9,3 +9,13 @@
     font-size: 18px;
 }
 
+.sort-by a {
+    background-color: #EED5DB;
+}
+
+.sort-by a,
+.sort-by a:hover {
+    color: #6085A9;
+    font-weight: 600;
+}
+
