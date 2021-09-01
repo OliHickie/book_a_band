@@ -78,6 +78,12 @@ hr {
     color: #6085A9;
 }
 
+/* forms  */
+
+label,
+.checkboxinput {
+    margin: 10px 0px;
+}
 
 /* headings */
 

@@ -109,10 +109,14 @@
                   My Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                  <li><a class="dropdown-item" href="#">Log In</a></li>
-                  <li><a class="dropdown-item" href="#">Create Account</a></li>
+
+                  {% if request.user.is_authenticated %}
                   <li><a class="dropdown-item" href="#">My Bookings</a></li>
-                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+                  <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+                  {% else %}
+                  <li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
+                  <li><a class="dropdown-item" href="{% url 'account_signup' %}">Create Account</a></li>
+                  {% endif %}
 
                 </ul>
               </li>
@@ -124,10 +128,15 @@
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nav-accordian2"
                   data-bs-parent="#accordionFlushExample">
                   <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Log In</a></li>
-                    <li><a class="dropdown-item" href="#">Create Account</a></li>
+
+                    {% if request.user.is_authenticated %}
                     <li><a class="dropdown-item" href="#">My Bookings</a></li>
-                    <li><a class="dropdown-item" href="#">Log Out</a></li>
+                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
+                    <li><a class="dropdown-item" href="{% url 'account_signup' %}">Create Account</a></li>
+                    {% endif %}
+
                   </ul>
                 </div>
               </li>
@@ -145,25 +154,6 @@
       </div>
     </div>
   </header>
-
-
-  <!-- {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-            {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/toast_error.html' %}
-                {% elif level == 30 %}
-                    {% include 'includes/toasts/toast_warning.html' %}
-                {% elif level == 25 %}
-                    {% include 'includes/toasts/toast_success.html' %}
-                {% else %}
-                    {% include 'includes/toasts/toast_info.html' %}
-                {% endif %}
-            {% endwith %}
-        {% endfor %}
-    </div>
-{% endif %}   -->
 
   <div class="container">
 
