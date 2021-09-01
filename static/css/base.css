@@ -10,7 +10,6 @@ font-family: 'Playfair Display', serif;
 }
  */
 
-
 html {
     height: 100%;
 }
@@ -106,6 +105,10 @@ h3 {
     padding: 15px;
 }
 
+.nav-top-row {
+    height: 200px;
+}
+
 .logo a {
     text-decoration: none;
     white-space: nowrap;
@@ -113,13 +116,18 @@ h3 {
 
 .logo h1 {
     font-family: 'Abril Fatface', cursive;
-    font-size: 60px;
+    font-size: 32px;
     color: #8d3e5d;
 }
 
+.search-bar {
+    max-width: 300px;
+    margin-top: 30px;
+}
+
 .nav-item {
-    padding: 12px;
-    font-size: 24px;
+    padding: 6px;
+    font-size: 16px;
 }
 
 .nav-item a,
@@ -143,32 +151,33 @@ h3 {
     border: none;
 }
 
-nav {
-    margin-top: auto;
-    margin-left: auto;
-}
-
 .navbar-collapse {
+    background-color: rgb(238, 213, 219);
     margin-top: 12px;
     margin-right: -16px;
     margin-left: -16px;
-}
+}   
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 992px) {
     .logo h1 {
-        font-size: 32px;
+        font-size: 60px;
     }
 
-    nav {
-        margin-right: auto;
-        margin-top: 175px;
+    .nav-top-row {
+        height: 180px;
+    }
+
+    .nav-item {
+        padding: 12px 16px;
+        font-size: 24px;
     }
 
     .navbar-collapse {
-        background-color: rgb(238, 213, 219);
+        background-color: transparent;
         padding-bottom: 5px;
-        margin-top: 12px;
-    }
+        margin: 0px;
+        /* margin-right:; */
+    }  
 }
 
 /* Band and Blog cards */

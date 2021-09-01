@@ -56,7 +56,7 @@
       <p>{{ band.biography | linebreaks }}</p>
     </div>
     <div class=" profile-buttons">
-      <a href="{% url 'all_bands' %}" class="btn btn-secondary"><i class="fas fa-chevron-left pe-2"></i>Back to
+      <a href="{% url 'all_bands' %}?sort=rating&direction=desc" class="btn btn-secondary"><i class="fas fa-chevron-left pe-2"></i>Back to
         Search</a>
       <a href="{% url 'new_booking' band.id %}" class="btn btn-primary">Book the Band<i
           class="fas fa-chevron-right ps-2"></i></a>

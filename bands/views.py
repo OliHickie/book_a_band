@@ -12,7 +12,7 @@ def all_bands(request):
     A view to display all bands and quick links
     """
     # Display bands, ordered by rating (highest first)
-    bands = Band.objects.all().order_by('-rating')
+    bands = Band.objects.all()
     categories = Category.objects.all()
     query = None
 
@@ -82,7 +82,7 @@ def all_bands(request):
                 bands = bands.filter(price__lt=500)
 
     # Pagination
-    paginator = Paginator(bands, 2)
+    paginator = Paginator(bands, 6)
 
     page_number = request.GET.get('page')
     page_bands = paginator.get_page(page_number)

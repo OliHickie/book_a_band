@@ -33,48 +33,45 @@
 
 <body>
   <header>
-    <div class="container-fluid nav-bar d-block d-lg-flex">
-      <div class="logo">
-        <a href="#">
-          <h1><i class="fas fa-compact-disc"></i> <strong>BOOKABAND</strong>
-          </h1>
-        </a>
+    <div class="container-fluid nav-bar">
+      <div class="row nav-top-row">
+        <div class=" col-12 col-lg-6 logo">
+          <a href="#">
+            <h1><i class="fas fa-compact-disc"></i> <strong>BOOKABAND</strong>
+            </h1>
+          </a>
+        </div>
+
+        <!-- Form visible for large screens -->
+        <div class="col-12 col-lg-6 d-none d-lg-inline text-right search-bar ms-auto">
+          <form class="mx-2 d-flex" method="GET" action="{% url 'all_bands' %}">
+            <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary" type="submit">Search</button>
+          </form>
+        </div>
       </div>
-      <nav class="navbar-expand-lg navbar-light">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-nav"
-          aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mobile-nav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="#">Home</a>
-            </li>
-            <!-- dropdown menu for larger screens -->
-            <li class="nav-item dropdown d-none d-lg-block">
-              <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Musicians
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{% url 'all_bands' %}">All Bands</a></li>
-                <li><a class="dropdown-item" href="#">Strings</a></li>
-                <li><a class="dropdown-item" href="#">Brass</a></li>
-                <li><a class="dropdown-item" href="#">Piano</a></li>
-                <li><a class="dropdown-item" href="#">Harp</a></li>
-                <li><a class="dropdown-item" href="#">Function Bands</a></li>
-                <li><a class="dropdown-item" href="#">DJ</a></li>
-              </ul>
-            </li>
-            <!-- Bootstrap accordian for smaller screens -->
-            <li class="nav-item accordian d-lg-none">
-              <a id="nav-accordian" class="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                aria-expanded="false" aria-controls="nav-accordian">
-                Musicians <i class="fas fa-sort-down"></i></a>
-              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="nav-accordian"
-                data-bs-parent="#accordionFlushExample">
-                <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="{% url 'all_bands' %}">All Bands</a></li>
+
+      <!-- Navbar  -->
+      <div class="row">
+        <nav class="col-12 navbar navbar-expand-lg navbar-light">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-nav"
+            aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse p-2" id="mobile-nav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="#">Home</a>
+              </li>
+              <!-- Musicians dropdown menu for larger screens -->
+              <li class="nav-item dropdown d-none d-lg-block">
+                <a class="dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Musicians
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                  <li><a class="dropdown-item" href="{% url 'all_bands' %}?sort=rating&direction=desc">All Bands</a>
+                  </li>
                   <li><a class="dropdown-item" href="#">Strings</a></li>
                   <li><a class="dropdown-item" href="#">Brass</a></li>
                   <li><a class="dropdown-item" href="#">Piano</a></li>
@@ -82,21 +79,70 @@
                   <li><a class="dropdown-item" href="#">Function Bands</a></li>
                   <li><a class="dropdown-item" href="#">DJ</a></li>
                 </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'all_blogs' %}">Blogs</a>
-            </li>
-            <li class="nav-item">
-              <a href="#">Contact</a>
-            </li>
-          </ul>
-          <form class="d-flex mx-2" method="GET" action="{% url 'all_bands' %}">
-            <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+              </li>
+              <!-- Musicians - Bootstrap accordian for smaller screens -->
+              <li class="nav-item accordian d-lg-none">
+                <a id="nav-accordian1" class="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                  aria-expanded="false" aria-controls="nav-accordian1">
+                  Musicians <i class="fas fa-sort-down"></i></a>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="nav-accordian1"
+                  data-bs-parent="#accordionFlushExample">
+                  <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{% url 'all_bands' %}?sort=rating&direction=desc">All Bands</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Strings</a></li>
+                    <li><a class="dropdown-item" href="#">Brass</a></li>
+                    <li><a class="dropdown-item" href="#">Piano</a></li>
+                    <li><a class="dropdown-item" href="#">Harp</a></li>
+                    <li><a class="dropdown-item" href="#">Function Bands</a></li>
+                    <li><a class="dropdown-item" href="#">DJ</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'all_blogs' %}">Blogs</a>
+              </li>
+              <!-- My Account dropdown menu for larger screens -->
+              <li class="nav-item dropdown d-none d-lg-block">
+                <a class="dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  My Account
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                  <li><a class="dropdown-item" href="#">Log In</a></li>
+                  <li><a class="dropdown-item" href="#">Create Account</a></li>
+                  <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+
+                </ul>
+              </li>
+              <!-- My Account - Bootstrap accordian for smaller screens -->
+              <li class="nav-item accordian d-lg-none">
+                <a id="nav-accordian2" class="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                  aria-expanded="false" aria-controls="nav-accordian2">
+                  My Account <i class="fas fa-sort-down"></i></a>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nav-accordian2"
+                  data-bs-parent="#accordionFlushExample">
+                  <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Log In</a></li>
+                    <li><a class="dropdown-item" href="#">Create Account</a></li>
+                    <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                    <li><a class="dropdown-item" href="#">Log Out</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="#">Contact</a>
+              </li>
+            </ul>
+            <!-- Search bar for smaller screens -->
+            <form class="d-flex mx-2 d-lg-none" method="GET" action="{% url 'all_bands' %}">
+              <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
+              <button class="btn btn-secondary" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+      </div>
     </div>
   </header>
 

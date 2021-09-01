@@ -21,13 +21,13 @@
         {% if request.GET %}
         <div>
             {% if query == None %}
-            Your search has returned {{ bands|length }} result{% if bands|length > 1 %}s{% endif %}
+            Currently viewing {{ bands|length }} bands
 
             {% else %}
             You have searched for "{{ query }}" which has {{ bands|length }} result{% if bands|length > 1 %}s{% endif %}
             {% endif %}
 
-            <a href="{% url 'all_bands' %}" class="ps-2"><small>clear search</small></a>
+            <a href="{% url 'all_bands' %}?sort=rating&direction=desc" class="ps-2"><small>clear search</small></a>
         </div>
         {% endif %}
     </div>
