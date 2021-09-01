@@ -1,8 +1,10 @@
 from django.db import models
 
+from profiles.models import UserProfile
+
 
 class NewBooking(models.Model):
-
+    user_profile = models.ForeignKey(UserProfile, null=True, on_delete=models.SET_NULL)
     client_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     contact_number = models.CharField(max_length=14, null=False, blank=False)
