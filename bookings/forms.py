@@ -6,7 +6,8 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = NewBooking
-        fields = ('client_name', 'email', 'contact_number',
+        exclude = ('email', 'band_name')
+        fields = ('client_name', 'contact_number',
                   'venue_name', 'venue_address1', 'venue_address2',
                   'county', 'postcode', 'wedding_date', 'start_time',
                   'emergency_contact', 'emergency_phone',
@@ -16,7 +17,6 @@ class BookingForm(forms.ModelForm):
 
         placeholders = {
             'client_name': 'Name',
-            'email': 'Email Address',
             'contact_number': 'Phone Number',
             'venue_name': 'Name of Venue',
             'venue_address1': 'Street Address 1',

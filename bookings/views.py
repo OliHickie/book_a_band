@@ -17,7 +17,6 @@ def new_booking(request, band_id):
 
         booking_form = {
             'client_name': request.POST['client_name'],
-            'email': request.POST['email'],
             'contact_number': request.POST['contact_number'],
             'venue_name': request.POST['venue_name'],
             'venue_address1': request.POST['venue_address1'],
@@ -33,6 +32,9 @@ def new_booking(request, band_id):
 
         form = BookingForm(booking_form)
         if form.is_valid():
+            booking_form = form.save(commit=False)
+            booking_form.email = request.user.email
+            booking_form.band_name = band.name
             form.save()
 
         return redirect('all_bands')

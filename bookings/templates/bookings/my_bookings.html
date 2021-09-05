@@ -22,9 +22,23 @@
 {% for booking in bookings %}
 <p>
     {{ booking.email }} <span class="ms-3">{{ booking.wedding_date }}</span>
+    
+        {% if booking.paid == False %}
+        <span class="ms-auto text-danger">
+            UNCONFIRMED
+        </span>
+        {% else %}
+        <span class="ms-auto text-success">
+            CONFIRMED
+        </span>
+        {% endif %}
+    
 </p>
 <p>
-    {{ booking.venue_name }}
+    {{ booking.client_name }}
+</p>
+<p>
+    {{ booking.band_name }}
 </p>
 <hr>
 {% endfor %}
