@@ -6,7 +6,7 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = NewBooking
-        exclude = ('email', 'band_name')
+        exclude = ('email', 'band_name', 'price')
         fields = ('client_name', 'contact_number',
                   'venue_name', 'venue_address1', 'venue_address2',
                   'county', 'postcode', 'wedding_date', 'start_time',

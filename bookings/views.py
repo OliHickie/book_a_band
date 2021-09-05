@@ -35,6 +35,7 @@ def new_booking(request, band_id):
             booking_form = form.save(commit=False)
             booking_form.email = request.user.email
             booking_form.band_name = band.name
+            booking_form.price = band.price
             form.save()
 
         return redirect('all_bands')
@@ -53,11 +54,17 @@ def my_bookings(request):
     A view to display users bookings
     """
     user = request.user.email
-    bookings = NewBooking.objects.filter(email=user)
+    bookings = NewBooking.objects.filter(email=user).order_by('paid')
+
+    unconfirmed_bookings = bookings.filter(paid=False)
+    total = 0
+    for booking in unconfirmed_bookings:
+        total += booking.price
 
     context = {
         'bookings': bookings,
         'user': user,
+        'total': total,
     }
 
     return render(request, 'bookings/my_bookings.html', context)

@@ -20,6 +20,7 @@ class NewBooking(models.Model):
     additional_information = models.TextField(null=True, blank=True)
     booking_created_at = models.DateTimeField(auto_now_add=True)
     booking_updated_at = models.DateTimeField(auto_now=True)
+    price = models.IntegerField(null=False, blank=False)
     paid = models.BooleanField(default=False)
 
     def __str__(self):

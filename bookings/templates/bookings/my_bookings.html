@@ -27,6 +27,9 @@
         <span class="ms-auto text-danger">
             UNCONFIRMED
         </span>
+        <span>
+            Price to pay: £{{ booking.price }}
+        </span>
         {% else %}
         <span class="ms-auto text-success">
             CONFIRMED
@@ -42,5 +45,9 @@
 </p>
 <hr>
 {% endfor %}
+
+<h2>
+    Total: £{{ total }}
+</h2>
 
 {% endblock %}
