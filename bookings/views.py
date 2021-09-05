@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import BookingForm
+from django.contrib.auth.decorators import login_required
 
+from .forms import BookingForm
+from .models import NewBooking
 from bands.models import Band
 
 
@@ -12,7 +14,6 @@ def new_booking(request, band_id):
     form = BookingForm()
 
     if request.method == 'POST':
-        # booking = request.session.get('booking', {})
 
         booking_form = {
             'client_name': request.POST['client_name'],
@@ -39,7 +40,22 @@ def new_booking(request, band_id):
     context = {
             'band': band,
             'form': form,
-            # 'booking': booking,
             }
 
     return render(request, 'bookings/new_booking.html', context)
+
+
+@login_required
+def my_bookings(request):
+    """
+    A view to display users bookings
+    """
+    user = request.user.email
+    bookings = NewBooking.objects.filter(email=user)
+
+    context = {
+        'bookings': bookings,
+        'user': user,
+    }
+
+    return render(request, 'bookings/my_bookings.html', context)

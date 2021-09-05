@@ -132,6 +132,7 @@ def add_band(request):
             return redirect('success')
     else:
         form = BandForm()
+
     return render(request, 'bands/add_band.html', {'form': form})
 
 

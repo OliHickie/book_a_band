@@ -322,6 +322,12 @@ h3 {
     max-width: 800px;
 }
 
+/* User Profile  */
+
+.user-details-form-field {
+    margin: 10px 0px;
+}
+
 /* blogs */
 
 .blog-img {
