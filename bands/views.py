@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import user_passes_test
 
 from .forms import BandForm
 from .models import Band, Category
@@ -118,6 +119,7 @@ def band_profile(request, band_id):
     return render(request, 'bands/band_profile.html', context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def add_band(request):
     """
     A view to add a new band to the database

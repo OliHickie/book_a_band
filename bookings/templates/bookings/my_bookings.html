@@ -9,33 +9,29 @@
 {% endblock %}
 
 {% block page_header %}
-<h2 class="text-d-blue mt-3">My Profile</h2>
+<h2 class="text-d-blue mt-3">My Bookings</h2>
 <hr>
 {% endblock %}
 
 {% block content %}
-<h3>My Bookings</h3>
-
-{{ user }}
-<hr>
 
 {% for booking in bookings %}
 <p>
     {{ booking.email }} <span class="ms-3">{{ booking.wedding_date }}</span>
-    
-        {% if booking.paid == False %}
-        <span class="ms-auto text-danger">
-            UNCONFIRMED
-        </span>
-        <span>
-            Price to pay: £{{ booking.price }}
-        </span>
-        {% else %}
-        <span class="ms-auto text-success">
-            CONFIRMED
-        </span>
-        {% endif %}
-    
+
+    {% if booking.paid == False %}
+    <span class="ms-auto text-danger">
+        UNCONFIRMED
+    </span>
+    <span>
+        Price to pay: £{{ booking.price }}
+    </span>
+    {% else %}
+    <span class="ms-auto text-success">
+        CONFIRMED
+    </span>
+    {% endif %}
+
 </p>
 <p>
     {{ booking.client_name }}
@@ -49,5 +45,7 @@
 <h2>
     Total: £{{ total }}
 </h2>
+
+    <button id="submitBtn" class="btn btn-primary" type="submit">Checkout</button>
 
 {% endblock %}

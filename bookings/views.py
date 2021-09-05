@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
+import stripe
+
 from .forms import BookingForm
 from .models import NewBooking
 from bands.models import Band

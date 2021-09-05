@@ -111,6 +111,9 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
 
                   {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                    <li><a class="dropdown-item" href="{% url 'add_band' %}">Add Band</a></li>
+                    {% endif %}
                   <li><a class="dropdown-item" href="#">My Bookings</a></li>
                   <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
                   {% else %}
