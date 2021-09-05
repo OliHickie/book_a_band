@@ -37,7 +37,8 @@
       <div class="row nav-top-row">
         <div class=" col-12 col-lg-6 logo">
           <a href="#">
-            <h1><i class="fas fa-compact-disc"></i> <strong>BOOKABAND</strong>
+            <h1 class="text-d-pink">
+              <i class="fas fa-compact-disc"></i> <strong>BOOKABAND</strong>
             </h1>
           </a>
         </div>
@@ -51,7 +52,7 @@
         </div>
       </div>
 
-      <!-- Navbar  -->
+      <!-- Navbar links -->
       <div class="row">
         <nav class="col-12 navbar navbar-expand-lg navbar-light">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-nav"
@@ -114,7 +115,7 @@
                     {% if request.user.is_superuser %}
                     <li><a class="dropdown-item" href="{% url 'add_band' %}">Add Band</a></li>
                     {% endif %}
-                  <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                  <li><a class="dropdown-item" href="{% url 'my_bookings' %}">My Bookings</a></li>
                   <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
                   {% else %}
                   <li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
@@ -130,16 +131,19 @@
                   My Account <i class="fas fa-sort-down"></i></a>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nav-accordian2"
                   data-bs-parent="#accordionFlushExample">
-                  <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
 
                     {% if request.user.is_authenticated %}
-                    <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                      {% if request.user.is_superuser %}
+                      <li><a class="dropdown-item" href="{% url 'add_band' %}">Add Band</a></li>
+                      {% endif %}
+                    <li><a class="dropdown-item" href="{% url 'my_bookings' %}">My Bookings</a></li>
                     <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
                     {% else %}
                     <li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
                     <li><a class="dropdown-item" href="{% url 'account_signup' %}">Create Account</a></li>
                     {% endif %}
-
+  
                   </ul>
                 </div>
               </li>
@@ -170,6 +174,65 @@
     {% endblock %}
 
   </div>
+ 
+  <footer class="container-fluid footer mt-5 p-3">
+    <div class="row">
+      <div class="col-12 logo text-center">
+        <a href="#" class="unstyled-link">
+          <h1 class="text-d-blue">
+            <i class="fas fa-compact-disc"></i> 
+            <strong>BOOKABAND</strong>
+          </h1>
+        </a>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <ul>
+          <li class="">
+            <a  href="{% url 'all_bands' %}?sort=rating&direction=desc">All Bands</a>
+          </li>
+          <li class="">
+            <a href="{% url 'all_blogs' %}">Blogs</a>
+          </li>
+          <li class="">
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-lg-4 d-lg-inline search-bar mx-auto">
+        <form class="d-flex" method="GET" action="{% url 'all_bands' %}">
+          <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
+          <button class="btn btn-secondary" type="submit">Search</button>
+        </form>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <p>
+          Contact Us
+        </p> 
+        <ul class="list-unstyled">
+          <li>
+            <i class="fas fa-envelope-open-text"></i>
+            <a href="" class="unstyled-link">info@bookaband.com</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <a href="" class="unstyled-link">+44 7788 123456</a>
+          </li>
+          <li>
+            <a href="" class="unstyled-link">
+            <p class="m-0"><i class="fas fa-home"></i>5 Chancery Lane, </p>
+            <p class="m-0">London</p>
+            <p class="m-0">EC4A 1BL</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+  </footer>
 
 </body>
 

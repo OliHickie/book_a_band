@@ -123,7 +123,6 @@ h3 {
 .logo h1 {
     font-family: 'Abril Fatface', cursive;
     font-size: 32px;
-    color: #8d3e5d;
 }
 
 .search-bar {
@@ -182,8 +181,13 @@ h3 {
         background-color: transparent;
         padding-bottom: 5px;
         margin: 0px;
-        /* margin-right:; */
     }  
+}
+
+/* Footer  */
+
+.footer {
+    background-color: #EED5DB;
 }
 
 /* Band and Blog cards */
