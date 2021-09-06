@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.http.response import JsonResponse
+
 
 import stripe
 
@@ -70,3 +73,28 @@ def my_bookings(request):
     }
 
     return render(request, 'bookings/my_bookings.html', context)
+
+
+@csrf_exempt
+def create_checkout_session(request):
+    if request.method == 'POST':
+        try:
+            checkout_session = stripe.checkout.Session.create(
+                line_items=[
+                    {
+                        'price': '1000',
+                        'quantity': 1,
+                    },
+                ],
+                customer_email=request.user.email,
+                payment_method_types='card',
+                currency='gbp',
+                mode='payment',
+                success_url='https://8000-lime-moose-106flrrt.ws-eu16.gitpod.io/bands/?sort=rating&direction=desc',
+                cancel_url='https://8000-lime-moose-106flrrt.ws-eu16.gitpod.io/bands/?sort=rating&direction=desc',
+            )
+
+            return JsonResponse({'sessionId': checkout_session.id})
+
+        except stripe.error.StripeError as error:
+            return JsonResponse({'error': str(error)})

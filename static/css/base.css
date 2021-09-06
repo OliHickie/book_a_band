@@ -5,6 +5,7 @@
 /* Quick links - delete before submission */
 /* 
 font-family: 'Playfair Display', serif;
+font-family: 'Abril Fatface', cursive;
 
 @media screen and (max-width: 600px) {
 }
@@ -190,6 +191,21 @@ h3 {
     background-color: #EED5DB;
 }
 
+.socials ul {
+    display: flex;
+    justify-content: space-around;
+    font-size: 32px;
+
+}
+
+.contact-us h5 {
+    font-family: 'Abril Fatface', cursive;
+}
+
+.address-icon {
+    vertical-align: top;
+}
+
 /* Band and Blog cards */
 
 .card-body {
@@ -215,7 +231,6 @@ h3 {
     color: #FFD700;
 }
 
-/* Hover effect from https://bbbootstrap.com/snippets/bootstrap-information-cards-hover-effect-58117258 */
 .blog-card {
     transition: all 0.2s ease;
     cursor: pointer;
@@ -303,6 +318,16 @@ h3 {
 .booking-form-field {
     margin: 8px 0px;
     max-width: 400px;
+}
+
+.user-email {
+    margin: 8px 0px;
+    padding: 6px 12px;
+    width: 400px;
+    border: solid 1px #ced4da;
+    background-color: #fff;
+    color: #6c757d;
+    
 }
 
 #ui-datepicker-div {

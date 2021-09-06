@@ -23,8 +23,8 @@
   <div class="row">
     <div class="col-12 col-lg-4">
       <p>About You:</p>
-      {{ user.email }}
       {{ form.client_name | as_crispy_field }}
+      <input type="text" placeholder="{{ user.email }}" class="booking-form-field textinput textInput form-control" readonly>
       {{ form.contact_number | as_crispy_field }}
 
       <p class="mt-4">About the Venue:</p>
