@@ -191,15 +191,19 @@ h3 {
     background-color: #EED5DB;
 }
 
+.footer-menu {
+    font-size: 20px;
+}
+
 .socials ul {
     display: flex;
     justify-content: space-around;
     font-size: 32px;
-
 }
 
-.contact-us h5 {
+footer h5 {
     font-family: 'Abril Fatface', cursive;
+    font-size: 24px;
 }
 
 .address-icon {
@@ -318,16 +322,6 @@ h3 {
 .booking-form-field {
     margin: 8px 0px;
     max-width: 400px;
-}
-
-.user-email {
-    margin: 8px 0px;
-    padding: 6px 12px;
-    width: 400px;
-    border: solid 1px #ced4da;
-    background-color: #fff;
-    color: #6c757d;
-    
 }
 
 #ui-datepicker-div {

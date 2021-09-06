@@ -24,7 +24,6 @@
     <div class="col-12 col-lg-4">
       <p>About You:</p>
       {{ form.client_name | as_crispy_field }}
-      <input type="text" placeholder="{{ user.email }}" class="booking-form-field textinput textInput form-control" readonly>
       {{ form.contact_number | as_crispy_field }}
 
       <p class="mt-4">About the Venue:</p>
@@ -72,8 +71,7 @@
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          The band will play for two sets up to 60mins in length. If you would like the band to play for longer, please
-          get in touch with us directly once your booking is confirmed. Details can be finalised via the phone call 3
+          The band will play two sets up to 60mins in length. If you would like the band to play for longer, please get in touch with us directly once your booking is confirmed. Details can be finalised via the phone call 3
           weeks before your wedding day.
         </div>
       </div>
