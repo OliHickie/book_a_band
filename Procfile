@@ -1,0 +1,1 @@
+web: gunicorn bookaband.wsgi:application
