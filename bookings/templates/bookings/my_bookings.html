@@ -1,23 +1,56 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_js %}
-<!-- Extra JS for date and time pickers -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-<script src="{% static 'bookings/js/bookings.js' %}"></script>
-{% endblock %}
-
 {% block page_header %}
 <h2 class="text-d-blue mt-3">My Bookings</h2>
 <hr>
 {% endblock %}
 
+
 {% block content %}
 
-{% for booking in bookings %}
+{% if bookings %}
+    {% for booking in unconfirmed_bookings %}
 
-<p>
+    <div class="booking py-1">
+        <span class="px-3"><strong>{{booking.band_name }}</strong></span>
+        <span class="px-3">{{ booking.venue_name }}</span>
+        <span class="px-3">{{booking.wedding_date }}</span>
+        <span class="px-3">{{ booking.start_time }}</span>
+        <span class="text-danger px-3">UNCONFIRMED</span>
+        <span class="px-3">Balance: £{{ booking.price }}</span>
+    </div>
+
+    {% endfor %}
+    {% if unconfirmed_bookings|length > 0 %}
+    <div class="text-end my-4">
+        <div class="my-2 text-danger"><strong>Total still to pay: £{{ total }}</strong></div>
+        <button type="submit" class="btn btn-primary" id="checkout-button">Checkout <i class="fas fa-chevron-right ps-1"></i></button>
+    </div>
+
+    <hr>
+    {% endif %}
+    {% for booking in confirmed_bookings %}
+
+    <div class="booking py-1">
+        <span class="px-3"><strong>{{booking.band_name }}</strong></span>
+        <span class="px-3">{{ booking.venue_name }}</span>
+        <span class="px-3">{{booking.wedding_date }}</span>
+        <span class="px-3">{{ booking.start_time }}</span>
+        <span class="text-success px-3">CONFIRMED</span>
+    </div>
+
+    {% endfor %}
+
+
+{% else %}
+<div class="row no-bookings">
+    <p class="text-center my-5">You currently have no bookings</p>
+</div>
+{% endif %}
+<!-- {% for booking in bookings %}
+
+ <p>
     {{ booking.email }} <span class="ms-3">{{ booking.wedding_date }}</span>
 
     {% if booking.paid == False %}
@@ -31,24 +64,23 @@
     <span class="ms-auto text-success">
         CONFIRMED
     </span>
+    <span>
+        Price to pay: £0
+    </span>
     {% endif %}
 
 </p>
-<p>
-    {{ booking.client_name }}
-</p>
-<p>
-    {{ booking.band_name }}
-</p>
+<p>{{ booking.client_name }}</p>
+<p>{{ booking.band_name }}</p>
 <hr>
+
 {% endfor %}
 
-<h2>
-    Total: £{{ total }}
-</h2>
+<div class="text-end">
+    <h3>Total: £{{ total }}</h3>
+    <button type="submit" class="btn btn-primary" id="checkout-button">Checkout <i class="fas fa-chevron-right ps-1"></i></button>
+</div> -->
 
-    <button type="submit" id="checkout-button">Checkout</button>
 
 
-   
 {% endblock %}

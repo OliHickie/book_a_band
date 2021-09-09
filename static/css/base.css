@@ -11,10 +11,6 @@ font-family: 'Abril Fatface', cursive;
 }
  */
 
-html {
-    height: 100%;
-}
-
 body {
     font-family: 'Playfair Display', serif;
     background: #ffe9e9;
@@ -191,6 +187,7 @@ h3 {
 
 .footer {
     background-color: #EED5DB;
+    margin-top: auto;
 }
 
 .footer-menu {
@@ -349,6 +346,11 @@ footer h5 {
 
 .terms {
     max-width: 800px;
+}
+
+.no-bookings,
+.booking {
+    font-size: 20px;
 }
 
 /* User Profile  */

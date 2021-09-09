@@ -61,6 +61,7 @@ def my_bookings(request):
     user = request.user.email
     bookings = NewBooking.objects.filter(email=user).order_by('paid')
 
+    confirmed_bookings = bookings.filter(paid=True)
     unconfirmed_bookings = bookings.filter(paid=False)
     total = 0
     for booking in unconfirmed_bookings:
@@ -69,32 +70,34 @@ def my_bookings(request):
     context = {
         'bookings': bookings,
         'user': user,
+        'confirmed_bookings': confirmed_bookings,
+        'unconfirmed_bookings': unconfirmed_bookings,
         'total': total,
     }
 
     return render(request, 'bookings/my_bookings.html', context)
 
 
-@csrf_exempt
-def create_checkout_session(request):
-    if request.method == 'POST':
-        try:
-            checkout_session = stripe.checkout.Session.create(
-                line_items=[
-                    {
-                        'price': '1000',
-                        'quantity': 1,
-                    },
-                ],
-                customer_email=request.user.email,
-                payment_method_types='card',
-                currency='gbp',
-                mode='payment',
-                success_url='https://8000-lime-moose-106flrrt.ws-eu16.gitpod.io/bands/?sort=rating&direction=desc',
-                cancel_url='https://8000-lime-moose-106flrrt.ws-eu16.gitpod.io/bands/?sort=rating&direction=desc',
-            )
+# @csrf_exempt
+# def create_checkout_session(request):
+#     if request.method == 'POST':
+#         try:
+#             checkout_session = stripe.checkout.Session.create(
+#                 line_items=[
+#                     {
+#                         'price': '1000',
+#                         'quantity': 1,
+#                     },
+#                 ],
+#                 customer_email=request.user.email,
+#                 payment_method_types='card',
+#                 currency='gbp',
+#                 mode='payment',
+#                 success_url='https://8000-lime-moose-106flrrt.ws-eu16.gitpod.io/bands/?sort=rating&direction=desc',
+#                 cancel_url='https://8000-lime-moose-106flrrt.ws-eu16.gitpod.io/bands/?sort=rating&direction=desc',
+#             )
 
-            return JsonResponse({'sessionId': checkout_session.id})
+#             return JsonResponse({'sessionId': checkout_session.id})
 
-        except stripe.error.StripeError as error:
-            return JsonResponse({'error': str(error)})
+#         except stripe.error.StripeError as error:
+#             return JsonResponse({'error': str(error)})
