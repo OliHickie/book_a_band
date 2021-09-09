@@ -9,30 +9,25 @@
 
 
 {% block content %}
-
-<div class="row">
-    <!-- Blog cards  -->
-    <div class="col-12 col-xl-9">
         <div class="row">
 
             {% for blog in blogs %}
-            <div class="col-12 col-md-4">
+            <div class="col-12 p-2 col-md-6 col-lg-4 col-xl-3">
                 <a href="{% url 'read_blog' blog.id %}" class="unstyled-link">
-                    <div class="card blog-card my-1">
-                        <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ band.title }}">
+                    <div class="card blog-card my-1 mx-auto">
+                        <img src="{{ blog.image.url }}" class="card-img-top blog-img-top" alt="{{ band.title }}">
                         <div class="blog-date">
                             <p class="text-center mx-auto rounded-circle">
                                 {{ blog.updated_at|date:"d M y" }}
                             </p>
                         </div>
                         <div class="card-text blog-title">
-                            <p class="text-capitalize text-center p-1">
+                            <p class="text-capitalize text-center p-1 text-d-blue">
                                 {{ blog.title }}
                             </p>
                         </div>
                     </div>
                 </a>
-
             </div>
             {% endfor %}
 

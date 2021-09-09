@@ -62,6 +62,7 @@ hr {
     color: #6085A9;
     border: 0;
     margin: 16px 0px;
+    z-index: 1;
 }
 
 /* links */
@@ -162,6 +163,7 @@ h3 {
     margin-top: 12px;
     margin-right: -16px;
     margin-left: -16px;
+    z-index: 2;
 }   
 
 @media screen and (min-width: 992px) {
@@ -238,7 +240,7 @@ footer h5 {
 .blog-card {
     transition: all 0.2s ease;
     cursor: pointer;
-
+    max-width: 300px;
 }
 
 .blog-card:hover {
@@ -303,6 +305,10 @@ footer h5 {
         height: 100px;
     }
 
+    .blog-img-top {
+        min-height: 160px;
+    }
+
     .card-title {
         font-size: 12px;
     }
@@ -355,7 +361,9 @@ footer h5 {
 
 .blog-img {
     height: 300px;
-    margin: 30px;
+    width: 100%;
+    padding: 20px 10px;
+    margin: 0 auto;
 }
 
 .blog-content {
@@ -375,4 +383,13 @@ footer h5 {
 
 .blog-social-link a:hover {
     color: #6085A9;
+}
+
+@media screen and (min-width: 480px) {
+    .blog-img {
+        height: 300px;
+        margin: 0;
+        width: auto;
+        padding: 30px;
+    }
 }
