@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from django.http.response import JsonResponse
-
 
 import stripe
 
@@ -43,7 +41,7 @@ def new_booking(request, band_id):
             booking_form.price = band.price
             form.save()
 
-        return redirect('all_bands')
+        return redirect('my_bookings')
 
     context = {
             'band': band,
