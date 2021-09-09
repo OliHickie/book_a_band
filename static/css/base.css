@@ -104,13 +104,13 @@ h3 {
 .nav-bar {
     background: url('/media/navbar_img.jpg') no-repeat left center;
     background-size: cover;
-    height: 280px;
+    height: 140px;
     width: 100%;
     padding: 15px;
 }
 
 .nav-top-row {
-    height: 200px;
+    height: 60px;
 }
 
 .logo a {
@@ -160,9 +160,17 @@ h3 {
     margin-right: -16px;
     margin-left: -16px;
     z-index: 2;
-}   
+}
 
 @media screen and (min-width: 992px) {
+    .nav-bar {
+        height: 280px;
+    }
+
+    .nav-top-row {
+        height: 200px;
+    }
+
     .logo h1 {
         font-size: 60px;
     }
@@ -180,7 +188,7 @@ h3 {
         background-color: transparent;
         padding-bottom: 5px;
         margin: 0px;
-    }  
+    }
 }
 
 /* Footer  */

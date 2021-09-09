@@ -9,6 +9,7 @@ from .models import NewBooking
 from bands.models import Band
 
 
+@login_required
 def new_booking(request, band_id):
     """
     A view to display booking form and process booking
