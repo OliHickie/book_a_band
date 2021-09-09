@@ -1,3 +1,8 @@
+.quick-links-dropdown .btn {
+    background-color: #fff;
+    border: solid 0.5px gray;
+}
+
 .sidebar {
     background-color: #fff;
     color: #93A5B4;
@@ -5,8 +10,11 @@
 
 .sidebar-links li a {
     color: #93A5B4;
-    /* text-decoration: none; */
     font-size: 18px;
+}
+
+.sidebar-links li a:hover {
+    color: #6085A9;
 }
 
 .sort-by a {
@@ -17,5 +25,10 @@
 .sort-by a:hover {
     color: #6085A9;
     font-weight: 600;
+}
+
+.by-location {
+    overflow-y: scroll;
+    height: 200px;
 }
 

@@ -13,7 +13,7 @@ font-family: 'Abril Fatface', cursive;
 
 body {
     font-family: 'Playfair Display', serif;
-    background: #ffe9e9;
+    background-color: #ffe9e9;
 }
 
 /* font colors  */
@@ -131,6 +131,10 @@ h3 {
 .nav-item {
     padding: 6px;
     font-size: 16px;
+}
+
+.nav-item a:hover {
+    color: #6085A9;
 }
 
 .nav-item a,

@@ -43,9 +43,9 @@
           </a>
         </div>
 
-        <!-- Form visible for large screens -->
+        <!-- Search bar visible for large screens -->
         <div class="col-12 col-lg-6 d-none d-lg-inline text-right search-bar ms-auto">
-          <form class="mx-2 d-flex" method="GET" action="{% url 'all_bands' %}">
+          <form class="px-2 d-flex input-group" method="GET" action="{% url 'all_bands' %}">
             <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
             <button class="btn btn-secondary" type="submit">Search</button>
           </form>
@@ -148,32 +148,9 @@
                   </ul>
                 </div>
               </li>
-              <!-- <li class="nav-item accordian d-lg-none">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Action
-            </button>
-            <div id="flush-collapse" class="accordion-collapse collapse" aria-labelledby="nav-accordian"
-              data-bs-parent="#accordionFlushExample2">
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                <li><a class="dropdown-item" href="{% url 'add_band' %}">Add Band</a></li>
-                {% endif %}
-                <li><a class="dropdown-item" href="{% url 'my_bookings' %}">My Bookings</a></li>
-                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
-                {% else %}
-                <li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
-                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Create Account</a></li>
-                {% endif %}
-
-              </ul>
-            </div>
-          </li> -->
             </ul>
             <!-- Search bar for smaller screens -->
-            <form class="d-flex mx-2 d-lg-none" method="GET" action="{% url 'all_bands' %}">
+            <form class="d-flex px-2 d-lg-none input-group" method="GET" action="{% url 'all_bands' %}">
               <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
               <button class="btn btn-secondary" type="submit">Search</button>
             </form>
@@ -183,7 +160,7 @@
     </div>
   </header>
 
-  <div class="container">
+  <main class="container pb-5">
 
     <div class="page-header">
       {% block page_header %}
@@ -194,7 +171,7 @@
     {% block content %}
     {% endblock %}
 
-  </div>
+  </main>
 
   <footer class="container-fluid footer p-3">
     <div class="row">
@@ -207,9 +184,9 @@
         </a>
       </div>
 
-      <!-- Quick links  -->
-      <div class="col-12 col-lg-4 footer-menu text-center text-d-blue">
-        <h5>Quick links</h5>
+      <!-- Menu  -->
+      <div class="col-12 col-md-6 col-lg-4 footer-menu text-center text-d-blue">
+        <h5>Menu</h5>
         <ul class="list-unstyled">
           <li class="">
             <a class="unstyled-link" href="#">Home</a>
@@ -239,7 +216,7 @@
       </div>
 
       <!-- Contact details  -->
-      <div class="col-12 col-lg-4 order-lg-3 contact-us text-d-blue text-center">
+      <div class="col-12 col-md-6 col-lg-4 order-lg-3 contact-us text-d-blue text-center">
         <h5>Contact Us</h5>
         <table class="mx-auto">
           <tr>
@@ -273,7 +250,7 @@
 
       <!-- Search bar and socials  -->
       <div class="col-12 col-lg-4 order-lg-2 d-lg-inline search-bar mx-auto">
-        <form class="d-flex" method="GET" action="{% url 'all_bands' %}">
+        <form class="d-flex input-group" method="GET" action="{% url 'all_bands' %}">
           <input class="form-control" type="text" name="q" placeholder="Search" aria-label="Search">
           <button class="btn btn-secondary" type="submit">Search</button>
         </form>
