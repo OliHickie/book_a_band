@@ -38,23 +38,27 @@
         <div class="row">
             <div class="col-6 col-md-3 text-center py-2">
                 <div class="dropdown quick-links-dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                      Sort All
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Sort All
                     </a>
                     <ul class="mt-2 ms-4 list-unstyled dropdown-menu">
                         <li>
-                            <a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?sort=rating&direction=desc">
+                            <a class="unstyled-link dropdown-item"
+                                href="{% url 'all_bands' %}?sort=rating&direction=desc">
                                 <i class="fas fa-caret-right"></i> Rating
                             </a>
                         </li>
                         <li>
-                            <a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?sort=price&direction=desc">
+                            <a class="unstyled-link dropdown-item"
+                                href="{% url 'all_bands' %}?sort=price&direction=desc">
                                 <i class="fas fa-caret-right"></i> Price <small>(highest
                                     first)</small>
                             </a>
                         </li>
                         <li>
-                            <a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?sort=price&direction=asc">
+                            <a class="unstyled-link dropdown-item"
+                                href="{% url 'all_bands' %}?sort=price&direction=asc">
                                 <i class="fas fa-caret-right"></i> Price <small>(lowest
                                     first)</small>
                             </a>
@@ -62,99 +66,110 @@
                         <li>
                             <a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?sort=name&direction=asc">
                                 <i class="fas fa-caret-right"></i> A - Z
-            
+
                             </a>
                         </li>
                         <li>
-                            <a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?sort=name&direction=desc">
+                            <a class="unstyled-link dropdown-item"
+                                href="{% url 'all_bands' %}?sort=name&direction=desc">
                                 <i class="fas fa-caret-right"></i> Z - A
-            
+
                             </a>
                         </li>
                     </ul>
-                  </div>
+                </div>
             </div>
             <div class="col-6 col-md-3 text-center py-2">
                 <div class="dropdown quick-links-dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                      By Group
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        By Group
                     </a>
                     <ul class="mt-2 ms-4 list-unstyled dropdown-menu">
 
                         {% for category in categories %}
                         <li>
-                            <a href="{% url 'all_bands' %}?group={{ category }}" class="text-capitalize unstyled-link dropdown-item">
+                            <a href="{% url 'all_bands' %}?group={{ category }}"
+                                class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i> {{ category }}
                             </a>
                         </li>
                         {% endfor %}
-            
+
                     </ul>
-                  </div>
+                </div>
             </div>
             <div class="col-6 col-md-3 text-center py-2">
                 <div class="dropdown quick-links-dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                      By Location
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        By Location
                     </a>
                     <ul class="mt-2 ms-4 list-unstyled dropdown-menu by-location">
 
                         {% for location, num in locations_counted.items %}
                         <li>
-                            <a href="{% url 'all_bands' %}?locations={{ location }}" class="text-capitalize unstyled-link dropdown-item">
+                            <a href="{% url 'all_bands' %}?locations={{ location }}"
+                                class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
                                 {{ location }} <small>({{ num }})</small>
                             </a>
                         </li>
                         {% endfor %}
-                        
+
                     </ul>
-                  </div>
+                </div>
             </div>
             <div class="col-6 col-md-3 text-center py-2">
                 <div class="dropdown quick-links-dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                      By Price
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        By Price
                     </a>
                     <ul class="mt-2 ms-4 list-unstyled dropdown-menu">
                         <li>
-                            <a href="{% url 'all_bands' %}?price=£2000" class="text-capitalize unstyled-link dropdown-item">
+                            <a href="{% url 'all_bands' %}?price=£2000"
+                                class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
                                 £2000 +
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'all_bands' %}?price=£1500" class="text-capitalize unstyled-link dropdown-item">
+                            <a href="{% url 'all_bands' %}?price=£1500"
+                                class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
                                 £1500 - £1999
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'all_bands' %}?price=£1000" class="text-capitalize unstyled-link dropdown-item">
+                            <a href="{% url 'all_bands' %}?price=£1000"
+                                class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
                                 £1000 - £1499
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'all_bands' %}?price=£500" class="text-capitalize unstyled-link dropdown-item">
+                            <a href="{% url 'all_bands' %}?price=£500"
+                                class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
                                 £500 - £999
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'all_bands' %}?price=Less than £500" class="text-capitalize unstyled-link dropdown-item">
+                            <a href="{% url 'all_bands' %}?price=Less than £500"
+                                class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
                                 Less than £500
                             </a>
                         </li>
                     </ul>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Side bar for xl screens  -->
-    <div class="d-none d-xl-block col-lg-3 sidebar">
+    <div class="d-none d-xl-block col-lg-3 sidebar p-3">
         <h3>Quick Links</h3>
         <hr class="mb-2">
         <h4>Sort All Bands</h4>
@@ -257,19 +272,37 @@
         <div class="row">
 
             {% for band in page_bands %}
-            <div class="col-6 col-md-4 py-4">
+            <div class="col-12 col-md-4 py-4">
                 <div class="card my-1">
+                    <!-- Card imgae  -->
                     {% if band.image_one %}
                     <img src="{{ band.image_one.url }}" class="card-img-top" alt="{{ band.name }}">
                     {% else %}
                     <img src="https://mikestaff.com/wp-content/uploads/2020/12/bride-and-groom-dancing-with-guest-at-wedding-reception.jpg"
                         class="card-img-top" alt="Generic Wedding Photo">
                     {% endif %}
+
                     <div class="card-body">
-                        <p class="card-title m-0 text-d-blue">{{ band.name }}</p>
-                        <p class="card-text m-0">£{{ band.price }}</p>
-                        <p class="card-text m-0"><i class="fas fa-star"></i> {{ band.rating }} / 5</p>
-                        <p class="card-text m-0">
+                        <p class="card-title m-0 text-d-blue text-center text-uppercase"><strong>
+                                {{ band.name }}
+                            </strong></p>
+                        <div class="row">
+                            <div class="col-6 card-text lg-font m-0 text-d-pink"><strong>
+                                 £{{ band.price }}</strong>
+                            </div>
+                            <div class="col-6 card-text lg-font m-0">
+                                <i class="fas fa-star"></i> 
+                                {{ band.rating }} / 5
+                            </div>
+                        </div>
+                        <!-- <p class=" d-">
+                            
+                        </p>
+                        <p class="card-text lg-font m-0">
+                            <i class="fas fa-star"></i> 
+                        </p>
+                        <p class="card-text m-0"></p> -->
+                        <p class="card-text m-0 text-muted">
                             <i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}
                         </p>
                         <a href="{% url 'band_profile' band.id %}" class="btn btn-primary">View Profile <i
@@ -285,8 +318,10 @@
         <div class="pagination m-3">
             <span class="step-links text-d-blue">
                 {% if page_bands.has_previous %}
-                <a class="mx-3 unstyled-link" href="{{ request.get_full_path }}&page=1"><i class="fas fa-step-backward"></i> first</a>
-                <a class="mx-2 unstyled-link" href="{{ request.get_full_path }}&page={{ page_bands.previous_page_number }}"><i
+                <a class="mx-3 unstyled-link" href="{{ request.get_full_path }}&page=1"><i
+                        class="fas fa-step-backward"></i> first</a>
+                <a class="mx-2 unstyled-link"
+                    href="{{ request.get_full_path }}&page={{ page_bands.previous_page_number }}"><i
                         class="fas fa-chevron-left"></i> previous</a>
                 {% endif %}
 
@@ -300,7 +335,8 @@
                 <a class="unstyled-link mx-2" href="{{ request.get_full_path }}&page={{ page_bands.next_page_number }}">
                     next <i class="fas fa-chevron-right"></i>
                 </a>
-                <a class="mx-3 unstyled-link" href="{{ request.get_full_path }}&page={{ page_bands.paginator.num_pages }}">last <i
+                <a class="mx-3 unstyled-link"
+                    href="{{ request.get_full_path }}&page={{ page_bands.paginator.num_pages }}">last <i
                         class="fas fa-step-forward"></i></a>
                 {% endif %}
             </span>

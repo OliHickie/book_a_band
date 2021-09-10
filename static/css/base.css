@@ -237,9 +237,13 @@ footer h5 {
 }
 
 .card-title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
     overflow: hidden;
+}
+
+.lg-font {
+    font-size: 20px;
 }
 
 .fa-star {
@@ -305,31 +309,20 @@ footer h5 {
 }
 
 @media screen and (max-width: 480px) {
+    .card {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
     .card-body {
         height: 140px;
         padding: 8px;
-    }
-
-    .card-img-top {
-        height: 100px;
     }
 
     .blog-img-top {
         min-height: 160px;
     }
 
-    .card-title {
-        font-size: 12px;
-    }
-
-    .card-text {
-        font-size: 12px;
-        margin-bottom: 10px;
-    }
-
-    .card-body .btn-primary {
-        font-size: 10px;
-    }
 }
 
 /* Booking Form */
