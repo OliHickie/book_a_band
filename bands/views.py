@@ -83,7 +83,7 @@ def all_bands(request):
                 bands = bands.filter(price__lt=500)
 
     # Pagination
-    paginator = Paginator(bands, 6)
+    paginator = Paginator(bands, 9)
 
     page_number = request.GET.get('page')
     page_bands = paginator.get_page(page_number)
