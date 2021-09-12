@@ -21,12 +21,15 @@
 <form method="POST" action="{% url 'new_booking' band.id %}">
   {% csrf_token %}
   <div class="row">
-    <div class="col-12 col-lg-4">
-      <p>About You:</p>
+    <div class="col-12 col-lg-4 booking-form">
+      <p><strong>About You:</strong></p>
+      <hr>
+
       {{ form.client_name | as_crispy_field }}
       {{ form.contact_number | as_crispy_field }}
 
-      <p class="mt-4">About the Venue:</p>
+      <p class="mt-4"><strong>About the Venue:</strong></p>
+      <hr>
       {{ form.venue_name | as_crispy_field }}
       {{ form.venue_address1 | as_crispy_field }}
       {{ form.venue_address2 | as_crispy_field }}
@@ -34,8 +37,9 @@
       {{ form.postcode | as_crispy_field }}
 
     </div>
-    <div class="col-12 col-lg-4">
-      <p>On the day:</p>
+    <div class="col-12 col-lg-4 booking-form">
+      <p><strong>On the day:</strong></p>
+      <hr>
       {{ form.wedding_date | as_crispy_field }}
       {{ form.start_time | as_crispy_field }}
       {{ form.emergency_contact | as_crispy_field }}
@@ -45,7 +49,7 @@
         <i class="fas fa-chevron-right ms-1"></i>
       </button>
     </div>
-    <div class="col-12 col-lg-4">
+    <div class="col-12 col-lg-4 booking-form">
       {% if band.image_one %}
       <img src="{{ band.image_one.url }}" alt="{{ band.name }}" class="w-100 pt-4">
       {% else %}

@@ -1,8 +1,11 @@
 $(document).ready(function () {
 
+    // jQuery datepicker
     $("#datepicker").datepicker({
     changeMonth: true,
-    changeYear: true
+    changeYear: true,
+    dateFormat: 'dd-mm-yy',
+    minDate : 0
     });
 
     // https://timepicker.co/# 

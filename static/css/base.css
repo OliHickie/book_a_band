@@ -348,6 +348,11 @@ footer h5 {
     margin-right: 10px;
 }
 
+.booking-form label {
+    color: #6085A9;
+    font-size: 12px;
+}
+
 .terms {
     max-width: 800px;
 }

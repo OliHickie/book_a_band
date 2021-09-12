@@ -91,12 +91,14 @@
                   <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
                     <li><a href="{% url 'all_bands' %}?sort=rating&direction=desc">All Bands</a>
                     </li>
-                    <li><a href="#">Strings</a></li>
-                    <li><a href="#">Brass</a></li>
-                    <li><a href="#">Piano</a></li>
-                    <li><a href="#">Harp</a></li>
-                    <li><a href="#">Function Bands</a></li>
-                    <li><a href="#">DJ</a></li>
+                    
+                    {% for category in categories %}
+                    <li><a href="{% url 'all_bands' %}?group={{ category }}">{{ category }}</a>
+                      </a>
+                    </li>
+                    {% endfor %}
+
+                 
                   </ul>
                 </div>
               </li>
@@ -126,8 +128,8 @@
               </li>
               <!-- My Account - Bootstrap accordian for smaller screens -->
               <li class="nav-item accordian d-lg-none">
-                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                  aria-expanded="false" aria-controls="collapseTwo">
+                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                  aria-controls="collapseTwo">
                   My Account <i class="fas fa-sort-down"></i>
                 </a>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"

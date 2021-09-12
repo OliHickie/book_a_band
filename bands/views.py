@@ -62,11 +62,10 @@ def all_bands(request):
             queries = Q(location__icontains=query)
             bands = bands.filter(queries)
 
-        # if 'group' in request.GET:
-        #     query = request.GET['group']
-        #     if query == 'strings':
-        #         query = 1
-        #     bands = bands.filter(category__name__in=query)
+        # Search by group
+        if 'group' in request.GET:
+            query = request.GET['group']
+            bands = bands.filter(category__name=query)
 
         # Search by price
         if 'price' in request.GET:
