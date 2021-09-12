@@ -15,7 +15,11 @@
             <div class="col-12 p-2 col-md-6 col-lg-4 col-xl-3">
                 <a href="{% url 'read_blog' blog.id %}" class="unstyled-link">
                     <div class="card blog-card my-1 mx-auto">
+                        {% if blog.image %}
                         <img src="{{ blog.image.url }}" class="card-img-top blog-img-top" alt="{{ band.title }}">
+                        {% else %}
+                        <img src="https://traveltradeluxury.com/media/k2/items/cache/7a4010c728df5112a2a660b7127561f8_L.jpg" class="card-img-top blog-img-top" alt="Wedding rings">
+                        {% endif %}
                         <div class="blog-date">
                             <p class="text-center mx-auto rounded-circle">
                                 {{ blog.updated_at|date:"d M y" }}

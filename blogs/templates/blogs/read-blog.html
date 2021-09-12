@@ -21,12 +21,18 @@
     <p>
         by <strong>{{ blog.author }}</strong>
     </p>
-    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-img float-end">
+
+    {% if blog.image %}
+    <img src="{{ blog.image.url }}" class="blog-img float-end" alt="{{ band.title }}">
+    {% else %}
+    <img src="https://traveltradeluxury.com/media/k2/items/cache/7a4010c728df5112a2a660b7127561f8_L.jpg"
+        class="blog-img float-end" alt="Wedding rings">
+    {% endif %}
 
     <p>{{ blog.content| linebreaks }}</p>
     <br>
     <p>Source: <a href="{{ blog.source }}" class="unstyled-link"><em>{{ blog.source }}</em></a></p>
-    
+
     <hr>
     <div class="row">
         <p class="blog-social text-d-blue">Like what you've read? Let others enjoy it too and share the blog on social
@@ -38,11 +44,6 @@
             {% post_to_whatsapp object_or_url " " "fab fa-whatsapp unstyled-link d-inline" %}
         </div>
     </div>
-
-
-
-
-
 </div>
 
 {% endblock %}

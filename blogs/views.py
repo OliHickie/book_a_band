@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import user_passes_test
 
 from .models import Blog
+from .forms import BlogForm
 
 
 def all_blogs(request):
@@ -28,3 +30,22 @@ def read_blog(request, blog_id):
     }
 
     return render(request, 'blogs/read-blog.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def add_blog(request):
+    """
+    A view to add a new band to the database
+    """
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            # change to form when messages complete
+            return redirect('all_blogs')
+    else:
+        form = BlogForm()
+
+    return render(request, 'blogs/add_blog.html', {'form': form})
