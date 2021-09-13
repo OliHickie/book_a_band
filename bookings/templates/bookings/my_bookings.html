@@ -25,7 +25,7 @@
     {% if unconfirmed_bookings|length > 0 %}
     <div class="text-end my-4">
         <div class="my-2 text-danger"><strong>Total still to pay: £{{ request.session.balance }}</strong></div>
-        <button type="submit" class="btn btn-primary" id="checkout-button">Checkout <i class="fas fa-chevron-right ps-1"></i></button>
+        <a href="{% url 'payments' %}" class="btn btn-primary" id="checkout-button">Checkout <i class="fas fa-chevron-right ps-1"></i></a>
     </div>
 
     <hr>

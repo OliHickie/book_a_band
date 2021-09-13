@@ -13,28 +13,40 @@
 
 {% block content %}
 
-<div class="text-center">
-    <p>Balance still to pay: £{{ stripe_balance }}</p>
-</div>
+
 
 <div class="row">
     <div class="col-12 col-lg-6">
-        <fieldset>
-            <div class="" id="card-element"></div>
-            <div class="text-danger p-3" id="card-errors" role="alert"></div>
-            <input type="hidden" value="{{ client_secret }}" name="client_secret">
-        </fieldset>
+        <div class="text-center">
+            <p>Balance still to pay: £{{ balance }}</p>
+        </div>
+        <form action="{% url 'my_bookings' %}" method="POST" id="payment-form">
+            {% csrf_token %}
+            <div class="py-3">
+                <input type="text" class="form-control border-0" id="card-name" aria-describedby="card-name" placeholder="Name on card">
+                <label for="card-name" class="sr-only">Name on card</label>
+            </div>
+            <fieldset class="px-3">
+                <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                <!-- A Stripe card element will go here -->
+                <div class="mb-3" id="card-element"></div>
+                <!-- Used to display form errors -->
+                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                <!-- Pass the client secret to the view so we can get the payment intent id -->
+                <input type="hidden" value="{{ client_secret }}" name="client_secret">
+            </fieldset>
+            <button class="btn btn-primary" id="submit-button" type="submit">Make Payment</button>
+        </form>
     </div>
 </div>
-
 
 {% endblock %}
 
 {% block postloadjs %}
 
 {{ block.super }}
-{{ stripe_public_key | json_script:'id_stripe_public_key' }}
-{{ client_secret | json_script:'id_client_secret' }}
+{{ stripe_public_key|json_script:'id_stripe_public_key' }}
+{{ client_secret|json_script:'id_client_secret' }}
 <script src="{% static 'bookings/js/stripe_elements.js' %}"></script>
 
 {% endblock %}
