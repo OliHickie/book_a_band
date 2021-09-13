@@ -24,6 +24,8 @@
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/8b879e8b27.js" crossorigin="anonymous"></script>
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
 
   {% block extra_js %}
   {% endblock %}
@@ -283,18 +285,8 @@
     </div>
   </footer>
 
+  {% block postloadjs %}
+  {% endblock %}
 </body>
-
-<script>
-  // // Add slideDown animation to Bootstrap dropdown when expanding.
-  // $('.dropdown').on('show.bs.dropdown', function () {
-  //   $(this).find('.dropdown-menu').slideDown();
-  // });
-
-  // // Add slideUp animation to Bootstrap dropdown when collapsing.
-  // $('.dropdown').on('hide.bs.dropdown', function () {
-  //   $(this).find('.dropdown-menu').slideUp();
-  // });
-</script>
 
 </html>

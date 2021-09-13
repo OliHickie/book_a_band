@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 
 import stripe
 
@@ -66,37 +66,39 @@ def my_bookings(request):
     for booking in unconfirmed_bookings:
         total += booking.price
 
+    request.session['balance'] = total
+
     context = {
         'bookings': bookings,
         'user': user,
         'confirmed_bookings': confirmed_bookings,
         'unconfirmed_bookings': unconfirmed_bookings,
-        'total': total,
     }
 
     return render(request, 'bookings/my_bookings.html', context)
 
 
-# @csrf_exempt
-# def create_checkout_session(request):
-#     if request.method == 'POST':
-#         try:
-#             checkout_session = stripe.checkout.Session.create(
-#                 line_items=[
-#                     {
-#                         'price': '1000',
-#                         'quantity': 1,
-#                     },
-#                 ],
-#                 customer_email=request.user.email,
-#                 payment_method_types='card',
-#                 currency='gbp',
-#                 mode='payment',
-#                 success_url='https://8000-lime-moose-106flrrt.ws-eu16.gitpod.io/bands/?sort=rating&direction=desc',
-#                 cancel_url='https://8000-lime-moose-106flrrt.ws-eu16.gitpod.io/bands/?sort=rating&direction=desc',
-#             )
+def payments(request):
+    """
+    A view to handle Stripe payments
+    """
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-#             return JsonResponse({'sessionId': checkout_session.id})
+    balance = request.session['balance']
+    stripe_balance = int(balance)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_balance,
+        currency=settings.STRIPE_CURRENCY,
+    )
 
-#         except stripe.error.StripeError as error:
-#             return JsonResponse({'error': str(error)})
+    print(intent)
+
+    context = {
+        'stripe_public_key': stripe_public_key,
+        'client_secret': stripe_secret_key,
+        'stripe_balance': stripe_balance,
+    }
+
+    return render(request, 'bookings/payments.html', context)

@@ -24,7 +24,7 @@
     {% endfor %}
     {% if unconfirmed_bookings|length > 0 %}
     <div class="text-end my-4">
-        <div class="my-2 text-danger"><strong>Total still to pay: £{{ total }}</strong></div>
+        <div class="my-2 text-danger"><strong>Total still to pay: £{{ request.session.balance }}</strong></div>
         <button type="submit" class="btn btn-primary" id="checkout-button">Checkout <i class="fas fa-chevron-right ps-1"></i></button>
     </div>
 
@@ -48,39 +48,6 @@
     <p class="text-center my-5">You currently have no bookings</p>
 </div>
 {% endif %}
-<!-- {% for booking in bookings %}
-
- <p>
-    {{ booking.email }} <span class="ms-3">{{ booking.wedding_date }}</span>
-
-    {% if booking.paid == False %}
-    <span class="ms-auto text-danger">
-        UNCONFIRMED
-    </span>
-    <span>
-        Price to pay: £{{ booking.price }}
-    </span>
-    {% else %}
-    <span class="ms-auto text-success">
-        CONFIRMED
-    </span>
-    <span>
-        Price to pay: £0
-    </span>
-    {% endif %}
-
-</p>
-<p>{{ booking.client_name }}</p>
-<p>{{ booking.band_name }}</p>
-<hr>
-
-{% endfor %}
-
-<div class="text-end">
-    <h3>Total: £{{ total }}</h3>
-    <button type="submit" class="btn btn-primary" id="checkout-button">Checkout <i class="fas fa-chevron-right ps-1"></i></button>
-</div> -->
-
 
 
 {% endblock %}
