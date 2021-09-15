@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'bookings/css/bookings.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <h2 class="text-d-blue mt-3">My Bookings</h2>
 <hr>
@@ -8,46 +12,71 @@
 
 
 {% block content %}
-
 {% if bookings %}
-    {% for booking in unconfirmed_bookings %}
 
-    <div class="booking py-1">
-        <span class="px-3"><strong>{{booking.band_name }}</strong></span>
-        <span class="px-3">{{ booking.venue_name }}</span>
-        <span class="px-3">{{booking.wedding_date }}</span>
-        <span class="px-3">{{ booking.start_time }}</span>
-        <span class="text-danger px-3">UNCONFIRMED</span>
-        <span class="px-3">Balance: £{{ booking.price }}</span>
-    </div>
+<div>
+    <table class="booking-table mx-auto table">
+        <thead>
+            <tr>
+                <th>Band Name</th>
+                <th class="d-none d-lg-table-cell">Venue</th>
+                <th>Date</th>
+                <th class="d-none d-lg-table-cell">Start Time</th>
+                <th>Confirmed</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
 
-    {% endfor %}
+        <tbody>
+          
+            {% for booking in unconfirmed_bookings %}
+
+            <tr>
+                <td class=""><strong>{{booking.band_name }}</strong></td>
+                <td class="d-none d-lg-table-cell">{{ booking.venue_name }}</td>
+                <td class="">{{booking.wedding_date }}</td>
+                <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
+                <td class="text-danger ">UNCONFIRMED</td>
+                <td class="">£{{ booking.price }}</td>
+            </tr>
+
+            {% endfor %}
+
+            {% for booking in confirmed_bookings %}
+
+            <tr>
+                <td class=""><strong>{{booking.band_name }}</strong></td>
+                <td class="d-none d-lg-table-cell">{{ booking.venue_name }}</td>
+                <td class="">{{booking.wedding_date }}</td>
+                <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
+                <td class="text-success ">CONFIRMED</td>
+                <td class="">PAID</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
     {% if unconfirmed_bookings|length > 0 %}
     <div class="text-end my-4">
         <div class="my-2 text-danger"><strong>Total still to pay: £{{ request.session.balance }}</strong></div>
-        <a href="{% url 'payments' %}" class="btn btn-primary" id="checkout-button">Checkout <i class="fas fa-chevron-right ps-1"></i></a>
+        <a href="{% url 'payments' %}" class="btn btn-primary" id="checkout-button">Checkout <i
+                class="fas fa-chevron-right ps-1"></i></a>
     </div>
-
-    <hr>
     {% endif %}
-    {% for booking in confirmed_bookings %}
 
-    <div class="booking py-1">
-        <span class="px-3"><strong>{{booking.band_name }}</strong></span>
-        <span class="px-3">{{ booking.venue_name }}</span>
-        <span class="px-3">{{booking.wedding_date }}</span>
-        <span class="px-3">{{ booking.start_time }}</span>
-        <span class="text-success px-3">CONFIRMED</span>
+
+    {% else %}
+    <div class="row no-bookings">
+        <p class="text-center my-5">You currently have no bookings</p>
+        <div class="text-center">
+            <a class="btn btn-primary" href="{% url 'all_bands' %}">Find a Band!</a>
+        </div>
     </div>
+    {% endif %}
 
-    {% endfor %}
 
-
-{% else %}
-<div class="row no-bookings">
-    <p class="text-center my-5">You currently have no bookings</p>
 </div>
-{% endif %}
 
 
 {% endblock %}
