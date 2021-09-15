@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import datetime
@@ -87,12 +87,15 @@ def payments(request):
     """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    
+    user = request.user.email
+    unconfirmed_bookings = NewBooking.objects.filter(email=user, paid=False)
 
-    if request == 'POST':
+    if request.method == 'POST':
         # If payment is successful, change all bookings to CONFIRMED
-        user = request.user.email
-        bookings = NewBooking.objects.filter(email=user)
-        bookings.update(paid=True)
+        unconfirmed_bookings.update(paid=True)
+
+        return redirect(reverse('my_bookings'))
 
     else:
         balance = request.session['balance']
@@ -108,6 +111,7 @@ def payments(request):
         'client_secret': intent.client_secret,
         'stripe_balance': stripe_balance,
         'balance': balance,
+        'unconfirmed_bookings': unconfirmed_bookings,
     }
 
     return render(request, 'bookings/payments.html', context)

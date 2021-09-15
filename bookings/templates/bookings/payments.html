@@ -13,14 +13,39 @@
 
 {% block content %}
 
-
-
 <div class="row">
     <div class="col-12 col-lg-6">
-        <div class="text-center">
-            <p>Balance still to pay: £{{ balance }}</p>
+        <div class="p-5">
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Band Name</strong></p>
+                </div>
+                <div class="col-6">
+                    <p class="text-end">
+                        <strong>Price</strong> 
+                    </p>
+                </div>
+            </div>
+
+            {% for band in unconfirmed_bookings %}
+            <div class="row">
+                <div class="col-6">
+                    <p>{{band.band_name}}</p>
+                </div>
+                <div class="col-6">
+                    <p class="text-end">
+                        £{{ band.price }}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+
+            <hr>
+            <p class="text-end mt-3">Outstanding Balance: £{{ balance }}</p>
         </div>
-        <form action="{% url 'my_bookings' %}" method="POST" id="payment-form">
+
+        <p>Please enter Payment details below:</p>
+        <form action="{% url 'payments' %}" method="POST" id="payment-form">
             {% csrf_token %}
             <div class="p-3">
                 <input type="text" class="form-control border-0" id="card-name" aria-describedby="card-name" placeholder="Name on card" required>
@@ -36,6 +61,11 @@
             </fieldset>
             <button class="btn btn-primary m-3" id="submit-button" type="submit">Make Payment</button>
         </form>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="p-3">
+            <img class="w-100" src="https://www.weddingideasmag.com/wp-content/uploads/2013/10/Bride-and-groom-dancing.jpg" alt="Wedding party">
+        </div>
     </div>
 </div>
 
