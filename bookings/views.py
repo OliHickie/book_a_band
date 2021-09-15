@@ -63,8 +63,6 @@ def my_bookings(request):
     user = request.user.email
     bookings = NewBooking.objects.filter(email=user).order_by('paid')
 
-    print("Bookings", bookings)
-
     confirmed_bookings = bookings.filter(paid=True)
     unconfirmed_bookings = bookings.filter(paid=False)
     total = 0
@@ -90,13 +88,20 @@ def payments(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    balance = request.session['balance']
-    stripe_balance = int(balance * 100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_balance,
-        currency=settings.STRIPE_CURRENCY,
-    )
+    if request == 'POST':
+        # If payment is successful, change all bookings to CONFIRMED
+        user = request.user.email
+        bookings = NewBooking.objects.filter(email=user)
+        bookings.update(paid=True)
+
+    else:
+        balance = request.session['balance']
+        stripe_balance = int(balance * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_balance,
+            currency=settings.STRIPE_CURRENCY,
+        )
 
     context = {
         'stripe_public_key': stripe_public_key,
