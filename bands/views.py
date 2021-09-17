@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
@@ -128,14 +127,7 @@ def add_band(request):
 
         if form.is_valid():
             form.save()
-            # change to form when messages complete
-            return redirect('success')
     else:
         form = BandForm()
 
     return render(request, 'bands/add_band.html', {'form': form})
-
-
-# remove once messages complete
-def success(request):
-    return HttpResponse('successfully uploaded')

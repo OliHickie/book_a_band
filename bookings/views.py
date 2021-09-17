@@ -81,13 +81,14 @@ def my_bookings(request):
     return render(request, 'bookings/my_bookings.html', context)
 
 
+@login_required
 def payments(request):
     """
     A view to handle Stripe payments
     """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    
+
     user = request.user.email
     unconfirmed_bookings = NewBooking.objects.filter(email=user, paid=False)
 
