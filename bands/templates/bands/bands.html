@@ -43,39 +43,22 @@
                         Sort By
                     </a>
                     <ul class="mt-2 ms-4 list-unstyled dropdown-menu">
-                        <li>
-                            <a class="unstyled-link dropdown-item"
+                        <li><a class="unstyled-link dropdown-item"
                                 href="{% url 'all_bands' %}?sort=rating&direction=desc">
-                                <i class="fas fa-caret-right"></i> Rating
-                            </a>
-                        </li>
-                        <li>
-                            <a class="unstyled-link dropdown-item"
+                                <i class="fas fa-caret-right"></i> Rating</a></li>
+                        <li><a class="unstyled-link dropdown-item"
                                 href="{% url 'all_bands' %}?sort=price&direction=desc">
                                 <i class="fas fa-caret-right"></i> Price <small>(highest
-                                    first)</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="unstyled-link dropdown-item"
+                                    first)</small></a></li>
+                        <li><a class="unstyled-link dropdown-item"
                                 href="{% url 'all_bands' %}?sort=price&direction=asc">
                                 <i class="fas fa-caret-right"></i> Price <small>(lowest
-                                    first)</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?sort=name&direction=asc">
-                                <i class="fas fa-caret-right"></i> A - Z
-
-                            </a>
-                        </li>
-                        <li>
-                            <a class="unstyled-link dropdown-item"
+                                    first)</small></a></li>
+                        <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?sort=name&direction=asc">
+                                <i class="fas fa-caret-right"></i> A - Z </a></li>
+                        <li><a class="unstyled-link dropdown-item"
                                 href="{% url 'all_bands' %}?sort=name&direction=desc">
-                                <i class="fas fa-caret-right"></i> Z - A
-
-                            </a>
-                        </li>
+                                <i class="fas fa-caret-right"></i> Z - A</a></li>
                     </ul>
                 </div>
             </div>
@@ -87,15 +70,18 @@
                     </a>
                     <ul class="mt-2 ms-4 list-unstyled dropdown-menu">
 
-                        {% for category in categories %}
-                        <li>
-                            <a href="{% url 'all_bands' %}?group={{ category }}"
-                                class="text-capitalize unstyled-link dropdown-item">
-                                <i class="fas fa-caret-right"></i> {{ category }}
-                            </a>
-                        </li>
-                        {% endfor %}
-
+                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=strings">
+                            <iclass="fas fa-caret-right"></i> Strings</a></li>
+                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=brass">
+                            <i class="fas fa-caret-right"></i> Brass</a></li>
+                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=piano">
+                            <i class="fas fa-caret-right"></i> Piano</a></li>
+                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=harp">
+                            <i class="fas fa-caret-right"></i> Harp</a></li>
+                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=function_bands">
+                            <i class="fas fa-caret-right"></i> Function Bands</a></li>
+                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=djs">
+                            <i class="fas fa-caret-right"></i> DJs</a></li>
                     </ul>
                 </div>
             </div>

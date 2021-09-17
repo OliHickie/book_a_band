@@ -75,12 +75,13 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                   <li><a class="dropdown-item" href="{% url 'all_bands' %}?sort=rating&direction=desc">All Bands</a>
                   </li>
-                  <li><a class="dropdown-item" href="#">Strings</a></li>
-                  <li><a class="dropdown-item" href="#">Brass</a></li>
-                  <li><a class="dropdown-item" href="#">Piano</a></li>
-                  <li><a class="dropdown-item" href="#">Harp</a></li>
-                  <li><a class="dropdown-item" href="#">Function Bands</a></li>
-                  <li><a class="dropdown-item" href="#">DJ</a></li>
+                  <li><a class="dropdown-item" href="{% url 'all_bands' %}?category=strings">Strings</a></li>
+                  <li><a class="dropdown-item" href="{% url 'all_bands' %}?category=brass">Brass</a></li>
+                  <li><a class="dropdown-item" href="{% url 'all_bands' %}?category=piano">Piano</a></li>
+                  <li><a class="dropdown-item" href="{% url 'all_bands' %}?category=harp">Harp</a></li>
+                  <li><a class="dropdown-item" href="{% url 'all_bands' %}?category=function_bands">Function Bands</a>
+                  </li>
+                  <li><a class="dropdown-item" href="{% url 'all_bands' %}?category=djs">DJs</a></li>
                 </ul>
               </li>
               <!-- Musicians - Bootstrap accordian for smaller screens -->
@@ -93,14 +94,12 @@
                   <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
                     <li><a href="{% url 'all_bands' %}?sort=rating&direction=desc">All Bands</a>
                     </li>
-                    
-                    {% for category in categories %}
-                    <li><a href="{% url 'all_bands' %}?group={{ category }}">{{ category }}</a>
-                      </a>
-                    </li>
-                    {% endfor %}
-
-                 
+                    <li><a href="{% url 'all_bands' %}?category=strings">Strings</a></li>
+                    <li><a href="{% url 'all_bands' %}?category=brass">Brass</a></li>
+                    <li><a href="{% url 'all_bands' %}?category=piano">Piano</a></li>
+                    <li><a href="{% url 'all_bands' %}?category=harp">Harp</a></li>
+                    <li><a href="{% url 'all_bands' %}?category=function_bands">Function Bands</a></li>
+                    <li><a href="{% url 'all_bands' %}?category=djs">DJs</a></li>
                   </ul>
                 </div>
               </li>
