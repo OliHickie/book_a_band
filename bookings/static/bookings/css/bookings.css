@@ -17,3 +17,24 @@
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
+
+.outstanding-balance {
+  font-size: 20px;
+}
+
+/* https://blog.cykerway.com/posts/2018/07/20/css-trick-centering-an-overflowed-table.html */
+.booking-table {
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.booking-table th,
+.booking-table td  {
+  padding: 8px 12px
+}
+
