@@ -1,7 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
 
+{% block content %}
+<div class="row">
+    <div class="col-12 col-lg-4 img-container">
+        <img src="https://steppin-out.com/wp-content/uploads/2017/04/Bollywood-Wedding-harpists-30046.jpg"
+            alt="" class="home-img mt-5">
+    </div>
+    <div class="col-12 col-lg-4 text-center">
+        <h1 class="home-header my-5 text-d-blue">
+            Music for your Wedding!
+        </h1>
+        <p class="subtitle">
+            Whether it's for your ceremony, drinks reception or to party in style, find your music here!
+        </p>
+        <a href="{% url 'all_bands' %}?sort=rating&direction=desc" class="btn btn-primary my-5">Find a Band <i
+                class="fas fa-chevron-right px-1"></i></a>
+    </div>
+    <div class="col-12 col-lg-4 img-container">
+        <img src="https://www.guidesforbrides.co.uk/client-uploads/uploads/2021/05/16/264249/twirlbridegroomdancefloorsaxtrumpetliveweddingbanduptownshowdown_t4.jpg?"
+            alt="" class="home-img mt-5">
+    </div>
+</div>
 
 {% endblock %}
