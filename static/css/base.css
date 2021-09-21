@@ -251,9 +251,8 @@ footer h5 {
     cursor: pointer;
 }
 
-.category-tile:hover {
-    box-shadow: 5px 6px 6px 2px #e9ecef;
-    transform: scale(1.05);
+.category-tile:hover{
+    transform: scale(1.1);
 }
 
 .category-tile img {
@@ -264,6 +263,18 @@ footer h5 {
 
 .category-tile p {
     font-weight: 600;
+}
+
+.home-icon {
+    font-size: 48px;
+    color: #8d3e5d; 
+    padding: 15px;
+    transition: all 1s ease;
+    cursor: pointer;
+}
+
+.home-icon:hover {
+    transform: rotate(360deg);
 }
 
 /* Band and Blog cards */
