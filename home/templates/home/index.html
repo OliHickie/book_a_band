@@ -3,24 +3,88 @@
 
 
 {% block content %}
-<div class="row">
-    <div class="col-12 col-lg-4 img-container">
-        <img src="https://steppin-out.com/wp-content/uploads/2017/04/Bollywood-Wedding-harpists-30046.jpg"
-            alt="" class="home-img mt-5">
+<!-- Home header  -->
+<div class="row pb-5">
+    <div class="col-12 col-lg-4 home-header-img">
+        <img class="mt-5" src="https://steppin-out.com/wp-content/uploads/2017/04/Bollywood-Wedding-harpists-30046.jpg"
+            alt="">
     </div>
     <div class="col-12 col-lg-4 text-center">
         <h1 class="home-header my-5 text-d-blue">
             Music for your Wedding!
         </h1>
-        <p class="subtitle">
-            Whether it's for your ceremony, drinks reception or to party in style, find your music here!
-        </p>
-        <a href="{% url 'all_bands' %}?sort=rating&direction=desc" class="btn btn-primary my-5">Find a Band <i
-                class="fas fa-chevron-right px-1"></i></a>
+        <div class="subtitle p-3">
+            <p>Whether it's for your ceremony, drinks reception or to party in style, find your music here! </p>
+            <a href="{% url 'all_bands' %}?sort=rating&direction=desc" class="btn btn-primary mt-3">Find a Band
+                <i class="fas fa-chevron-right px-1"></i></a>
+        </div>
+
     </div>
-    <div class="col-12 col-lg-4 img-container">
-        <img src="https://www.guidesforbrides.co.uk/client-uploads/uploads/2021/05/16/264249/twirlbridegroomdancefloorsaxtrumpetliveweddingbanduptownshowdown_t4.jpg?"
-            alt="" class="home-img mt-5">
+    <div class="col-12 col-lg-4 home-header-img">
+        <img class=" mt-5"
+            src="https://www.guidesforbrides.co.uk/client-uploads/uploads/2021/05/16/264249/twirlbridegroomdancefloorsaxtrumpetliveweddingbanduptownshowdown_t4.jpg?"
+            alt="">
+    </div>
+</div>
+<hr>
+
+<!-- Row of categories -->
+<div class="row py-3">
+    <h2 class="pb-3 text-d-blue">Choose your style</h2>
+    <div class="col-6 col-md-4 col-lg-2 category-tile">
+        <a class="unstyled-link" href="{% url 'all_bands' %}?category=strings">
+            <img class="w-100"
+                src="https://cdn.bandsforhire.net//media/k2/items/cache/474f4cdd4383ff91fd1d98bcb039d93b_XL.jpg?quality=70&width=992"
+                alt="">
+            <p class="text-center text-uppercase text-d-blue">strings</p>
+        </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2 category-tile">
+        <a class="unstyled-link" href="{% url 'all_bands' %}?category=brass">
+            <img class="w-100"
+                src="https://img.warble-entertainment.com/2853/full_Ghetto_Blasters_3_(1)_(2464_x_1640).jpg" alt="">
+            <p class="text-center text-uppercase text-d-blue">brass</p>
+        </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2 category-tile">
+        <a class="unstyled-link" href="{% url 'all_bands' %}?category=piano">
+            <img class="w-100" src="https://i.pinimg.com/originals/b5/a1/a1/b5a1a1697c2d79e512ae8f2976d172ad.jpg"
+                alt="">
+            <p class="text-center text-uppercase text-d-blue">piano</p>
+        </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2 category-tile">
+        <a class="unstyled-link" href="{% url 'all_bands' %}?category=harp">
+        <img class="w-100" src="https://www.live-entertainment.co.uk/wp-content/uploads/2016/01/Ray-8-1.jpg" alt="">
+        <p class="text-center text-uppercase text-d-blue">harp</p>
+        </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2 category-tile">
+        <a class="unstyled-link" href="{% url 'all_bands' %}?category=function_bands">
+        <img class="w-100" src="https://www.entertainment-nation.co.uk/act_media/1648/gallery/foxland1420810195.jpg"
+            alt="">
+        <p class="text-center text-uppercase text-d-blue">bands</p>
+        </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2 category-tile">
+        <a class="unstyled-link" href="{% url 'all_bands' %}?category=djs">
+        <img class="w-100"
+            src="https://assets.grooveapps.com/images/5ecc1ea88f643f0cc0fb9028/1613656812_Saskatoon-best-wedding-dj-service.jpeg"
+            alt="">
+        <p class="text-center text-uppercase text-d-blue">DJs</p>
+        </a>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h3 class="text-d-blue py-3">It's so simple...</h3>
+        <p><i class="far fa-hand-point-right"></i> Sign up for an account</p>
+        <p><i class="far fa-hand-point-right"></i> Find your favourite bands</p>
+        <p><i class="far fa-hand-point-right"></i> Add them to your bookings</p>
+        <p><i class="far fa-hand-point-right"></i> Complete your payment</p>
+        <p>Job done!</p>
     </div>
 </div>
 

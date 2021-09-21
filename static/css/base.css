@@ -222,25 +222,48 @@ footer h5 {
 }
 
 /* Home */
-.subtitle {
-    max-width: 350px;
-    margin: 0 auto;
-    font-size: 20px;
+.home-header{
     font-weight: 600;
 }
 
-.img-container {
+.subtitle {
+    margin: 0 auto;
+    font-size: 20px;
+    background: #fff;
+}
+
+.home-header-img {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.home-img {
+.home-header-img img {
     border-radius: 50%;
     width: 250px;
     height: 250px;
     object-fit: cover;
     overflow: hidden;
+}
+
+.category-tile {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.category-tile:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.05);
+}
+
+.category-tile img {
+    object-fit: cover;
+    overflow: hidden;
+    height: 140px;
+}
+
+.category-tile p {
+    font-weight: 600;
 }
 
 /* Band and Blog cards */
