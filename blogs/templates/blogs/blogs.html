@@ -9,34 +9,61 @@
 
 
 {% block content %}
-        <div class="row">
+<div class="row">
 
-            {% for blog in blogs %}
-            <div class="col-12 p-2 col-md-6 col-lg-4 col-xl-3">
-                <a href="{% url 'read_blog' blog.id %}" class="unstyled-link">
-                    <div class="card blog-card my-1 mx-auto">
-                        {% if blog.image %}
-                        <img src="{{ blog.image.url }}" class="card-img-top blog-img-top" alt="{{ band.title }}">
-                        {% else %}
-                        <img src="https://traveltradeluxury.com/media/k2/items/cache/7a4010c728df5112a2a660b7127561f8_L.jpg" class="card-img-top blog-img-top" alt="Wedding rings">
-                        {% endif %}
-                        <div class="blog-date">
-                            <p class="text-center mx-auto rounded-circle">
-                                {{ blog.updated_at|date:"d M y" }}
-                            </p>
-                        </div>
-                        <div class="card-text blog-title">
-                            <p class="text-capitalize text-center p-1 text-d-blue">
-                                {{ blog.title }}
-                            </p>
-                        </div>
-                    </div>
+    {% for blog in blogs %}
+    <div class="col-12 p-2 col-md-6 col-lg-4 col-xl-3">
+        <a href="{% url 'read_blog' blog.id %}" class="unstyled-link">
+            <div class="card blog-card my-1 mx-auto">
+                <a class="unstyled-link text-danger">
+                    <i class="fas fa-times-circle delete-blog p-1 rounded" data-bs-toggle="modal" data-bs-target="#modal-{{ blog.id }}"></i>
                 </a>
+                {% if blog.image %}
+                <img src="{{ blog.image.url }}" class="card-img-top blog-img-top" alt="{{ band.title }}">
+                {% else %}
+                <img src="https://traveltradeluxury.com/media/k2/items/cache/7a4010c728df5112a2a660b7127561f8_L.jpg"
+                    class="card-img-top blog-img-top" alt="Wedding rings">
+                {% endif %}
+                <div class="blog-date">
+                    <p class="text-center mx-auto rounded-circle">
+                        {{ blog.updated_at|date:"d M y" }}
+                    </p>
+                </div>
+                <div class="card-text blog-title">
+                    <p class="text-capitalize text-center p-1 text-d-blue">
+                        {{ blog.title }}
+                    </p>
+                </div>
             </div>
-            {% endfor %}
-
-        </div>
+        </a>
     </div>
+
+    <!-- Delete Modal  -->
+    <div class="modal fade" id="modal-{{ blog.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete blog?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you wish to delete this booking?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="{% url 'delete_blog' blog.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">Delete</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+
+</div>
+</div>
 </div>
 
 

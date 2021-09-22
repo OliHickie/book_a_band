@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib import messages
 
@@ -50,3 +50,16 @@ def add_blog(request):
         form = BlogForm()
 
     return render(request, 'blogs/add_blog.html', {'form': form})
+
+
+def delete_blog(request, blog_id):
+    """
+    A view to cancel blogs
+    """
+
+    blog = get_object_or_404(Blog, pk=blog_id)
+
+    blog.delete()
+    messages.success(request, 'Blog has been removed.')
+
+    return redirect(reverse('all_blogs'))

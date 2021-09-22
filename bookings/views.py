@@ -21,7 +21,8 @@ def new_booking(request, band_id):
     if request.method == 'POST':
 
         date_input = request.POST['wedding_date']
-        wedding_date = datetime.datetime.strptime(date_input, "%d-%m-%Y").strftime("%Y-%m-%d")
+        wedding_date = datetime.datetime.strptime(
+            date_input, "%d-%m-%Y").strftime("%Y-%m-%d")
 
         booking_form = {
             'client_name': request.POST['client_name'],
@@ -129,5 +130,6 @@ def delete_booking(request, booking_id):
     booking = get_object_or_404(NewBooking, pk=booking_id)
 
     booking.delete()
+    messages.success(request, 'Your booking has been removed.')
 
     return redirect(reverse('my_bookings'))
