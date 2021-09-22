@@ -15,9 +15,11 @@
     <div class="col-12 p-2 col-md-6 col-lg-4 col-xl-3">
         <a href="{% url 'read_blog' blog.id %}" class="unstyled-link">
             <div class="card blog-card my-1 mx-auto">
+                {% if request.user.is_superuser %}
                 <a class="unstyled-link text-danger">
                     <i class="fas fa-times-circle delete-blog p-1 rounded" data-bs-toggle="modal" data-bs-target="#modal-{{ blog.id }}"></i>
                 </a>
+                {% endif %}
                 {% if blog.image %}
                 <img src="{{ blog.image.url }}" class="card-img-top blog-img-top" alt="{{ band.title }}">
                 {% else %}

@@ -52,6 +52,7 @@ def add_blog(request):
     return render(request, 'blogs/add_blog.html', {'form': form})
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def delete_blog(request, blog_id):
     """
     A view to cancel blogs
