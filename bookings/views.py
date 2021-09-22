@@ -48,7 +48,7 @@ def new_booking(request, band_id):
             form.save()
             messages.success(request, 'Your new booking has been successfully created.')
 
-        return redirect('my_bookings')
+            return redirect('my_bookings')
 
     context = {
             'band': band,

@@ -38,3 +38,7 @@
   padding: 8px 12px
 }
 
+.delete-booking {
+  cursor: pointer;
+}
+

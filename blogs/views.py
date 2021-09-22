@@ -23,7 +23,6 @@ def read_blog(request, blog_id):
     """
     A view to display blog content
     """
-
     blog = get_object_or_404(Blog, pk=blog_id)
 
     context = {

@@ -20,7 +20,7 @@
         {% if request.GET %}
         <div>
             {% if query == None %}
-            Currently viewing {{ bands|length }} bands
+            Currently viewing {{ bands|length }} artists
 
             {% else %}
             You have searched for "{{ query }}" which has {{ bands|length }} result{% if bands|length > 1 %}s{% endif %}
