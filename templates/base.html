@@ -38,7 +38,7 @@
     <div class="container-fluid nav-bar">
       <div class="row nav-top-row">
         <div class=" col-12 col-lg-6 logo">
-          <a href="#">
+          <a href="{% url 'home' %}">
             <h1 class="text-d-pink">
               <i class="fas fa-compact-disc"></i> <strong>BOOKABAND</strong>
             </h1>
@@ -64,7 +64,7 @@
           <div class="collapse navbar-collapse p-2" id="mobile-nav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a href="#">Home</a>
+                <a href="{% url 'home' %}">Home</a>
               </li>
               <!-- Musicians dropdown menu for larger screens -->
               <li class="nav-item dropdown d-none d-lg-block">

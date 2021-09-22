@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
@@ -13,6 +13,7 @@ def all_bands(request):
     """
     # Display bands, ordered by rating (highest first)
     bands = Band.objects.all()
+    number_of_bands = len(bands)
     categories = Category.objects.all()
     query = None
 
@@ -87,6 +88,7 @@ def all_bands(request):
 
     context = {
         'bands': bands,
+        'number_of_bands': number_of_bands,
         'categories': categories,
         'locations': locations,
         'locations_counted': locations_counted,
@@ -124,9 +126,11 @@ def add_band(request):
 
     if request.method == 'POST':
         form = BandForm(request.POST, request.FILES)
-
         if form.is_valid():
             form.save()
+
+        return redirect(reverse('all_bands'))
+
     else:
         form = BandForm()
 

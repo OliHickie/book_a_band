@@ -116,3 +116,15 @@ def payments(request):
     }
 
     return render(request, 'bookings/payments.html', context)
+
+
+def delete_booking(request, booking_id):
+    """
+    A view to cancel unconfirmed bookings
+    """
+
+    booking = get_object_or_404(NewBooking, pk=booking_id)
+
+    booking.delete()
+
+    return redirect(reverse('my_bookings'))

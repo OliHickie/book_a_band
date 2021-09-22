@@ -26,14 +26,16 @@
             You have searched for "{{ query }}" which has {{ bands|length }} result{% if bands|length > 1 %}s{% endif %}
             {% endif %}
 
+            {% if bands|length != number_of_bands %}
             <a href="{% url 'all_bands' %}?sort=rating&direction=desc" class="ps-2"><small>clear search</small></a>
+            {% endif %}
         </div>
         {% endif %}
     </div>
 </div>
 
-<!-- Quick Link Dropdowns (all but XL screens) -->
 <div class="row">
+    <!-- Quick Link Dropdowns (all but XL screens) -->
     <div class="col-12 d-xl-none">
         <div class="row">
             <div class="col-6 col-md-3 text-center py-2">
@@ -262,7 +264,7 @@
             {% for band in page_bands %}
             <div class="col-12 col-md-4 pb-5">
                 <div class="card my-1">
-                    <!-- Card imgae  -->
+                    <!-- Card image  -->
                     {% if band.image_one %}
                     <img src="{{ band.image_one.url }}" class="card-img-top" alt="{{ band.name }}">
                     {% else %}
@@ -270,6 +272,7 @@
                         class="card-img-top" alt="Generic Wedding Photo">
                     {% endif %}
 
+                    <!-- Card body  -->
                     <div class="card-body">
                         <p class="card-title m-0 text-d-blue text-center text-uppercase"><strong>
                                 {{ band.name }}
@@ -283,13 +286,6 @@
                                 {{ band.rating }} / 5
                             </div>
                         </div>
-                        <!-- <p class=" d-">
-                            
-                        </p>
-                        <p class="card-text lg-font m-0">
-                            <i class="fas fa-star"></i> 
-                        </p>
-                        <p class="card-text m-0"></p> -->
                         <p class="card-text m-0 text-muted">
                             <i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}
                         </p>

@@ -15,97 +15,103 @@
 
 <div>
 
-    {% if bookings %}
-    <table class="booking-table">
-        <thead>
-            <tr class="text-d-pink">
-                <th>Band Name</th>
-                <th class="d-none d-lg-table-cell">Venue</th>
-                <th>Date</th>
-                <th class="d-none d-lg-table-cell">Start Time</th>
-                <th>Confirmed</th>
-                <th>Balance</th>
-                {% if unconfirmed_bookings|length > 0 %}
-                <th>Cancel</th>
-                {% endif %}
-            </tr>
-        </thead>
+  {% if bookings %}
+  <table class="booking-table">
+    <thead>
+      <tr class="text-d-pink">
+        <th>Band Name</th>
+        <th class="d-none d-lg-table-cell">Venue</th>
+        <th>Date</th>
+        <th class="d-none d-lg-table-cell">Start Time</th>
+        <th>Confirmed</th>
+        <th>Balance</th>
+        {% if unconfirmed_bookings|length > 0 %}
+        <th>Cancel</th>
+        {% endif %}
+      </tr>
+    </thead>
 
-        <tbody>
+    <tbody>
 
-            {% for booking in unconfirmed_bookings %}
-            <tr>
-                <td><strong>{{booking.band_name }}</strong></td>
-                <td class="d-none d-lg-table-cell">{{ booking.venue_name }}</td>
-                <td>{{booking.wedding_date }}</td>
-                <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
-                <td class="text-danger ">UNCONFIRMED</td>
-                <td>£{{ booking.price }}</td>
-                <td class="text-danger">
-                    <a data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-times ms-3"></i></a>
-                    </td>
-            </tr>
-            {% endfor %}
+      {% for booking in unconfirmed_bookings %}
+      <tr>
+        <td><strong>{{booking.band_name }}</strong></td>
+        <td class="d-none d-lg-table-cell">{{ booking.venue_name }}</td>
+        <td>{{booking.wedding_date }}</td>
+        <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
+        <td class="text-danger ">UNCONFIRMED</td>
+        <td>£{{ booking.price }}</td>
+        <td class="text-danger">
+          <a data-bs-toggle="modal" data-bs-target="#modal-{{ booking.id }}"><i class="fas fa-times ms-3"></i></a>
+        </td>
+      </tr>
+      {% endfor %}
 
-            {% for booking in confirmed_bookings %}
-            <tr>
-                <td class=""><strong>{{booking.band_name }}</strong></td>
-                <td class="d-none d-lg-table-cell">{{ booking.venue_name }}</td>
-                <td class="">{{booking.wedding_date }}</td>
-                <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
-                <td class="text-success ">CONFIRMED</td>
-                <td class="">PAID</td>
-            </tr>
-            {% endfor %}
+      {% for booking in confirmed_bookings %}
+      <tr>
+        <td class=""><strong>{{booking.band_name }}</strong></td>
+        <td class="d-none d-lg-table-cell">{{ booking.venue_name }}</td>
+        <td class="">{{booking.wedding_date }}</td>
+        <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
+        <td class="text-success ">CONFIRMED</td>
+        <td class="">PAID</td>
+      </tr>
+      {% endfor %}
 
-        </tbody>
-    </table>
+    </tbody>
+  </table>
 
-    {% if unconfirmed_bookings|length > 0 %}
-    <div class="text-end my-4">
-        <p>To confirm your bookings, please pay the outstanding balance.</p>
-        <div class="my-2 text-danger"><strong>Total still to pay: £{{ request.session.balance }}</strong></div>
-        <a href="{% url 'payments' %}" class="btn btn-primary" id="checkout-button">Checkout <i
-                class="fas fa-chevron-right ps-1"></i></a>
+  {% if unconfirmed_bookings|length > 0 %}
+  <div class="text-end my-4">
+    <p>To confirm your bookings, please pay the outstanding balance.</p>
+    <div class="my-2 text-danger"><strong>Total still to pay: £{{ request.session.balance }}</strong></div>
+    <a href="{% url 'payments' %}" class="btn btn-primary" id="checkout-button">Checkout <i
+        class="fas fa-chevron-right ps-1"></i></a>
+  </div>
+  {% endif %}
+
+  <div class="text-d-blue text-center mt-5">
+    <p class="fw-bold"><a class="unstyled-link" href="mailto:info@bookaband.com">
+      To make changes to any bookings, please send us an email! <i class="fas fa-envelope-open-text"></i></a>
+    </p>
+  </div>
+
+  {% else %}
+  <div class="row no-bookings">
+    <p class="text-center my-5">You currently have no bookings</p>
+    <div class="text-center">
+      <a class="btn btn-primary" href="{% url 'all_bands' %}">Find a Band!</a>
     </div>
-    {% endif %}
-
-    <div class="text-d-blue text-center">
-        <p>
-            To make changes to any bookings, please <a class="unstyled-link" href="mailto:info@bookaband.com">
-                <strong>send us an email! <i class="fas fa-envelope-open-text"></i></strong></a>
-        </p>
-    </div>
-
-    {% else %}
-    <div class="row no-bookings">
-        <p class="text-center my-5">You currently have no bookings</p>
-        <div class="text-center">
-            <a class="btn btn-primary" href="{% url 'all_bands' %}">Find a Band!</a>
-        </div>
-    </div>
-    {% endif %}
+  </div>
+  {% endif %}
 
 
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+{% for booking in unconfirmed_bookings %}
+<div class="modal fade" id="modal-{{ booking.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete {{ booking.band_name }}?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you wish to delete this booking?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="{% url 'delete_booking' booking.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">Delete</button>
+          </form>
+
+
       </div>
     </div>
   </div>
-
+</div>
+{% endfor %}
 
 {% endblock %}
