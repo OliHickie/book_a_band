@@ -167,6 +167,14 @@
 
   <main class="container pb-5">
 
+    {% if messages %}
+    <div class="message-container">
+      {% for message in messages %}
+      {% include 'toasts/toast_success.html' %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
     <div class="page-header">
       {% block page_header %}
       {% endblock %}
@@ -284,6 +292,12 @@
   </footer>
 
   {% block postloadjs %}
+  <script type="text/javascript">
+    let getToast = [].slice.call(document.querySelectorAll('.toast'));
+    let displayToast = getToast.map(function (toastEl) {
+      return new bootstrap.Toast(toastEl).show();
+    });
+  </script>
   {% endblock %}
 </body>
 

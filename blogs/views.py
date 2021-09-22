@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib import messages
 
 from .models import Blog
 from .forms import BlogForm
@@ -43,7 +44,7 @@ def add_blog(request):
 
         if form.is_valid():
             form.save()
-            # change to form when messages complete
+            messages.success(request, 'Blog successfully added')
             return redirect('all_blogs')
     else:
         form = BlogForm()

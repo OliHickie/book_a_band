@@ -1,5 +1,6 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.conf import settings
 import datetime
 import stripe
@@ -44,6 +45,7 @@ def new_booking(request, band_id):
             booking_form.band_name = band.name
             booking_form.price = band.price
             form.save()
+            messages.success(request, 'Your new booking has been successfully created.')
 
         return redirect('my_bookings')
 
@@ -95,6 +97,7 @@ def payments(request):
     if request.method == 'POST':
         # If payment is successful, change all bookings to CONFIRMED
         unconfirmed_bookings.update(paid=True)
+        messages.success(request, 'Thank you for your payment, your bookings are now confirmed.')
 
         return redirect(reverse('my_bookings'))
 
