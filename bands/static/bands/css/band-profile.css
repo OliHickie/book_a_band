@@ -20,6 +20,18 @@
     max-width: 500px;
 }
 
+/* Reviews */
+
+.review-author {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-author p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
 @media screen and (min-width: 768px) {
     .profile-sm-img {
         height: 140px;
