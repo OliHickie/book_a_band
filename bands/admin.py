@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Band
+from .models import Category, Band, BandReview
 
 
 class BandAdmin(admin.ModelAdmin):
@@ -22,5 +22,16 @@ class CategoryAdmin(admin.ModelAdmin):
     ordering = ('name',)
 
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = (
+        'band',
+        'author',
+        'date_added',
+    )
+
+    ordering = ('date_added',)
+
+
 admin.site.register(Band, BandAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(BandReview, ReviewAdmin)

@@ -3,8 +3,8 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
 
-from .forms import BandForm
-from .models import Band, Category
+from .forms import BandForm, ReviewForm
+from .models import Band, Category, BandReview
 
 
 def all_bands(request):
@@ -105,6 +105,7 @@ def band_profile(request, band_id):
     """
 
     band = get_object_or_404(Band, pk=band_id)
+    reviews = BandReview.objects.filter(band=band_id)
 
     # Return four random bands in same category, excluding current band
     random_bands = Band.objects.all().filter(
@@ -113,6 +114,7 @@ def band_profile(request, band_id):
     context = {
         'band': band,
         'random_bands': random_bands,
+        'reviews': reviews,
     }
 
     return render(request, 'bands/band_profile.html', context)
