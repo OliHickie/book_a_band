@@ -101,11 +101,10 @@ def all_bands(request):
 
 def band_profile(request, band_id):
     """
-    A view to display the band profile
+    A view to display the band profile, add reviews and suggest similar artists
     """
-
     band = get_object_or_404(Band, pk=band_id)
-    reviews = BandReview.objects.filter(band=band_id)
+    reviews = BandReview.objects.filter(band=band_id).order_by('-date_added')
 
     # Return four random bands in same category, excluding current band
     random_bands = Band.objects.all().filter(

@@ -32,6 +32,10 @@
     font-weight: 600;
 }
 
+.review-date {
+    font-size: 12px;
+}
+
 @media screen and (min-width: 768px) {
     .profile-sm-img {
         height: 140px;

@@ -13,5 +13,5 @@ class ReviewForm(forms.ModelForm):
 
     class Meta:
         model = BandReview
-        fields = ('author', 'review')
+        fields = ('author', 'rating', 'review')
         exclude = ('band', 'date_added')

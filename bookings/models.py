@@ -11,7 +11,7 @@ class NewBooking(models.Model):
     venue_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=False, blank=False)
     postcode = models.CharField(max_length=10, null=False, blank=False)
-    wedding_date = models.DateField()
+    wedding_date = models.DateField(null=False, blank=False)
     start_time = models.CharField(max_length=10, null=False, blank=False)
     emergency_contact = models.CharField(
         max_length=50, null=False, blank=False)

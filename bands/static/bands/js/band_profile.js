@@ -1,5 +1,5 @@
+// Change main image by selecting small image
 function imageDisplay() {
-    // Change main image by selecting small image
     $('.profile-sm-img').click(function() {
         let clickedImage = $(this).attr('src')
         let mainImage = $('.profile-main-img').attr('src')
@@ -16,7 +16,21 @@ function imageDisplay() {
     })
 }
 
+function starRating() {
+    rating = $(".star-rating").each(function() {
+        let rating = parseInt($(this).text());
+        $(this).empty()
+        let starRating = $(this).append(
+            "<i class='fas fa-star'></i>".repeat(rating)
+        )
+
+        return starRating
+    });
+
+}
+
 $(document).ready(function() {
     imageDisplay()
+    starRating()
 });
     
