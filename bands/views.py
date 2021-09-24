@@ -11,7 +11,6 @@ def all_bands(request):
     """
     A view to display all bands and quick links
     """
-    # Display bands, ordered by rating (highest first)
     bands = Band.objects.all()
     number_of_bands = len(bands)
     categories = Category.objects.all()
@@ -108,11 +107,13 @@ def band_profile(request, band_id):
     reviews = BandReview.objects.filter(band=band_id).order_by('-date_added')
 
     # Find average rating and round to 1 decimal place
-    ratings = []
-    for review in reviews:
-        ratings.append(review.rating)
+    average_rating = None
+    if reviews:
+        ratings = []
+        for review in reviews:
+            ratings.append(review.rating)
 
-    average_rating = round(sum(ratings)/len(ratings), 1)
+        average_rating = round(sum(ratings)/len(ratings), 1)
 
     # Return four random bands in same category, excluding current band
     random_bands = Band.objects.all().filter(

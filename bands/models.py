@@ -19,8 +19,6 @@ class Band(models.Model):
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=24, null=False, blank=False)
     price = models.IntegerField(null=False, blank=False)
-    rating = models.DecimalField(max_digits=2, decimal_places=1, null=False,
-                                 blank=False)
     location = models.CharField(max_length=18, null=False, blank=False)
     image_one = models.ImageField(null=True, blank=True)
     image_two = models.ImageField(null=True, blank=True)

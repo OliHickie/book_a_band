@@ -73,7 +73,7 @@
                   Musicians
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                  <li><a class="dropdown-item" href="{% url 'all_bands' %}?sort=rating&direction=desc">All Bands</a>
+                  <li><a class="dropdown-item" href="{% url 'all_bands' %}">All Bands</a>
                   </li>
                   <li><a class="dropdown-item" href="{% url 'all_bands' %}?category=strings">Strings</a></li>
                   <li><a class="dropdown-item" href="{% url 'all_bands' %}?category=brass">Brass</a></li>
@@ -92,7 +92,7 @@
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="nav-accordian1"
                   data-bs-parent="#accordionFlushExample">
                   <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
-                    <li><a href="{% url 'all_bands' %}?sort=rating&direction=desc">All Bands</a>
+                    <li><a href="{% url 'all_bands' %}">All Bands</a>
                     </li>
                     <li><a href="{% url 'all_bands' %}?category=strings">Strings</a></li>
                     <li><a href="{% url 'all_bands' %}?category=brass">Brass</a></li>
@@ -205,7 +205,7 @@
             <a class="unstyled-link" href="#">Home</a>
           </li>
           <li class="">
-            <a class="unstyled-link" href="{% url 'all_bands' %}?sort=rating&direction=desc">All Bands</a>
+            <a class="unstyled-link" href="{% url 'all_bands' %}">All Bands</a>
           </li>
           <li class="">
             <a class="unstyled-link" href="{% url 'all_blogs' %}">Blogs</a>

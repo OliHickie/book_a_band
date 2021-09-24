@@ -6,7 +6,6 @@ class BandAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'category',
-        'rating',
         'price',
         'location',
     )
