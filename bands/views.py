@@ -104,7 +104,15 @@ def band_profile(request, band_id):
     A view to display the band profile, add reviews and suggest similar artists
     """
     band = get_object_or_404(Band, pk=band_id)
+    # Get band reviews in date order
     reviews = BandReview.objects.filter(band=band_id).order_by('-date_added')
+
+    # Find average rating and round to 1 decimal place
+    ratings = []
+    for review in reviews:
+        ratings.append(review.rating)
+
+    average_rating = round(sum(ratings)/len(ratings), 1)
 
     # Return four random bands in same category, excluding current band
     random_bands = Band.objects.all().filter(
@@ -114,6 +122,7 @@ def band_profile(request, band_id):
         'band': band,
         'random_bands': random_bands,
         'reviews': reviews,
+        'average_rating': average_rating,
     }
 
     return render(request, 'bands/band_profile.html', context)

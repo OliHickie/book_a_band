@@ -16,17 +16,19 @@ function imageDisplay() {
     })
 }
 
+// Change band rating to star icons
 function starRating() {
     rating = $(".star-rating").each(function() {
         let rating = parseInt($(this).text());
-        $(this).empty()
+
+        $(this).empty();
+        
         let starRating = $(this).append(
             "<i class='fas fa-star'></i>".repeat(rating)
         )
 
         return starRating
     });
-
 }
 
 $(document).ready(function() {
