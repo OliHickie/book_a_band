@@ -24,7 +24,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
         'band',
-        'author',
+        'name',
         'date_added',
     )
 

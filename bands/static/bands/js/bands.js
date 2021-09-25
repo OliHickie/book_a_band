@@ -31,9 +31,16 @@ function starRating() {
     });
 }
 
+// Set rating range from 1 to 5
+function ratingRange() {
+    $('input[type=number]').on('mouseup keyup', function () {
+        $(this).val(Math.min(5, Math.max(1, $(this).val())));
+    });
+}
+ 
 $(document).ready(function() {
     imageDisplay()
     starRating()
-    removeUnderscore()
+    ratingRange()
 });
     

@@ -44,14 +44,12 @@
         <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
         <td class="text-danger ">UNCONFIRMED</td>
         <td>£{{ booking.price }}</td>
-        <td class="text-danger cursor-point" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete booking?">
+        <td class="text-danger cursor-point" data-bs-toggle="tooltip" data-bs-placement="bottom"
+          title="Delete booking?">
           <a data-bs-toggle="modal" data-bs-target="#modal-{{ booking.id }}"><i class="fas fa-times ms-3"></i></a>
         </td>
       </tr>
       {% endfor %}
-
-
-      
 
       {% for booking in confirmed_bookings %}
       <tr>
@@ -61,8 +59,9 @@
         <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
         <td class="text-success ">CONFIRMED</td>
         <td>PAID</td>
-        <td>
-          <a class="text-d-blue cursor-point" href=""><i class="fas fa-edit"></i></a>
+        <td></td>
+        <td class="text-center">
+          <a class="text-d-blue cursor-point" href="{% url 'add_review' booking.band_id %}"><i class="fas fa-edit"></i></a>
         </td>
       </tr>
       {% endfor %}
@@ -81,7 +80,7 @@
 
   <div class="text-d-blue text-center mt-5">
     <p class="fw-bold"><a class="unstyled-link" href="mailto:info@bookaband.com">
-      To make changes to any bookings, please send us an email! <i class="fas fa-envelope-open-text"></i></a>
+        To make changes to any bookings, please send us an email! <i class="fas fa-envelope-open-text"></i></a>
     </p>
   </div>
 
@@ -102,23 +101,27 @@
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+      <!-- Header  -->
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete {{ booking.band_name }}?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <!-- Body  -->
       <div class="modal-body">
         Are you sure you wish to delete this booking?
       </div>
+      <!-- Footer  -->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <form action="{% url 'delete_booking' booking.id %}" method="POST">
-            {% csrf_token %}
-            <button class="btn btn-danger">Delete</button>
-          </form>
+        <form action="{% url 'delete_booking' booking.id %}" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-danger">Delete</button>
+        </form>
       </div>
     </div>
   </div>
 </div>
 {% endfor %}
+
 
 {% endblock %}

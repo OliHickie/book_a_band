@@ -32,11 +32,11 @@ class Band(models.Model):
 
 class BandReview(models.Model):
 
-    band = models.ForeignKey('Band', null=True, blank=True, on_delete=models.CASCADE)
-    author = models.CharField(max_length=50, null=False, blank=False)
+    band = models.ForeignKey('Band', null=False, blank=False, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50, null=False, blank=False)
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)], null=False, blank=False)
     review = models.TextField(null=False, blank=False)
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.author
+        return self.name
