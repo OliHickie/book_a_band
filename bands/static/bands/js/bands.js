@@ -12,7 +12,6 @@ function imageDisplay() {
             $('.profile-main-img').attr('src', clickedImage)
             $('.profile-main-img').fadeIn()
         })
-
     })
 }
 
