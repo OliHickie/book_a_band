@@ -28,6 +28,9 @@
         {% if unconfirmed_bookings|length > 0 %}
         <th>Cancel</th>
         {% endif %}
+        {% if confirmed_bookings|length > 0 %}
+        <th>Review</th>
+        {% endif %}
       </tr>
     </thead>
 
@@ -35,13 +38,13 @@
 
       {% for booking in unconfirmed_bookings %}
       <tr>
-        <td><strong>{{booking.band_name }}</strong></td>
+        <td><strong>{{ booking.band }}</strong></td>
         <td class="d-none d-lg-table-cell">{{ booking.venue_name }}</td>
         <td>{{booking.wedding_date }}</td>
         <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
         <td class="text-danger ">UNCONFIRMED</td>
         <td>£{{ booking.price }}</td>
-        <td class="text-danger delete-booking" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete booking?">
+        <td class="text-danger cursor-point" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete booking?">
           <a data-bs-toggle="modal" data-bs-target="#modal-{{ booking.id }}"><i class="fas fa-times ms-3"></i></a>
         </td>
       </tr>
@@ -52,12 +55,15 @@
 
       {% for booking in confirmed_bookings %}
       <tr>
-        <td class=""><strong>{{booking.band_name }}</strong></td>
+        <td><strong>{{ booking.band }}</strong></td>
         <td class="d-none d-lg-table-cell">{{ booking.venue_name }}</td>
-        <td class="">{{booking.wedding_date }}</td>
+        <td>{{booking.wedding_date }}</td>
         <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
         <td class="text-success ">CONFIRMED</td>
-        <td class="">PAID</td>
+        <td>PAID</td>
+        <td>
+          <a class="text-d-blue cursor-point" href=""><i class="fas fa-edit"></i></a>
+        </td>
       </tr>
       {% endfor %}
 

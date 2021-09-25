@@ -332,12 +332,14 @@ footer h5 {
 
 .blog-date p {
     font-weight: 800;
-    font-size: 20px;
+    font-size: 16px;
     background-color: #8d3e5d;
-    margin-top: -30px;
+    margin-top: -45px;
     padding: 15px;
-    width: 33%;
+    width: 90px;
+    height: 90px;
     color: #fff;
+    padding-top: 20px;
 }
 
 @media screen and (max-width: 991px) {

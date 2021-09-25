@@ -42,8 +42,8 @@ def new_booking(request, band_id):
         form = BookingForm(booking_form)
         if form.is_valid():
             booking_form = form.save(commit=False)
+            booking_form.band = band
             booking_form.email = request.user.email
-            booking_form.band_name = band.name
             booking_form.price = band.price
             form.save()
             messages.success(request, 'Your new booking has been successfully created.')

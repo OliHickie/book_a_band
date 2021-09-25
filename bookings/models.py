@@ -1,8 +1,10 @@
 from django.db import models
 
+from bands.models import Band
+
 
 class NewBooking(models.Model):
-    band_name = models.CharField(max_length=50, null=False, blank=False)
+    band = models.ForeignKey(Band, null=False, blank=False, on_delete=models.CASCADE)
     client_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     contact_number = models.CharField(max_length=14, null=False, blank=False)
