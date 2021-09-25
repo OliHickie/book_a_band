@@ -34,5 +34,6 @@ function starRating() {
 $(document).ready(function() {
     imageDisplay()
     starRating()
+    removeUnderscore()
 });
     

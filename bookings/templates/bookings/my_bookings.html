@@ -41,11 +41,14 @@
         <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
         <td class="text-danger ">UNCONFIRMED</td>
         <td>£{{ booking.price }}</td>
-        <td class="text-danger delete-booking">
+        <td class="text-danger delete-booking" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete booking?">
           <a data-bs-toggle="modal" data-bs-target="#modal-{{ booking.id }}"><i class="fas fa-times ms-3"></i></a>
         </td>
       </tr>
       {% endfor %}
+
+
+      
 
       {% for booking in confirmed_bookings %}
       <tr>

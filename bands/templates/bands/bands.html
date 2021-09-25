@@ -44,7 +44,7 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Sort By
                     </a>
-                    <ul class="mt-2 ms-4 list-unstyled dropdown-menu">
+                    <ul class="list-unstyled dropdown-menu">
                         <li><a class="unstyled-link dropdown-item"
                                 href="{% url 'all_bands' %}?sort=price&direction=desc">
                                 <i class="fas fa-caret-right"></i> Price <small>(highest
@@ -67,19 +67,18 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         By Group
                     </a>
-                    <ul class="mt-2 ms-4 list-unstyled dropdown-menu">
-
-                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=strings">
-                            <iclass="fas fa-caret-right"></i> Strings</a></li>
-                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=brass">
+                    <ul class="list-unstyled dropdown-menu">
+                        <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=strings">
+                            <i class="fas fa-caret-right"></i> Strings</a></li>
+                        <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=brass">
                             <i class="fas fa-caret-right"></i> Brass</a></li>
-                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=piano">
+                        <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=piano">
                             <i class="fas fa-caret-right"></i> Piano</a></li>
-                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=harp">
+                        <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=harp">
                             <i class="fas fa-caret-right"></i> Harp</a></li>
-                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=function_bands">
+                        <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=function_bands">
                             <i class="fas fa-caret-right"></i> Function Bands</a></li>
-                        <li><a class="unstyled-link" href="{% url 'all_bands' %}?category=djs">
+                        <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=djs">
                             <i class="fas fa-caret-right"></i> DJs</a></li>
                     </ul>
                 </div>
@@ -90,7 +89,7 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         By Location
                     </a>
-                    <ul class="mt-2 ms-4 list-unstyled dropdown-menu by-location">
+                    <ul class="list-unstyled dropdown-menu by-location">
 
                         {% for location, num in locations_counted.items %}
                         <li>
@@ -111,41 +110,36 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         By Price
                     </a>
-                    <ul class="mt-2 ms-4 list-unstyled dropdown-menu">
+                    <ul class="list-unstyled dropdown-menu">
                         <li>
                             <a href="{% url 'all_bands' %}?price=£2000"
                                 class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
-                                £2000 +
-                            </a>
+                                £2000 +</a>
                         </li>
                         <li>
                             <a href="{% url 'all_bands' %}?price=£1500"
                                 class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
-                                £1500 - £1999
-                            </a>
+                                £1500 - £1999</a>
                         </li>
                         <li>
                             <a href="{% url 'all_bands' %}?price=£1000"
                                 class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
-                                £1000 - £1499
-                            </a>
+                                £1000 - £1499</a>
                         </li>
                         <li>
                             <a href="{% url 'all_bands' %}?price=£500"
                                 class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
-                                £500 - £999
-                            </a>
+                                £500 - £999</a>
                         </li>
                         <li>
                             <a href="{% url 'all_bands' %}?price=Less than £500"
                                 class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
-                                Less than £500
-                            </a>
+                                Less than £500</a>
                         </li>
                     </ul>
                 </div>
@@ -163,40 +157,37 @@
                 <li>
                     <a class="unstyled-link" href="{% url 'all_bands' %}?sort=price&direction=desc">
                         <i class="fas fa-caret-right"></i> Price <small>(highest
-                            first)</small>
-                    </a>
+                            first)</small></a>
                 </li>
                 <li>
                     <a class="unstyled-link" href="{% url 'all_bands' %}?sort=price&direction=asc">
                         <i class="fas fa-caret-right"></i> Price <small>(lowest
-                            first)</small>
-                    </a>
+                            first)</small></a>
                 </li>
                 <li>
                     <a class="unstyled-link" href="{% url 'all_bands' %}?sort=name&direction=asc">
-                        <i class="fas fa-caret-right"></i> A - Z
-
-                    </a>
+                        <i class="fas fa-caret-right"></i> A - Z</a>
                 </li>
                 <li>
                     <a class="unstyled-link" href="{% url 'all_bands' %}?sort=name&direction=desc">
-                        <i class="fas fa-caret-right"></i> Z - A
-
-                    </a>
+                        <i class="fas fa-caret-right"></i> Z - A</a>
                 </li>
             </ul>
 
             <h4>By Group</h4>
             <ul class="mt-2 ms-4 list-unstyled sidebar-links">
-
-                {% for category in categories %}
-                <li>
-                    <a href="{% url 'all_bands' %}?group={{ category }}" class="text-capitalize unstyled-link">
-                        <i class="fas fa-caret-right"></i> {{ category }}
-                    </a>
-                </li>
-                {% endfor %}
-
+                <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=strings">
+                    <i class="fas fa-caret-right"></i> Strings</a></li>
+                <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=brass">
+                    <i class="fas fa-caret-right"></i> Brass</a></li>
+                <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=piano">
+                    <i class="fas fa-caret-right"></i> Piano</a></li>
+                <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=harp">
+                    <i class="fas fa-caret-right"></i> Harp</a></li>
+                <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=function_bands">
+                    <i class="fas fa-caret-right"></i> Function Bands</a></li>
+                <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=djs">
+                    <i class="fas fa-caret-right"></i> DJs</a></li>
             </ul>
 
             <h4>By Location</h4>
@@ -218,32 +209,27 @@
                 <li>
                     <a href="{% url 'all_bands' %}?price=£2000" class="text-capitalize unstyled-link">
                         <i class="fas fa-caret-right"></i>
-                        £2000 +
-                    </a>
+                        £2000 +</a>
                 </li>
                 <li>
                     <a href="{% url 'all_bands' %}?price=£1500" class="text-capitalize unstyled-link">
                         <i class="fas fa-caret-right"></i>
-                        £1500 - £1999
-                    </a>
+                        £1500 - £1999</a>
                 </li>
                 <li>
                     <a href="{% url 'all_bands' %}?price=£1000" class="text-capitalize unstyled-link">
                         <i class="fas fa-caret-right"></i>
-                        £1000 - £1499
-                    </a>
+                        £1000 - £1499</a>
                 </li>
                 <li>
                     <a href="{% url 'all_bands' %}?price=£500" class="text-capitalize unstyled-link">
                         <i class="fas fa-caret-right"></i>
-                        £500 - £999
-                    </a>
+                        £500 - £999</a>
                 </li>
                 <li>
                     <a href="{% url 'all_bands' %}?price=Less than £500" class="text-capitalize unstyled-link">
                         <i class="fas fa-caret-right"></i>
-                        Less than £500
-                    </a>
+                        Less than £500</a>
                 </li>
             </ul>
         </div>
@@ -283,7 +269,6 @@
                 </div>
             </div>
             {% endfor %}
-
 
         </div>
         <!-- Code taken from Django docs -->

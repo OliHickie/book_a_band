@@ -16,7 +16,7 @@
         <a href="{% url 'read_blog' blog.id %}" class="unstyled-link">
             <div class="card blog-card my-1 mx-auto">
                 {% if request.user.is_superuser %}
-                <a class="unstyled-link text-danger">
+                <a class="unstyled-link text-danger" data-bs-toggle="tooltip" data-bs-placement="right" title="Delete blog?">
                     <i class="fas fa-times-circle delete-blog p-1 rounded" data-bs-toggle="modal" data-bs-target="#modal-{{ blog.id }}"></i>
                 </a>
                 {% endif %}

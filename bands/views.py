@@ -11,7 +11,7 @@ def all_bands(request):
     """
     A view to display all bands and quick links
     """
-    bands = Band.objects.all()
+    bands = Band.objects.all().order_by('name')
     number_of_bands = len(bands)
     categories = Category.objects.all()
     query = None

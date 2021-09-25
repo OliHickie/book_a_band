@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'bands/js/band_profile.js' %}"></script>
+<script src="{% static 'bands/js/bands.js' %}"></script>
 {% endblock %}
 
 
@@ -61,10 +61,10 @@
       <p>{{ band.biography | linebreaks }}</p>
     </div>
     <div class="my-4 profile-buttons">
-      <a href="{% url 'all_bands' %}" class="btn btn-secondary"><i
+      <a href="{% url 'all_bands' %}" class="btn btn-secondary mt-2"><i
           class="fas fa-chevron-left pe-2"></i>Back to
         Search</a>
-      <a href="{% url 'new_booking' band.id %}" class="btn btn-primary">Book the Band<i
+      <a href="{% url 'new_booking' band.id %}" class="btn btn-primary mt-2">Book the Band<i
           class="fas fa-chevron-right ps-2"></i></a>
     </div>
   </div>
