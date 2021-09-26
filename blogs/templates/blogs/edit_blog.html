@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_title %}Edit a band{% endblock %}
+{% block extra_title %}Edit blog{% endblock %}
 
 {% block page_header %}
-<h2 class="text-d-blue pt-3">Edit {{ band.name }}</h2>
+<h2 class="text-d-blue pt-3">Edit Blog</h2>
 <hr>
 {% endblock %}
 
 {% block content %}
 <div class="row">
     <div class="col-12 col-lg-6 py-3 px-5">
-        <form action="{% url 'edit_band' band.id %}" method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form | crispy }}
             <button class="btn btn-primary mt-3" type="submit">Save</button>

@@ -11,6 +11,10 @@
 
 
 {% block content %}
+{% if request.user.is_superuser %}
+<a href="{}"></a>  
+{% endif %}
+
 <div class="row">
 
   {% for blog in blogs %}
@@ -37,10 +41,10 @@
     </a>
     {% if request.user.is_superuser %}
     <div class="text-center">
-      <a class="text-danger unstyled-link cursor-point" data-bs-toggle="modal"
-      data-bs-target="#modal-{{ blog.id }}">
-        <i class="fas fa-times-circle p-1 rounded"></i> Delete Blog?
+      <a class="btn btn-danger" data-bs-toggle="modal"
+      data-bs-target="#modal-{{ blog.id }}">Delete Blog
       </a>
+      <a class="btn btn-secondary" href="{% url 'edit_blog' blog.id %}">Edit Blog</a>
     </div>
     {% endif %}
   </div>
