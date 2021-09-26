@@ -178,3 +178,27 @@ def add_review(request, band_id):
     return render(request, 'bands/add_review.html', context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
+def edit_band(request, band_id):
+    """
+    A view to edit band details
+    """
+    band = get_object_or_404(Band, pk=band_id)
+
+    if request.method == 'POST':
+        form = BandForm(request.POST, request.FILES, instance=band)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'The band has been successfully updated')
+
+        return redirect(reverse('band_profile', kwargs={'band_id': band_id}))
+
+    else:
+        form = BandForm(instance=band)
+
+    context = {
+        'form': form,
+        'band': band,
+    }
+    
+    return render(request, 'bands/edit_band.html', context)    

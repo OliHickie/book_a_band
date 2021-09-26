@@ -1,19 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_title %}Error{% endblock %}
+{% block extra_title %}500 Error{% endblock %}
 
 
 {% block content %}
 <div class="row">
-<div class="col-12 col-lg-6">
-    <h2>Oops, something appears to be wrong!</h2>
-    <hr>
-    <p>Head back to a safe place?</p>
-    <a class="btn btn-primary" href="{% url 'home' %}"><i class="fas fa-hand-point-left"></i> Home</a>
-</div>
-<div class="col-12 col-lg-6">
-    <img src="https://content.instructables.com/ORIG/FFK/MMZN/HERLT9HZ/FFKMMZNHERLT9HZ.jpg?auto=webp&frame=1&fit=bounds&md=f6294aecfeb133a78acaee90f6c384c1" alt="Broken tape">
-</div>
+    <div class="col-12 col-lg-6">
+        <h2 class="my-5">Oops, something appears to be wrong!</h2>
+        <hr>
+        <p>Head back to a safe place?</p>
+        <a class="btn btn-primary" href="{% url 'home' %}"><i class="fas fa-hand-point-left"></i> Home</a>
+    </div>
 </div>
 {% endblock %}
