@@ -165,7 +165,8 @@ def add_review(request, band_id):
             review.save()
             messages.success(request, 'Your review has been successfully added.')
 
-        return redirect(reverse('all_bands'))
+        return redirect(reverse('band_profile', kwargs={'band_id': band_id}))
+
     else:
         form = ReviewForm()
 

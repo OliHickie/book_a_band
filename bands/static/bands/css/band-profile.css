@@ -23,6 +23,7 @@
 /* Reviews */
 
 .reviews {
+    max-height: 1005px;
     overflow-y: auto;
 }
 
