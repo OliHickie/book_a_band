@@ -410,10 +410,6 @@ footer h5 {
     font-size: 12px;
 }
 
-.terms {
-    max-width: 800px;
-}
-
 .no-bookings,
 .booking {
     font-size: 20px;
@@ -453,13 +449,6 @@ footer h5 {
     color: #6085A9;
 }
 
-.delete-blog {
-    position: absolute;
-    top: 5px;
-    right: 8px;
-    font-size: 20px;
-    background-color: #fff;
-}
 
 @media screen and (min-width: 480px) {
     .blog-img {
@@ -486,4 +475,8 @@ footer h5 {
 
 .toast-capper {
     height: 4px;
+}
+
+.cursor-point {
+  cursor: pointer;
 }

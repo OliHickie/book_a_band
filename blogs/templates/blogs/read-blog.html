@@ -8,6 +8,8 @@
 <hr>
 {% endblock %}
 
+{% block extra_title %}{{ blog.title }}{% endblock %}
+
 
 {% block content %}
 <a href="{% url 'all_blogs' %}" class="unstyled-link back-link">
