@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test, login_required
+from django.contrib import messages
 
 from .forms import BandForm, ReviewForm
 from .models import Band, Category, BandReview
@@ -139,6 +140,7 @@ def add_band(request):
         form = BandForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, 'The band has been successfully added')
 
         return redirect(reverse('all_bands'))
 
@@ -159,11 +161,11 @@ def add_review(request, band_id):
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
-            print(band)
             review.band = band
             review.save()
+            messages.success(request, 'Your review has been successfully added.')
 
-        return render(request, 'bookings/my_bookings.html')
+        return redirect(reverse('all_bands'))
     else:
         form = ReviewForm()
 

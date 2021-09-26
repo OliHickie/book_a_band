@@ -27,7 +27,7 @@
             {% endif %}
 
             {% if bands|length != number_of_bands %}
-            <a href="{% url 'all_bands' %}" class="ps-2"><small>clear search</small></a>
+            <a href="{% url 'all_bands' %}?sort=name&direction=asc" class="ps-2"><small>clear search</small></a>
             {% endif %}
         </div>
         {% endif %}
@@ -69,17 +69,17 @@
                     </a>
                     <ul class="list-unstyled dropdown-menu">
                         <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=strings">
-                            <i class="fas fa-caret-right"></i> Strings</a></li>
+                                <i class="fas fa-caret-right"></i> Strings</a></li>
                         <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=brass">
-                            <i class="fas fa-caret-right"></i> Brass</a></li>
+                                <i class="fas fa-caret-right"></i> Brass</a></li>
                         <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=piano">
-                            <i class="fas fa-caret-right"></i> Piano</a></li>
+                                <i class="fas fa-caret-right"></i> Piano</a></li>
                         <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=harp">
-                            <i class="fas fa-caret-right"></i> Harp</a></li>
+                                <i class="fas fa-caret-right"></i> Harp</a></li>
                         <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=function_bands">
-                            <i class="fas fa-caret-right"></i> Function Bands</a></li>
+                                <i class="fas fa-caret-right"></i> Function Bands</a></li>
                         <li><a class="unstyled-link dropdown-item" href="{% url 'all_bands' %}?category=djs">
-                            <i class="fas fa-caret-right"></i> DJs</a></li>
+                                <i class="fas fa-caret-right"></i> DJs</a></li>
                     </ul>
                 </div>
             </div>
@@ -177,17 +177,17 @@
             <h4>By Group</h4>
             <ul class="mt-2 ms-4 list-unstyled sidebar-links">
                 <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=strings">
-                    <i class="fas fa-caret-right"></i> Strings</a></li>
+                        <i class="fas fa-caret-right"></i> Strings</a></li>
                 <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=brass">
-                    <i class="fas fa-caret-right"></i> Brass</a></li>
+                        <i class="fas fa-caret-right"></i> Brass</a></li>
                 <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=piano">
-                    <i class="fas fa-caret-right"></i> Piano</a></li>
+                        <i class="fas fa-caret-right"></i> Piano</a></li>
                 <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=harp">
-                    <i class="fas fa-caret-right"></i> Harp</a></li>
+                        <i class="fas fa-caret-right"></i> Harp</a></li>
                 <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=function_bands">
-                    <i class="fas fa-caret-right"></i> Function Bands</a></li>
+                        <i class="fas fa-caret-right"></i> Function Bands</a></li>
                 <li><a class="unstyled-link text-capitalize" href="{% url 'all_bands' %}?category=djs">
-                    <i class="fas fa-caret-right"></i> DJs</a></li>
+                        <i class="fas fa-caret-right"></i> DJs</a></li>
             </ul>
 
             <h4>By Location</h4>
@@ -271,15 +271,19 @@
             {% endfor %}
 
         </div>
+        <!-- Pagination  -->
         <!-- Code taken from Django docs -->
         <div class="pagination m-3">
             <span class="step-links text-d-blue">
                 {% if page_bands.has_previous %}
-                <a class="mx-3 unstyled-link" href="{{ request.get_full_path }}&page=1"><i
-                        class="fas fa-step-backward"></i> first</a>
+                <a class="mx-3 unstyled-link"
+                    href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page=1">
+                    <i class="fas fa-step-backward"></i> first
+                    </a>
                 <a class="mx-2 unstyled-link"
-                    href="{{ request.get_full_path }}&page={{ page_bands.previous_page_number }}"><i
-                        class="fas fa-chevron-left"></i> previous</a>
+                    href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_bands.previous_page_number }}">
+                    <i class="fas fa-chevron-left"></i> previous
+                    </a>
                 {% endif %}
 
                 <span class="current text-d-pink">
@@ -289,12 +293,13 @@
                 </span>
 
                 {% if page_bands.has_next %}
-                <a class="unstyled-link mx-2" href="{{ request.get_full_path }}&page={{ page_bands.next_page_number }}">
+                <a class="unstyled-link mx-2"
+                    href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_bands.next_page_number }}">
                     next <i class="fas fa-chevron-right"></i>
                 </a>
                 <a class="mx-3 unstyled-link"
-                    href="{{ request.get_full_path }}&page={{ page_bands.paginator.num_pages }}">last <i
-                        class="fas fa-step-forward"></i></a>
+                    href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_bands.paginator.num_pages }}">
+                    last <iclass="fas fa-step-forward"></i></a>
                 {% endif %}
             </span>
         </div>
