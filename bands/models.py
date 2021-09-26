@@ -16,7 +16,7 @@ class Category(models.Model):
 class Band(models.Model):
 
     category = models.ForeignKey(
-        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+        'Category', null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=24, null=False, blank=False)
     price = models.IntegerField(null=False, blank=False)
     location = models.CharField(max_length=18, null=False, blank=False)

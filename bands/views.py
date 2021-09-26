@@ -159,12 +159,13 @@ def add_review(request, band_id):
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.save(commit=False)
-            # form.band = band.id 
+            print(band)
+            form.band = band
             form.save()
 
         return render(request, 'bookings/my_bookings.html')
     else:
-        form = ReviewForm()
+        form = ReviewForm(band=band)
 
     context = {
         'form': form,

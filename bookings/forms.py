@@ -23,6 +23,7 @@ class BookingForm(forms.ModelForm):
             self.fields['wedding_date'].widget.attrs['autocomplete'] = 'off'
             self.fields['start_time'].widget.attrs['id'] = 'timepicker'
             self.fields['start_time'].widget.attrs['autocomplete'] = 'off'
+            self.fields['wedding_date'].widget.attrs['readonly'] = 'readonly'
 
             # Add class to each field
             self.fields[field].widget.attrs['class'] = 'booking-form-field'
