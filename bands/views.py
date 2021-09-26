@@ -176,3 +176,5 @@ def add_review(request, band_id):
     }
     
     return render(request, 'bands/add_review.html', context)
+
+
