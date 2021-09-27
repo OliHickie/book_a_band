@@ -5,7 +5,7 @@
 
 <head>
   <!-- Meta tags -->
-  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -87,12 +87,12 @@
               </li>
               <!-- Musicians - Bootstrap accordian for smaller screens -->
               <li class="nav-item accordian d-lg-none">
-                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                <a href="#flush-collapseOne" class="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
                   aria-controls="nav-accordian1">
                   Musicians <i class="fas fa-sort-down"></i></a>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="nav-accordian1"
                   data-bs-parent="#accordionFlushExample">
-                  <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
+                  <ul class="accordian-body list-unstyled ps-3" aria-labelledby="flush-collapseOne">
                     <li><a href="{% url 'all_bands' %}">All Bands</a>
                     </li>
                     <li><a href="{% url 'all_bands' %}?category=strings">Strings</a></li>
@@ -131,13 +131,13 @@
               </li>
               <!-- My Account - Bootstrap accordian for smaller screens -->
               <li class="nav-item accordian d-lg-none">
-                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                <a href="#collapseTwo" class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                   aria-controls="collapseTwo">
                   My Account <i class="fas fa-sort-down"></i>
                 </a>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="collapseTwo"
                   data-bs-parent="#accordionExample">
-                  <ul class="accordian-body list-unstyled ps-3" aria-labelledby="navbarDropdown">
+                  <ul class="accordian-body list-unstyled ps-3" aria-labelledby="collapseTwo">
 
                     {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
@@ -293,7 +293,7 @@
   </footer>
 
   {% block postloadjs %}
-  <script type="text/javascript">
+  <script>
     let getToast = [].slice.call(document.querySelectorAll('.toast'));
     let displayToast = getToast.map(function (toastEl) {
       return new bootstrap.Toast(toastEl).show();

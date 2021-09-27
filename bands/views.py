@@ -172,8 +172,8 @@ def edit_band(request, band_id):
         'form': form,
         'band': band,
     }
-    
-    return render(request, 'bands/edit_band.html', context)  
+
+    return render(request, 'bands/edit_band.html', context)
 
 
 @login_required
@@ -189,7 +189,8 @@ def add_review(request, band_id):
             review = form.save(commit=False)
             review.band = band
             review.save()
-            messages.success(request, 'Your review has been successfully added.')
+            messages.success(
+                request, 'Your review has been successfully added.')
 
         return redirect(reverse('band_profile', kwargs={'band_id': band_id}))
 
@@ -200,5 +201,5 @@ def add_review(request, band_id):
         'form': form,
         'band': band,
     }
-    
-    return render(request, 'bands/add_review.html', context)  
+
+    return render(request, 'bands/add_review.html', context)

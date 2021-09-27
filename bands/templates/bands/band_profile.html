@@ -18,7 +18,7 @@
   <!-- Band images -->
   <div class="col-12 col-lg-6 px-4 py-3">
     {% if band.image_one %}
-    <img src="{{ band.image_one.url }}" alt="" class="profile-main-img rounded lrg-img" id="imageOne">
+    <img src="{{ band.image_one.url }}" alt="wedding image" class="profile-main-img rounded lrg-img" id="imageOne">
     {% else %}
     <img
       src="https://mikestaff.com/wp-content/uploads/2020/12/bride-and-groom-dancing-with-guest-at-wedding-reception.jpg"
@@ -27,17 +27,17 @@
     <div class="row mt-3">
       <div class="col-4">
         {% if band.image_two %}
-        <img src="{{ band.image_two.url }}" alt="" class="profile-sm-img rounded sm-img" id="imageTwo">
+        <img src="{{ band.image_two.url }}" alt="{{ band.name }}" class="profile-sm-img rounded sm-img" id="imageTwo">
         {% endif %}
       </div>
       <div class="col-4">
         {% if band.image_three %}
-        <img src="{{ band.image_three.url }}" alt="" class="profile-sm-img rounded sm-img" id="imageThree">
+        <img src="{{ band.image_three.url }}" alt="{{ band.name }}" class="profile-sm-img rounded sm-img" id="imageThree">
         {% endif %}
       </div>
       <div class="col-4">
         {% if band.image_four %}
-        <img src="{{ band.image_four.url }}" alt="" class="profile-sm-img rounded sm-img" id="imageFour">
+        <img src="{{ band.image_four.url }}" alt="{{ band.name }}" class="profile-sm-img rounded sm-img" id="imageFour">
         {% endif %}
       </div>
     </div>

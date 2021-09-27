@@ -8,7 +8,7 @@ class BandForm(forms.ModelForm):
         model = Band
         fields = '__all__'
 
-    
+
 class ReviewForm(forms.ModelForm):
 
     class Meta:
