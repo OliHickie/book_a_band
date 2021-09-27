@@ -104,8 +104,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # allauth settings
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -206,3 +204,15 @@ if 'USE_AWS' in os.environ:
 STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = 'pk_test_51Ahf6cJA51vADsMXJ12q3J52nlfly28g3g5NI77aX648mIFvivZP2fwEkuBQqxxduqvVHyrwaEKcJ6thFPsUEMxA00TOOAuWzB'
 STRIPE_SECRET_KEY = 'sk_test_51Ahf6cJA51vADsMXZ3B4fgrKzkGT4ICBQ1Hew5SxSlSMw6Qic6h49aca7VQ22y9BMQTXyRmVjTImj6jmUZTg6Icf00ZiVuXxNc'
+
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'bookaband@example.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
