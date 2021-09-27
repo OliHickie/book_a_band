@@ -3,9 +3,9 @@
 
 [&#127926;  &nbsp; **View Live Website**  &nbsp; &#127926;](https://bookaband.herokuapp.com/)
 
-[&#127928;  &nbsp; **View GitHub Repository** &nbsp; &#127928;](https://github.com/OliHickie/shakennotstirred)
+[&#127928;  &nbsp; **View GitHub Repository** &nbsp; &#127928;](https://github.com/OliHickie/book_a_band)
 
-![Image of website](#)
+![Image of website](media/responsive.png)
 
 Book a Band is an e-commerce website designed to help users plan and book musical entertainment for their wedding day. The site offers users an easy booking system which allows them to book a variety of acts, as well as view all bookings in one easy place. 
 
@@ -62,9 +62,27 @@ The site is aimed at those planning on getting married, although a future step w
 
 ### Color Scheme
 
-![Image of website](/media/babcolor.png)
+![Image of color scheme](media/babcolor1.png)
+
+I used a lot of pinks in the site as a soft color and that often associated with weddings. THe two contrasting shades of pink are used as both backdrops as well as for the logo, text and buttons. Blue offered a nice contrast to this so if often used for headings and bold text. 
+I wanted to keep the color scheme relatively simple as there is a lot of color introduced to pages through busy imagery. 
+
+### Typography
+
+Throughout the site I used two types of font, both downloaded from Google Fonts. For titles and large text, including the logo, I used Abril Fatface and for the rest of the site I used Playfair Display, a very easy to read font, which has a smart and fun look about it. 
+
+### Wireframes
+
+INSERT WIREFRAMES HERE!
+
+### Database Schema
+![Image of schema](media/schema.png)
+
+Schema created on [dbdiagram.io](https://dbdiagram.io/)
 
 # Features
+
+
 # Database Design
 # Technologies
 # Testing
