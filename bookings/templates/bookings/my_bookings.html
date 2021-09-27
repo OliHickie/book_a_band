@@ -46,9 +46,9 @@
         <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
         <td class="text-danger ">UNCONFIRMED</td>
         <td>£{{ booking.price }}</td>
-        <td class="text-danger cursor-point" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        <td class="cursor-point" data-bs-toggle="tooltip" data-bs-placement="bottom"
           title="Delete booking?">
-          <a data-bs-toggle="modal" data-bs-target="#modal-{{ booking.id }}"><i class="fas fa-times ms-3"></i></a>
+          <a data-bs-toggle="modal" data-bs-target="#modal-{{ booking.id }}"><i class="text-danger fas fa-times ms-3"></i></a>
         </td>
         <td></td>
       </tr>
@@ -63,7 +63,8 @@
         <td class="text-success ">CONFIRMED</td>
         <td>PAID</td>
         <td></td>
-        <td class="text-center">
+        <td class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        title="Review the band">
           <a class="text-d-blue cursor-point" href="{% url 'add_review' booking.band_id %}"><i class="fas fa-edit"></i></a>
         </td>
       </tr>

@@ -82,6 +82,26 @@ Schema created on [dbdiagram.io](https://dbdiagram.io/)
 
 # Features
 
+- Site is fully responsive across all screen sizes.
+- Navigation menu and search bar reduce into a collapsable menu on smaller screen sizes. 
+- Users can log in and log out using an email and passwrod which can be recovered and updated. All emails are authorised with a confirmation email. 
+- Users can search for Band using keywords. They can also use quick links to view bands depending on location, price or sort alphabetically or by price. The bands are displayed in card format and paginated.
+- Bookings can be made easily and viewed, before committing through making a payment. Bookings can also be deleted before they are confirmed. Due to bands being booked for wedding days, once successful payment confirms the booking, any changes need to be done via email with the site owner. 
+- The my bookings page acts as a 'cart' and 'order history' page to keep all user's bookings in one place.
+- Once a booking is confirmed, the user is then able to leave a review and a rating for the band, which will be added to the band profile. 
+- Payments made easily through the use of Stripe. 
+- All blogs are readable and also include quick links to post directly to social media channels. 
+- Certain CRUD features are available on the site for users and the site owner. 
+    - **Create**: A user can create a booking and add a review. The superuser is able to add bands and blogs.
+    - **Read**: All bands, reviews and blogs are available to read to all users. Users may also view their own bookings. 
+    - **Update**: Bands and blogs may be updated and edited by the site owner from the front end. 
+    - **Delete**: Blogs may be removed by the site owner and bookings may be removed by users before payment is made. 
+- Notifications are all delivered using Bootstrap toasts and any delete functions are protected by confirmation modals. 
+
+
+
+
+
 
 # Database Design
 # Technologies
