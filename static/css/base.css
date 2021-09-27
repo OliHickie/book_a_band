@@ -2,19 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;900&display=swap');
 
 
-/* Quick links - delete before submission */
-/* 
-font-family: 'Playfair Display', serif;
-font-family: 'Abril Fatface', cursive;
-
-@media screen and (max-width: 600px) {
-}
- */
-
 body {
     font-family: 'Playfair Display', serif;
-    background-color: #ffe9e9;
+    background-color: #ffe9e9 !important;
 }
+
+
 
 /* font colors  */
 
