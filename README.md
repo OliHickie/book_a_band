@@ -15,7 +15,6 @@ The website is built using the Django framework alongside Bootstrap and jQuery, 
 
 1) [User Experience](#user-experience)
 2) [Features](#features)
-3) [Database Design](#database-design)
 3) [Technologies](#technologies)
 4) [Testing](#testing)
 5) [Deployment](#deployment)
@@ -91,20 +90,31 @@ Schema created on [dbdiagram.io](https://dbdiagram.io/)
 - Once a booking is confirmed, the user is then able to leave a review and a rating for the band, which will be added to the band profile. 
 - Payments made easily through the use of Stripe. 
 - All blogs are readable and also include quick links to post directly to social media channels. 
-- Certain CRUD features are available on the site for users and the site owner. 
-    - **Create**: A user can create a booking and add a review. The superuser is able to add bands and blogs.
-    - **Read**: All bands, reviews and blogs are available to read to all users. Users may also view their own bookings. 
-    - **Update**: Bands and blogs may be updated and edited by the site owner from the front end. 
-    - **Delete**: Blogs may be removed by the site owner and bookings may be removed by users before payment is made. 
+- Certain CRUD features are available on the site for users and the site owner. These include being uble to add bookings, reviews, blogs and bands, editing teh information for both bands and blogs (by the site owner) and removing blogs and bookings (before payment has been made). 
 - Notifications are all delivered using Bootstrap toasts and any delete functions are protected by confirmation modals. 
 
-
-
-
-
-
-# Database Design
 # Technologies
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [Python3](https://www.python.org/) 
+- [Javascript](https://www.javascript.com/) / [JQuery](https://jquery.com/)
+- [Django](https://www.djangoproject.com/) - the framework used for the site.
+- [Amazon Web Services](https://aws.amazon.com/) - used to store static and media files. 
+- [Git](https://git-scm.com/) - used for version control.
+- [Bootstrap5](https://getbootstrap.com/) - Features and componants were used across the site, such as the collapsible nav bar, toasts, modals, dropdowns and accordians. 
+- [SQLite](https://www.sqlite.org/index.html) - used as the database whilst in development.
+- [PostgreSQL](https://www.postgresql.org/) - used as the database when the site is deployed. 
+- [Stripe](https://stripe.com/gb) - used to handle payment feature on the site. 
+- [GitPod](https://gitpod.io/) - IDE used.
+- [GitHub](https://github.com/) - used to house the repository.
+- [Heroku](https://id.heroku.com/) - used for deploying the website.
+- [FontAwesome](https://fontawesome.com/) - used to import icons.
+- [Google Fonts](https://fonts.google.com/) - used to import fonts.
+- [Balsamiq](https://balsamiq.com/) - used to build wireframes.
+- [Tiny JPG](https://tinyjpg.com/) - used to compress images.
+
+
 # Testing
 # Deployment
 # Credits
