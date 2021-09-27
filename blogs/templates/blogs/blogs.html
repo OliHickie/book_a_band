@@ -12,7 +12,7 @@
 
 {% block content %}
 {% if request.user.is_superuser %}
-<a class="btn btn-primary my-4" href="{% url 'add_blog' %}"><i class="far fa-plus-square pe-1"></i> Blog</a>  
+<a class="btn btn-primary my-4" href="{% url 'add_blog' %}"><i class="far fa-plus-square pe-1"></i> Blog</a>
 {% endif %}
 
 <div class="row">
@@ -41,8 +41,7 @@
     </a>
     {% if request.user.is_superuser %}
     <div class="text-center">
-      <a class="btn btn-danger" data-bs-toggle="modal"
-      data-bs-target="#modal-{{ blog.id }}">Delete Blog
+      <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{ blog.id }}">Delete Blog
       </a>
       <a class="btn btn-secondary" href="{% url 'edit_blog' blog.id %}">Edit Blog</a>
     </div>
@@ -50,11 +49,12 @@
   </div>
 
   <!-- Delete Modal  -->
-  <div class="modal fade" id="modal-{{ blog.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modal-{{ blog.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ blog.id }}"
+    aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Delete blog?</h5>
+          <h5 class="modal-title" id="modalLabel-{{ blog.id }}">Delete blog?</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -72,8 +72,6 @@
   </div>
   {% endfor %}
 
-</div>
-</div>
 </div>
 
 

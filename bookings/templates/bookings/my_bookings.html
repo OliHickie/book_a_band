@@ -50,6 +50,7 @@
           title="Delete booking?">
           <a data-bs-toggle="modal" data-bs-target="#modal-{{ booking.id }}"><i class="fas fa-times ms-3"></i></a>
         </td>
+        <td></td>
       </tr>
       {% endfor %}
 
@@ -99,13 +100,13 @@
 </div>
 
 {% for booking in unconfirmed_bookings %}
-<div class="modal fade" id="modal-{{ booking.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modal-{{ booking.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ booking.id }}"
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- Header  -->
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete {{ booking.band_name }}?</h5>
+        <h5 class="modal-title" id="modalLabel-{{ booking.id }}">Delete {{ booking.band_name }}?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <!-- Body  -->

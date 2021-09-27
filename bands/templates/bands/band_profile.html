@@ -64,7 +64,7 @@
       <p class=""><i class="text-muted fas fa-map-marker-alt pe-1"></i> {{ band.location }}</p>
     </div>
     <div class="band-biog">
-      <p>{{ band.biography | linebreaks }}</p>
+      {{ band.biography | linebreaks }}
     </div>
     <div class="my-4 profile-buttons">
       <a href="{% url 'all_bands' %}?sort=name&direction=asc" class="btn btn-secondary mt-2">

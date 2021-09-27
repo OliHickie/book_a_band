@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-6 col-md-3 text-center py-2">
                 <div class="dropdown quick-links-dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    <a class="btn dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Sort By
                     </a>
@@ -65,7 +65,7 @@
             </div>
             <div class="col-6 col-md-3 text-center py-2">
                 <div class="dropdown quick-links-dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    <a class="btn dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         By Group
                     </a>
@@ -87,7 +87,7 @@
             </div>
             <div class="col-6 col-md-3 text-center py-2">
                 <div class="dropdown quick-links-dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    <a class="btn dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         By Location
                     </a>
@@ -108,7 +108,7 @@
             </div>
             <div class="col-6 col-md-3 text-center py-2">
                 <div class="dropdown quick-links-dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    <a class="btn dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         By Price
                     </a>
@@ -138,7 +138,7 @@
                                 £500 - £999</a>
                         </li>
                         <li>
-                            <a href="{% url 'all_bands' %}?price=Less than £500"
+                            <a href="{% url 'all_bands' %}?price=Less%20than%20£500"
                                 class="text-capitalize unstyled-link dropdown-item">
                                 <i class="fas fa-caret-right"></i>
                                 Less than £500</a>
@@ -229,7 +229,7 @@
                         £500 - £999</a>
                 </li>
                 <li>
-                    <a href="{% url 'all_bands' %}?price=Less than £500" class="text-capitalize unstyled-link">
+                    <a href="{% url 'all_bands' %}?price=Less%20than%20£500" class="text-capitalize unstyled-link">
                         <i class="fas fa-caret-right"></i>
                         Less than £500</a>
                 </li>
@@ -301,7 +301,7 @@
                 </a>
                 <a class="mx-3 unstyled-link"
                     href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_bands.paginator.num_pages }}">
-                    last <iclass="fas fa-step-forward"></i></a>
+                    last <i class="fas fa-step-forward"></i></a>
                 {% endif %}
             </span>
         </div>

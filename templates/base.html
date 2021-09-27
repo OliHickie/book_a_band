@@ -30,7 +30,7 @@
   {% block extra_js %}
   {% endblock %}
 
-  <link rel="shortcut icon" type="image/jpg" href="/media/bandfavicon.ico"/>
+  <link rel="shortcut icon" type="image/jpg" href="/media/bandfavicon.ico" />
   <title>Book a Band {% block extra_title %}{% endblock %}</title>
 </head>
 
@@ -87,10 +87,10 @@
               </li>
               <!-- Musicians - Bootstrap accordian for smaller screens -->
               <li class="nav-item accordian d-lg-none">
-                <a href="#flush-collapseOne" class="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                  aria-controls="nav-accordian1">
+                <a href="#flush-collapseOne" class="collapsed" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                   Musicians <i class="fas fa-sort-down"></i></a>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="nav-accordian1"
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-collapseOne"
                   data-bs-parent="#accordionFlushExample">
                   <ul class="accordian-body list-unstyled ps-3" aria-labelledby="flush-collapseOne">
                     <li><a href="{% url 'all_bands' %}">All Bands</a>
@@ -131,8 +131,8 @@
               </li>
               <!-- My Account - Bootstrap accordian for smaller screens -->
               <li class="nav-item accordian d-lg-none">
-                <a href="#collapseTwo" class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                  aria-controls="collapseTwo">
+                <a href="#collapseTwo" class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
                   My Account <i class="fas fa-sort-down"></i>
                 </a>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="collapseTwo"
@@ -303,6 +303,12 @@
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
+
+    // Replace all spaces in href tags with %20
+    // https://stackoverflow.com/questions/853804/jquery-javascript-replace-space-in-anchor-link-with-20 
+    $("a").each(function () {
+      this.href = this.href.replace(/\s/g, "%20");
+    });
   </script>
   {% endblock %}
 </body>
