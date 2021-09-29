@@ -29,14 +29,14 @@
                 </div>
             </div>
 
-            {% for band in unconfirmed_bookings %}
+            {% for booking in unconfirmed_bookings %}
             <div class="row">
                 <div class="col-6">
-                    <p>{{band.band_name}}</p>
+                    <p>{{ booking.band }}</p>
                 </div>
                 <div class="col-6">
                     <p class="text-end">
-                        £{{ band.price }}
+                        £{{ booking.price }}
                     </p>
                 </div>
             </div>
