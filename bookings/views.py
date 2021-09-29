@@ -2,7 +2,6 @@ from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
-import datetime
 import stripe
 
 from .forms import BookingForm

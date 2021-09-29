@@ -182,23 +182,25 @@ Schema created on [dbdiagram.io](https://dbdiagram.io/)
 
 - Once payment is made, all bookings are confirmed and the user receives a message of confirmation and directed back to their bookings page. 
 
+## Blogs Page
 
+- From the blogs page, users may view all blogs available to read on the site. 
+- If the superuser is logged in, they can delete, edit or add a new blog from this page. 
+- The blogs are displayed with an image, the date they were last updated and the title of the blog. 
 
+## Read blog
 
+- Here is where the user may read the blog and also view the author and a link to the source of the content. 
+- The user also has social media links which create a link for the user to post on their social media pages. 
 
-## Nav Bar
--
-## Nav Bar
-## Nav Bar
-## Nav Bar
-## Nav Bar
-## Nav Bar
-## Nav Bar
-## Nav Bar
-## Nav Bar
-## Nav Bar
-## Nav Bar
-## Nav Bar
+<hr>
+
+## Future Features
+
+- I would like to offer a more complicated searching system on the musicians page. This will allow the user to add queries on to one another and reduce the search results to a more specific criteria. 
+- The user's wedding day information is stored and is automatically present when create a booking. This can be done either when signing up for an account or once they have made a booking. 
+
+<br>
 
 # Technologies
 
@@ -223,6 +225,86 @@ Schema created on [dbdiagram.io](https://dbdiagram.io/)
 
 
 # Testing
+
+### Functionality Testing
+
+-  Manual testing was carried out on:
+    - Desktop: Apple and Dell
+    - Tablets and mobile: Apple and Samsung
+    - Browsers: Chrome, Safari, Edge and Internet Explorer
+
+    Live tests were also carried out on [https://comparium.app/](https://comparium.app/)
+
+During testing the following tests were carried out on large and small screens
+
+- Nav Bar/Footer
+    - All nav bar links worked and directed user to correct page. 
+    - Collapse navbar worked on smaller screens across all browsers and was accessible through a hamburger icon.
+    - Accordians and dropdowns worked on all browsers.
+    - My account menu displayed correct options depending on user/superuser status.
+    - The search bar worked across the site both from the nav bar and the footer.
+    - The nav bar search element appears in collapsable menu for screens. 
+    - All social links are opened in separate tabs. 
+    - Toasts appear and are clear to the user when actions have been successful. 
+
+- Index Page
+    - CTA button directs user to the 'all bands' page. 
+    - Category tiles expand when mouse moves over them. They all link to the 'all bands' page and display correct bands by category. 
+    - Icons at bottom of page rotate when mouse moves over them. 
+    - The links all direct the user to the correct page. 
+    - 'My bokings' page only accessible if user logged in.
+    - All sections are responsive and are formatted accordingly.
+
+- Musicians Page
+    - All page quick links work and filter the results due to what link is chosen. 
+    - All buttons take the user to the diesired page. 
+    - 'Location' has overflow added to avoid being too long a list. 
+    - 'Location' venues also display the correct number of bands in that location. 
+    - The cards are fully resposive showing from anywhere between four cards to one card per row depending on screen size. 
+    - The search results at the top of the screen tells the user how many bands have been returned by the query. There is also a link to clear the query and display all bands again. 
+    - If no image is present for a band, then a generic image appears in it's place.
+    - The band cards are paginated to 12 cards per page. This also takes any arguments or queries added by the user and paginates the results successfully across the pages. 
+
+- Band Profile
+    - All buttons take the user to desired page.
+    - Large image is replaced by smaller image if and when one is selected.
+    - Ratings are calculated as an average of from the reviews. If no ratings or reviews, then that is communicated to the user. 
+    - Suggested band cards are responsive to the screen size. 
+    - If superuser is logged in, they can choose to edit the band information. This takes the superuser to a form which is automatically filled in with the current information in the database. 
+
+- New Bookings Page
+    - If the user creates a new booking, the form displayed is clear and responsive. 
+    - Form validation is present, allowing the user to only leave address2 and additional information blank. 
+    - The wedding date field is only editable via the jQuery datepicker. This also allows the field to be formatted correctly. 
+    - The start time field automatically updates any integer in 24hr clock format. 
+    - The 'clear form' button clears all fields. 
+    - The 'create booking' button saves the form information and adds the information to the booking model. 
+    - The image displayed on the page correlates to the band currently being booked. 
+
+- My Bookings Page/Payment
+    - Bookings that have been paid for appear as confirmed and likewise, those not paid for appeear as unconfirmed. 
+    - Tooltips appear when delete or review icons are hovered over. 
+    - The delete icon opens a modal to confirm whether the user wishes to delete this booking. 
+    - The review icon leads the user to a review page. 
+    - The checkout button takes the user to a checkout page incorporating Stripe functionality. 
+    - The payment page also itemises unpaid bookings and displays total which is currently being paid for. 
+    - The Stripe payment function (which is in test mode) was tested with both a successful payment card number as well as various card errors which are avaiable in the Stripe docs. 
+    - On successful payment, the user is directed back to the booking page where all bookings are now confirmed.
+
+
+
+
+
+
+- Add review
+
+
+
+
+
+
+
+    
 
 
 # Deployment
