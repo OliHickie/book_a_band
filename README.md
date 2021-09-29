@@ -291,15 +291,54 @@ During testing the following tests were carried out on large and small screens
     - The Stripe payment function (which is in test mode) was tested with both a successful payment card number as well as various card errors which are avaiable in the Stripe docs. 
     - On successful payment, the user is directed back to the booking page where all bookings are now confirmed.
 
+- Blogs 
+    - Blogs cards are responsive depending on screen size. 
+    - They grow as the user moves their mouse over each card. 
+    - The card displays date where the blog was last updated. 
+    - All links to social media and the blog source open in new tabs. 
+    - Blogs are rendered with line breaks. 
 
+- Add/Edit forms
+    - All forms are rendered correctly and are responsive. 
+    - All form validation is present and correct.
+    - Editing forms display content already present on database. 
+    - Ratings form prevents user from going above 5 or below 1 for the rating. 
 
+- Delete functions
+    - All delete functions remove objects from database. 
 
+- Security
+    - Using the @login_required decorator enforces all users to be logged in to view member pages. If user is not logged in, they are directed to the sign in page. 
+    - Similarly, this is the case for all pages that are only available to the superuser. 
+    - If users try and direct to a band profile page or blog page that doesn't exist they are directed to the error page. From here, the user may use the navigation bar or the home button to direct back to a safe place. 
 
+### Validation
 
-- Add review
+HTML, CSS and Python code was all tested using online validators. 
 
+#### HTML Validator
 
+The following pages passed validation successfully:
+Index, band profile, blog page, read blog, login, my bookings, add review, add band, add blog, edit band, edit blog. 
+ 
+The following error appeared when testing the bands page:
+![Image of html error](media/html-error1.png)
 
+This is due to the variable having a space in it. This has been corrected using javascript and replacing all spaces in links to '%20'
+
+#### CSS Validator
+
+All CSS passed without error
+
+#### Flake8
+
+The following errors appear when running <code>python3 -m flake8</code> in the terminal. 
+
+![Image of Flake8 errors](media/flake8.png)
+
+The errors displayed are all either in automativcally generated files, or deal with <code>null=True</code> being used on string based fields. 
+
+No errors were found when running python code through [PEP8 Online Check](http://pep8online.com/checkresult)
 
 
 
