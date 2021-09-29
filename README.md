@@ -341,6 +341,33 @@ The errors displayed are all either in automativcally generated files, or deal w
 No errors were found when running python code through [PEP8 Online Check](http://pep8online.com/checkresult)
 
 
+### Testing User Stories
+
+|#|Results|
+|---|---|
+|US01|The purpose of the website is clear from the index page. The header and subtitle make it clear the site's purpose. The four stages of making a booking at the end of the index page explains the steps clearly. The imagery on the index page further backs the site's function.|
+|US02|Across the site, there are many ways the user may navigate to the bands page. Most commonly, this will be done through the nav bar menu. A link is also available in the footer and via various buttons across the pages. |
+|US03|The blogs are easy to navigate to via the nav bar menu|
+|US04|Users can search for bands using the search bar in the nav bar or the footer. These are visible across all pages|
+|US05|Location and price can be filtered using the quick links on the 'all bands' page|
+|US06|Viewing a bands profile page will display details, cost, ratings and location to the user|
+|US07|Reviews are available to read on the band's profile page|
+|US08|Suggestions for similar bands appear on the band's profile page. These are filtered through bands in the similar category and are chosen at random|
+|US09|Blogs are available through the blogs page.|
+|US10|Blogs can be shared directly to social media via the icons at the end of the blog. The post is made automatically meaning the user just needs to share.|
+|US11|Social media links are displayed in the footer across all pages on the site.|
+|US12|Contact information is displayed in the footer across all pages on the site.|
+|US13|Account registration is accessible through the My Accounts tab in the nav bar as well as as a link on the home page. Users are also navigated directly to sign in and registration if they try and access a page or make a booking without logging in.|
+|US14|Bookings can be made via each band's profile page. They can input all necessary information needed to create a booking for the band.|
+|US15|All bookings made by the user are available to view on the my bookings page.|
+|US16|Once payment has been received, all bookings are automatically confirmed.|
+|US17|All confirmed bookings are available on the my bookings page. |
+|US18|From the 'my bookings' page, users who have confirmed and paid for a band may then leave a review for that particular band. |
+|US19|Bookings that aren't yet paid for or confirmed may be deleted. Before deletion is successful, the user must confirm this via the modal. |
+|US20|Account information can be updated and recovered on the log in pages.|
+|US21|Bands can be added from the Add Bands tab under My Account. Band information can be updated from their band profile page. |
+|US22|Blogs can be added from the Add Blog tab under My Account, alternatively, from the Blogs page. From the Blogs page, the superuser is able to delete and edit the blogs too. |
+
 
 
     
