@@ -1,9 +1,14 @@
 # BOOK A BAND
 
+<br>
 
 [&#127926;  &nbsp; **View Live Website**  &nbsp; &#127926;](https://bookaband.herokuapp.com/)
 
+<br>
+
 [&#127928;  &nbsp; **View GitHub Repository** &nbsp; &#127928;](https://github.com/OliHickie/book_a_band)
+
+<br>
 
 ![Image of website](media/responsive.png)
 
@@ -26,13 +31,15 @@ The website is built using the Django framework alongside Bootstrap and jQuery, 
 
 The layout of the site is clear, clean and relatively simple. The idea behind this is for users to understand the functionality of the site and navigate to their desired destination quickly. The site will offer a number of different acts and to make the searching easier, there are a number of different categories that the user may reduce the amount of search results and, in turn, find an appropriate band or act. 
 The checkout process is quick and clear, made easy by the use of Stripe. Once all bands or acts have been paid for, the booking is marked as confirmed. 
-Many of the site actions are supported by notifications at the top of the screen to confirm the users actions and keep a clean feel to the sight. 
+Many of the site actions are supported by notifications at the top of the screen to confirm the user's actions and keep a clean feel to the sight. 
+
+<br>
 
 ## User Stories
 
 | # | User | Would want to |
 | :----- | :------- | --------- |
-| US01 | New User | Quickly understand the purpose of the  website |
+| US01 | New User | Quickly understand the purpose of the website |
 | US02 | New User | Navigate to a list of bands |
 | US03 | New User | Navigate to a list of blogs |
 | US04 | New User | Search for bands depending on category or keyword |
@@ -55,6 +62,8 @@ Many of the site actions are supported by notifications at the top of the screen
 | US21 | Site Owner | Add and Update new bands to the site |
 | US22 | Site Owner | Add, update and delete blogs from the site |
 
+<br>
+
 ## Design
 
 The site is aimed at those planning on getting married, although a future step would be to open the site up to attract people planning events in general. With the focus, for now, being on weddings, the color scheme, imagery and design reflects this.  
@@ -63,7 +72,7 @@ The site is aimed at those planning on getting married, although a future step w
 
 ![Image of color scheme](media/babcolor1.png)
 
-I used a lot of pinks in the site as a soft color and that often associated with weddings. THe two contrasting shades of pink are used as both backdrops as well as for the logo, text and buttons. Blue offered a nice contrast to this so if often used for headings and bold text. 
+I used a lot of pinks in the site as a soft color and that often associated with weddings. The two contrasting shades of pink are used as both backdrops as well as for the logo, text and buttons. Blue offered a nice contrast to this so if often used for headings and bold text. 
 I wanted to keep the color scheme relatively simple as there is a lot of color introduced to pages through busy imagery. 
 
 ### Typography
@@ -72,12 +81,14 @@ Throughout the site I used two types of font, both downloaded from Google Fonts.
 
 ### Wireframes
 
-INSERT WIREFRAMES HERE!
+View wireframes [here](wireframes.md).
 
 ### Database Schema
 ![Image of schema](media/schema.png)
 
 Schema created on [dbdiagram.io](https://dbdiagram.io/)
+
+<br>
 
 # Features
 
@@ -90,12 +101,12 @@ Schema created on [dbdiagram.io](https://dbdiagram.io/)
 ![Image of nav bar in mobile view](media/navbar-collapse.png)
 
 - The nav bar is visible across the whole site, including checkout and error pages. 
-- Users will find a search bar in the top right corner of the nav bar in desktop view. This searches for keywords in the bands' names and biographies and filters the search results accordingly. The search bar moves inside the collapsable menu for smaller screens. 
+- Users will find a search bar in the top right corner of the nav bar in desktop view. This searches for keywords in the bands' names and biographies and filters the search results accordingly. The search bar moves inside the collapsible menu for smaller screens. 
 - The menu items include links for the index page, musicians page, blogs menu and account options. 
-    - **Musicians** This option opens a Bootstrap dropdown menu for larger screens or an accordian for smaller screens for a better user experience. The options available navigate the user to the bands page, returning either all the bands, or bands by category. 
+    - **Musicians** This option opens a Bootstrap dropdown menu for larger screens or an accordion for smaller screens for a better user experience. The options available navigate the user to the bands page, returning either all the bands, or bands by category. 
     ![Image of nav bar and musicians tab](media/navbar-musicians.png)
 
-    - **My Account** This option is set up in a similar way to the musicians link. The options available depend on whether the user or superuser is logged in or not.
+    - **My Account** This option is set up in a similar way to the musician's link. The options available depend on whether the user or superuser is logged in or not.
         
         |User status|Options|Results|
         |:-----|:------|:------|
@@ -211,7 +222,7 @@ Schema created on [dbdiagram.io](https://dbdiagram.io/)
 - [Django](https://www.djangoproject.com/) - the framework used for the site.
 - [Amazon Web Services](https://aws.amazon.com/) - used to store static and media files. 
 - [Git](https://git-scm.com/) - used for version control.
-- [Bootstrap5](https://getbootstrap.com/) - Features and componants were used across the site, such as the collapsible nav bar, toasts, modals, dropdowns and accordians. 
+- [Bootstrap5](https://getbootstrap.com/) - Features and componants were used across the site, such as the collapsible nav bar, toasts, modals, dropdowns and accordions. 
 - [SQLite](https://www.sqlite.org/index.html) - used as the database whilst in development.
 - [PostgreSQL](https://www.postgresql.org/) - used as the database when the site is deployed. 
 - [Stripe](https://stripe.com/gb) - used to handle payment feature on the site. 
@@ -223,6 +234,7 @@ Schema created on [dbdiagram.io](https://dbdiagram.io/)
 - [Balsamiq](https://balsamiq.com/) - used to build wireframes.
 - [Tiny JPG](https://tinyjpg.com/) - used to compress images.
 
+<br>
 
 # Testing
 
@@ -236,7 +248,6 @@ The testing document is available here [Testing.md](testing.md)
 
 ## Deploying on Heroku 
 
-<br>
 
 **Repository set up**
 - Ensure your requirements.txt is up to date.
@@ -275,19 +286,47 @@ The testing document is available here [Testing.md](testing.md)
 
  ## Deploying locally
 
-<br>
 
 To run the project on your local IDE
 **Download Repository**
-- Download the repository by either cloning or downloading the file. 
+- Download the repository and navigate to the 'code' dropdown. 
+- Add the HTTPS url to your clipboard. 
 - Open your environemt and use <code>git clone</code> followed by the repository url. 
 - Install the requirements file with <code>pip3 install -r requirements.txt</code>
+- Set variables in an env file or in your environment variables settings. 
+    - Add 'developement' to the list of environement variables to ensure debug is set to True. 
+    - Ensure USE_AWS is set to False
+    - EMAIL_* variables are not required as emails will be posted to the terminal while in development mode. 
 
-
-
-
+<br>
 
 # Credits
+
+### Content
+
+- Many of the Bands and their content were taken from [Last Minute ](https://www.lastminutemusicians.com/) and [Warble Entertainment](https://www.warble-entertainment.com/). 
+
+- Images were taken from [Pexels](https://www.pexels.com/).
+
+- I read [this article](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html) with a guide to using Django Pagination. 
+
+- Credit to Django docs and Stripe docs for their clarity and code examples. 
+
+- The timepicker on the booking form was taken from [here](https://timepicker.co/).
+
+- The datepicker on the booking form was taken from [here](https://jqueryui.com/datepicker/).
+
+### Acknowledgments
+
+- This project was inspired by Code Institute's Boutique Ado project. 
+
+- Many thanks go to my mentor, Maranatha Illesanmi, for his continued support throughout the project. 
+
+- Thanks must go to the Code Institute tutor team for their guidance and help at some important stages in the project's build. 
+
+**This site is for educational use only**
+
+
 
 
 
