@@ -1,12 +1,17 @@
+"""
+Views handling bookings including taking payments
+"""
+
+import datetime
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 import stripe
 
+from bands.models import Band
 from .forms import BookingForm
 from .models import NewBooking
-from bands.models import Band
 
 
 @login_required
@@ -19,6 +24,10 @@ def new_booking(request, band_id):
 
     if request.method == 'POST':
 
+        date_input = request.POST['wedding_date']
+        wedding_date = datetime.datetime.strptime(
+            date_input, "%d-%m-%Y").strftime("%Y-%m-%d")
+
         booking_form = {
             'client_name': request.POST['client_name'],
             'contact_number': request.POST['contact_number'],
@@ -27,7 +36,7 @@ def new_booking(request, band_id):
             'venue_address2': request.POST['venue_address2'],
             'county': request.POST['county'],
             'postcode': request.POST['postcode'],
-            'wedding_date': request.POST['wedding_date'],
+            'wedding_date': wedding_date,
             'start_time': request.POST['start_time'],
             'emergency_contact': request.POST['emergency_contact'],
             'emergency_phone': request.POST['emergency_phone'],
