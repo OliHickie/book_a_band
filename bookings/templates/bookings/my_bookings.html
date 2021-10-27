@@ -62,8 +62,11 @@
         <td class="d-none d-lg-table-cell">{{ booking.start_time }}</td>
         <td class="text-success ">CONFIRMED</td>
         <td>PAID</td>
+        {% if unconfirmed_bookings %} 
+        <td></td>
+        {% endif %}
         <td class="text-center" data-bs-toggle="tooltip" data-bs-placement="bottom"
-        title="Review the band">
+        title="Leave a review for {{ booking.band }}">
           <a class="text-d-blue cursor-point" href="{% url 'add_review' booking.band_id %}"><i class="fas fa-edit"></i></a>
         </td>
       </tr>
@@ -107,7 +110,7 @@
     <div class="modal-content">
       <!-- Header  -->
       <div class="modal-header">
-        <h5 class="modal-title" id="modalLabel-{{ booking.id }}">Delete {{ booking.band_name }}?</h5>
+        <h5 class="modal-title" id="modalLabel-{{ booking.id }}">Delete {{ booking.band }}?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <!-- Body  -->
