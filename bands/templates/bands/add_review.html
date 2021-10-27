@@ -13,14 +13,25 @@
 {% endblock %}
 
 {% block content %}
+<div>
+    <p class="subheading">Add a review for <strong class="text-d-pink">{{ band.name }}</strong></p>
+</div>
 <div class="row">
-    <div class="col-12 col-lg-6 py-3 px-5">
+    <div class="col-12 col-lg-6 py-2 px-5">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form | crispy }}
             <button class="btn btn-primary mt-3" type="submit">Add Review</button>
         </form>
     </div>
+
+    <div class="col-12 col-lg-4">
+        {% if band.image_one %}
+        <img src="{{ band.image_one.url }}" alt="{{ band.name }}" class="w-100 pt-4">
+        {% else %}
+        <img src="https://mikestaff.com/wp-content/uploads/2020/12/bride-and-groom-dancing-with-guest-at-wedding-reception.jpg" class="w-100 pt-4" alt="Generic Wedding Photo">
+        {% endif %}
+      </div>
 </div>
 
 {% endblock %}
