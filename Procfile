@@ -1,1 +1,1 @@
-web: gunicorn book-a-band.wsgi:application
+web: bookaband.wsgi:application
