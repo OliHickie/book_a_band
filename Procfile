@@ -1,0 +1,1 @@
+web: bookaband.wsgi:application
